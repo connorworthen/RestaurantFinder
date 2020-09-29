@@ -31,6 +31,7 @@ ActiveRecord::Schema.define(version: 2020_09_28_234250) do
   create_table "restaurants", force: :cascade do |t|
     t.string "name"
     t.string "address"
+    t.string "category"
     t.time "closing_time"
     t.time "opening_time"
     t.integer "price_range"

@@ -10,6 +10,7 @@ User.create!([{
 Restaurant.create!([{
   name: "Taco Bell",
   address: "123 Test Street, San Diego, Ca, ZIP",
+  category: "Fast Food",
   opening_time: "10:00 A.M",
   closing_time: "2:00 A.M",
   price_range: 1
@@ -17,6 +18,7 @@ Restaurant.create!([{
 {
   name: "Brigantine",
   address: "456 Test Street, San Diego, Ca, ZIP",
+  category: "Oyster Bar and Steak House",
   opening_time: "11:00 A.M",
   closing_time: "10:00 P.M",
   price_range: 3
