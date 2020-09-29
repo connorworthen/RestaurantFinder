@@ -3,4 +3,5 @@ class UserSerializer < ActiveModel::Serializer
 
   def likedRestaurants
     object.findlikedRestaurants
+  end
 end
