@@ -1,0 +1,61 @@
+<html>
+  <head>
+    <link rel="stylesheet" type="text/css" href="index.css" />
+    <script type="text/javascript" src="index.css"></script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <script src="index.js"></script>
+    <title>FoodFinderBeta</title>
+  </head>
+
+  <h1>FoodFinder</h1>
+
+  <input
+    type="text"
+    id="myInput"
+    onkeyup="myFunction()"
+    placeholder="Search for names.."
+  />
+
+  <table id="restaurant-table">
+    <thead>
+      <tr>
+        <th>
+          <h5>Name</h5>
+        </th>
+        <th>Address</th>
+        <th>Closing Time</th>
+        <th>Opening Time</th>
+        <th>Price Range</th>
+        <th>Category</th>
+      </tr>
+    </thead>
+  </table>
+</html>
+
+<section class="hero">
+  <div class="hero-content">
+    <h3>See restaurants</h3>
+    <a href="#" id="button" class="button">Click Me</a>
+  </div>
+</section>
+
+<section class="card-container">
+  <div class="card"></div>
+  <div class="card"></div>
+  <div class="card"></div>
+</section>
+
+<div class="bg-modal">
+  <div class="modal-content">
+    <div class="close">+</div>
+    <img src="w3schools.jpg" alt="W3Schools.com" width="104" height="142" />
+
+    <form action="">
+      <input type="text" placeholder="Name" />
+      <input type="text" placeholder="Category" />
+      <a href="#" class="button">Submit</a>
+    </form>
+  </div>
+</div>
