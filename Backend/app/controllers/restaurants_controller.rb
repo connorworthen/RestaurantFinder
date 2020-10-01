@@ -9,4 +9,11 @@ class RestaurantsController < ApplicationController
     restaurant = Restaurant.find(params[:id])
     render json: restaurant
   end
+
+  private
+
+  def restaurant_params
+    params.require(:restaurant).require(:name, :address, :category, :closing_time, :opening_time, :price_range)
+  end
+  
 end
