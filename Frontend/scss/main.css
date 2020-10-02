@@ -57,3 +57,21 @@ main .list-headers {
   font-weight: 700;
   text-transform: uppercase;
 }
+
+main .list {
+  display: block;
+  width: 100%;
+  max-width: 480px;
+  margin: 0 auto;
+}
+
+main .list .list-item {
+  display: flex;
+  display: flex;
+  justify-content: space-between;
+  margin: 30px auto;
+  margin: 15px 0px;
+  padding: 15px;
+  border: 1px solid black;
+  border-radius: 8px;
+}
