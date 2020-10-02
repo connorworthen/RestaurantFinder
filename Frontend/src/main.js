@@ -24,6 +24,25 @@ let list_items = [
   },
 ];
 
+let desc = false;
+sort_name_btn.addEventListener("click", () => {
+  let array = sort_array_by(list_items, "name", desc);
+  displayList(array);
+
+  desc = !desc;
+});
+
+function sort_array_by(array, sort, desc) {
+  array.sort(function (a, b) {
+    if (a[sort] < b[sort]) return -1;
+    if (a[sort] > b[sort]) return 1;
+    return 0;
+  });
+
+  if (desc) array.reverse();
+  return array;
+}
+
 function displayList(array = []) {
   list.innerHTML = "";
 
