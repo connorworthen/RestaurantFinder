@@ -11,12 +11,14 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 function displayRow(row) {
-  const table = document.querySelector("#modal");
+  const table = document.querySelector(".modal-body");
   table.innerHTML += `
-  <tr>
-    <td>${row.name}</td>
-    <td>${row.category}</td>
-  </tr>
+      <table>
+            <tr>
+              <th>${row.name}</th>
+              <th>${row.category}</th>
+            </tr>
+          </table>
   `;
 }
 
