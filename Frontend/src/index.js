@@ -18,6 +18,7 @@ function displayRow(row) {
               <th>${row.name}</th>
               <th>${row.category}</th>
             </tr>
+
           </table>
   `;
 }
