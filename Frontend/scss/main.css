@@ -75,3 +75,8 @@ main .list .list-item {
   border: 1px solid black;
   border-radius: 8px;
 }
+
+main .list .list-item div:nth-child(1),
+main .list .list-item div:nth-child(2) {
+  flex: 1;
+}
