@@ -4,25 +4,39 @@ const sort_name_btn = document.querySelector(".sort-options .sort-name");
 const sort_meta_btn = document.querySelector(".sort-options .sort-meta");
 const sort_age_btn = document.querySelector(".sort-options .sort-age");
 
-let list_items = [
-  {
-    name: "test1",
-    meta: "red",
-    age: "25",
-  },
+// function fetchRestaurants() {
+//   return fetch("http://localhost:3000/restaurants").then((response) =>
+//     response.json()
+//   );
+// }
 
-  {
-    name: "test2",
-    meta: "blue",
-    age: "43",
-  },
+// document.addEventListener("DOMContentLoaded", () => {
+//   fetchRestaurants().then((results) => console.log(results));
+// });
 
-  {
-    name: "test3",
-    meta: "purple",
-    age: "65",
-  },
-];
+fetch("http://localhost:3000/restaurants")
+  .then((response) => response.json())
+  .then((restaurants) => showRestaurants(restaurants.results));
+
+// let list_items = [
+//   {
+//     name: "test1",
+//     meta: "red",
+//     age: "25",
+//   },
+
+//   {
+//     name: "test2",
+//     meta: "blue",
+//     age: "43",
+//   },
+
+//   {
+//     name: "test3",
+//     meta: "purple",
+//     age: "65",
+//   },
+// ];
 
 let desc = false;
 sort_name_btn.addEventListener("click", () => {
