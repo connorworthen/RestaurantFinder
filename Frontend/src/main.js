@@ -34,10 +34,22 @@ function displayList(array = []) {
     item_element.classList.add("list-item");
 
     let title = document.createElement("div");
-    item_element.classList.add("item-title");
+    title.classList.add("item-title");
     title.innerText = item.name;
 
     item_element.appendChild(title);
+
+    let meta = document.createElement("div");
+    meta.classList.add("item-meta");
+    meta.innerText = item.meta;
+
+    item_element.appendChild(meta);
+
+    let age = document.createElement("div");
+    age.classList.add("item-age");
+    age.innerText = item.age;
+
+    item_element.appendChild(age);
 
     list.appendChild(item_element);
   }
