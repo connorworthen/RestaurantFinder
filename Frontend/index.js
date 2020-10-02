@@ -1,28 +1,24 @@
-// document.addEventListener("DOMContentLoaded", () => {
-//   console.log("DOM content has loaded");
-//   let url = "http://localhost:3000/restaurants";
-//   fetch(url)
-//     .then((resp) => resp.json())
-//     .then((data) =>
-//       data.forEach((restaurant) => {
-//         displayRow(restaurant);
-//       })
-//     );
-// });
+document.addEventListener("DOMContentLoaded", () => {
+  console.log("DOM content has loaded");
+  let url = "http://localhost:3000/restaurants";
+  fetch(url)
+    .then((resp) => resp.json())
+    .then((data) =>
+      data.forEach((restaurant) => {
+        displayRow(restaurant);
+      })
+    );
+});
 
-// function displayRow(row) {
-//   const table = document.querySelector("#restaurant-table");
-//   table.innerHTML += `
-//   <tr>
-//     <td>${row.name}</td><br>
-//     <td>${row.address}</td>
-//     <td>${row.closing_time}</td>
-//     <td>${row.opening_time}</td>
-//     <td>${row.price_range}</td>
-//     <td>${row.category}</td>
-//   </tr>
-//   `;
-// }
+function displayRow(row) {
+  const table = document.querySelector("#modal");
+  table.innerHTML += `
+  <tr>
+    <td>${row.name}</td>
+    <td>${row.category}</td>
+  </tr>
+  `;
+}
 
 // function myFunction() {
 //   // Declare variables
