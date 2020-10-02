@@ -1,6 +1,6 @@
-* {
-  margin: 0;
-  padding: 0;
+*,
+*::after,
+*::before {
   box-sizing: border-box;
 }
 
@@ -24,7 +24,7 @@ header h1 {
   text-transform: uppercase;
 }
 
-main.sort-options {
+main .sort-options {
   display: flex;
   justify-content: space-between;
   width: 100%;
@@ -37,6 +37,7 @@ main .sort-options button {
   appearance: none;
   background-color: yellow;
   border: none;
+  border-radius: 8px;
   outline: none;
   padding: 15px 0px;
   margin: 0px 8px;
@@ -44,4 +45,15 @@ main .sort-options button {
   font-weight: 700;
   text-transform: uppercase;
   cursor: pointer;
+}
+
+main .list-headers {
+  display: flex;
+  justify-content: space-between;
+  max-width: 480px;
+  margin: 30px auto;
+  margin: 30px auto 0px;
+  padding: 0px 15px;
+  font-weight: 700;
+  text-transform: uppercase;
 }
