@@ -32,6 +32,20 @@ sort_name_btn.addEventListener("click", () => {
   desc = !desc;
 });
 
+sort_meta_btn.addEventListener("click", () => {
+  let array = sort_array_by(list_items, "meta", desc);
+  displayList(array);
+
+  desc = !desc;
+});
+
+sort_age_btn.addEventListener("click", () => {
+  let array = sort_array_by(list_items, "age", desc);
+  displayList(array);
+
+  desc = !desc;
+});
+
 function sort_array_by(array, sort, desc) {
   array.sort(function (a, b) {
     if (a[sort] < b[sort]) return -1;
