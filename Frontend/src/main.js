@@ -4,39 +4,25 @@ const sort_name_btn = document.querySelector(".sort-options .sort-name");
 const sort_meta_btn = document.querySelector(".sort-options .sort-meta");
 const sort_age_btn = document.querySelector(".sort-options .sort-age");
 
-// function fetchRestaurants() {
-//   return fetch("http://localhost:3000/restaurants").then((response) =>
-//     response.json()
-//   );
-// }
+let list_items = [
+  {
+    name: "test1",
+    meta: "red",
+    age: "25",
+  },
 
-// document.addEventListener("DOMContentLoaded", () => {
-//   fetchRestaurants().then((results) => console.log(results));
-// });
+  {
+    name: "test2",
+    meta: "blue",
+    age: "43",
+  },
 
-fetch("http://localhost:3000/restaurants")
-  .then((response) => response.json())
-  .then((restaurants) => showRestaurants(restaurants.results));
-
-// let list_items = [
-//   {
-//     name: "test1",
-//     meta: "red",
-//     age: "25",
-//   },
-
-//   {
-//     name: "test2",
-//     meta: "blue",
-//     age: "43",
-//   },
-
-//   {
-//     name: "test3",
-//     meta: "purple",
-//     age: "65",
-//   },
-// ];
+  {
+    name: "test3",
+    meta: "purple",
+    age: "65",
+  },
+];
 
 let desc = false;
 sort_name_btn.addEventListener("click", () => {
@@ -102,3 +88,24 @@ function displayList(array = []) {
   }
 }
 displayList(list_items);
+
+// function fetchRestaurants() {
+//   return fetch("http://localhost:3000/restaurants").then((response) =>
+//     response.json()
+//   );
+// }
+
+// document.addEventListener("DOMContentLoaded", () => {
+//   fetchRestaurants().then((results) => console.log(results));
+// });
+
+// get text and turn into a json file
+fetch("http://localhost:3000/restaurants")
+  .then(function (resp) {
+    return resp.json();
+  })
+  .then(function (data) {
+    console.log(data);
+  });
+// let data = datas.find((element) => element.name);
+console.log(data);
