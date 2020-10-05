@@ -13,5 +13,16 @@ const productsDOM = document.querySelector(".products-center");
 //cart
 let cart = [];
 
-// grabbing products
+//grabbing products
 class Products {}
+
+//display products
+class UI {}
+
+//storage
+class Storage {}
+
+document.addEventListener("DOM Content Loaded", () => {
+  const ui = new UI();
+  const products = new Products();
+});
