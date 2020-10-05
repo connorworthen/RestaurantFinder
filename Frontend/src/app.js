@@ -14,7 +14,16 @@ const productsDOM = document.querySelector(".products-center");
 let cart = [];
 
 //grabbing products
-class Products {}
+class Products {
+  async getProducts() {
+    try {
+      let result = await fetch('"http://localhost:3000/restaurants";');
+      return result;
+    } catch (error) {
+      console.log(error);
+    }
+  }
+}
 
 //display products
 class UI {}
