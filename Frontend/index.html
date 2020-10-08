@@ -137,4 +137,18 @@
     </div>
     <div id="overlay"></div>
   </body> -->
+
+  <script>
+    const url = "http://localhost:3000/restaurants";
+
+    async function getRestaurants() {
+      const response = await fetch(url);
+      const data = await response.json();
+      const { name, category } = data;
+      console.log(name);
+      console.log(category);
+    }
+
+    getRestaurants();
+  </script>
 </html>
