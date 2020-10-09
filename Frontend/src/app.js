@@ -46,10 +46,13 @@
 //   //get all products
 //   products.getProducts().then((data) => console.log(data));
 // });
-// getRestaurants();
-// const url = "http://localhost:3000/restaurants";
-// async function getRestaurants() {
-//   const response = await fetch(url);
-//   const data = await response.json();
-//   console.log(data);
-// }
+
+const url = "http://localhost:3000/restaurants";
+
+async function getRestaurants() {
+  const response = await fetch(url);
+  const data = await response.json();
+  console.log(data);
+}
+
+getRestaurants();
