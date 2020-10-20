@@ -66,3 +66,11 @@ function fetchRestaurants() {
 document.addEventListener("DOMContentLoaded", () => {
   fetchRestaurants().then((results) => console.log(results));
 });
+
+function renderRestaurants(restaurantObject) {
+  const restaurantDiv = document.createElement("div");
+
+  restaurantDiv.innerHTML = `${restaurantObject.name}`;
+
+  restaurantDiv.prepend(restaurantDiv);
+}
