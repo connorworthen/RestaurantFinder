@@ -47,12 +47,22 @@
 //   products.getProducts().then((data) => console.log(data));
 // });
 
+// const url = "http://localhost:3000/restaurants";
+
+// async function getRestaurants() {
+//   const response = await fetch(url);
+//   const data = await response.json();
+//   console.log(data);
+// }
+
+// getRestaurants();
+
 const url = "http://localhost:3000/restaurants";
 
-async function getRestaurants() {
-  const response = await fetch(url);
-  const data = await response.json();
-  console.log(data);
+function fetchRestaurants() {
+  return fetch(url).then((response) => response.json());
 }
 
-getRestaurants();
+document.addEventListener("DOMContentLoaded", () => {
+  fetchRestaurants().then((results) => console.log(results));
+});
