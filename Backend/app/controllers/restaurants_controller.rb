@@ -5,9 +5,18 @@ class RestaurantsController < ApplicationController
     render json: restaurants
   end
   
+  def create
+    restaurant = Restaurant.new(restaurant_params)
+    if restaurant.save
+      render json: restaurant
+    else
+      render json: errors: {game.errors.full_messages}, status: 422
+    end
+  end
+
   def show
     restaurant = Restaurant.find(params[:id])
-    render json: restaurant
+    render json: restaurant, only: [:name, :category]
   end
 
   private
