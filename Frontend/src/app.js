@@ -10,54 +10,35 @@
 // const cartContent = document.querySelector(".cart-content");
 // const productsDOM = document.querySelector(".products-center");
 
-// //cart
-// let cart = [];
-
-// //grabbing products
-// class Products {
-//   async getProducts() {
-//     try {
-//       let result = await fetch("http://localhost:3000/restaurants");
-//       let data = await result.json();
-//       let products = data.items;
-//       products = products.map((item) => {
-//         const { title, price } = item.fields;
-//         const { id } = item.sys;
-//         const image = item.fields.image.fields.file.url;
-//         return { title, price, id, image };
-//       });
-//       return products;
-//     } catch (error) {
-//       console.log(error);
-//     }
-//   }
-// }
-
-// //display products
-// class UI {}
-
-// //storage
-// class Storage {}
-
-// document.addEventListener("DOMContentLoaded", () => {
-//   const ui = new UI();
-//   const products = new Products();
-
-//   //get all products
-//   products.getProducts().then((data) => console.log(data));
-// });
-
-// const url = "http://localhost:3000/restaurants";
-
-// async function getRestaurants() {
-//   const response = await fetch(url);
-//   const data = await response.json();
-//   console.log(data);
-// }
-
-// getRestaurants();
-
 const url = "http://localhost:3000/restaurants";
+// const productsNameDiv = document.getElementById("products-name");
+
+function renderRestaurantName(RestaurantNameObject) {
+  const restaurantNameDiv = document.getElementById("restaurant-name-div");
+
+  const restaurantNameH3 = document.createElement("h3");
+  chatRoomNameH3.textContent = RestaurantNameObject.name;
+
+  restaurantNameDiv.prepend(restaurantNameH3);
+
+  // // Show the new message form
+  // newMessageForm.style = "";
+  // newMessageForm.dataset.restaurantNameId = RestaurantNameObject.id;
+
+  // RestaurantNameObject.messages.forEach((messageObject) => {
+  //   renderMessage(messageObject);
+  // });
+}
+
+// function renderName(nameObject) {
+//   const nameDiv = document.createElement("div");
+
+//   nameDiv.innerHTML = ``;
+//   nameDiv.textContent = nameObject.content;
+//   nameDiv.dataset.messageId = nameObject.id;
+
+//   productsNameDiv.prepend(nameDiv);
+// }
 
 function fetchRestaurants() {
   return fetch(url).then((response) => response.json());
@@ -66,11 +47,3 @@ function fetchRestaurants() {
 document.addEventListener("DOMContentLoaded", () => {
   fetchRestaurants().then((results) => console.log(results));
 });
-
-function renderRestaurants(restaurantObject) {
-  const restaurantDiv = document.createElement("div");
-
-  restaurantDiv.innerHTML = `${restaurantObject.name}`;
-
-  restaurantDiv.prepend(restaurantDiv);
-}
