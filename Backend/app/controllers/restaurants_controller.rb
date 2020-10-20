@@ -1,8 +1,8 @@
 class RestaurantsController < ApplicationController
 
   def index
-    restaurant = Restaurant.all
-    render json: RestaurantSerializer.new(restaurant)
+    restaurants = Restaurant.all
+    render json: restaurants
   end
   
   def show
@@ -17,3 +17,6 @@ class RestaurantsController < ApplicationController
   end
   
 end
+
+
+# render json: RestaurantSerializer.new(restaurant)
