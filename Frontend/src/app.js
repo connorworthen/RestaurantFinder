@@ -15,11 +15,10 @@ function renderRestaurantNameOnList(restaurantNameObject) {
   restaurantNameListDiv.prepend(restaurantNameDiv);
 }
 
-// async function fetchRestaurants() {
-//   const response = await fetch(url);
-//   return await response.json();
-// }
-
-// document.addEventListener("DOMContentLoaded", () => {
-//   fetchRestaurants().then((results) => console.log(results));
-// });
+document.addEventListener("DOMContentLoaded", () => {
+  fetch(url)
+    .then((response) => response.json())
+    .then((RestaurantNamesObject) => {
+      renderRestaurantNamesList(RestaurantNamesObject);
+    });
+});
