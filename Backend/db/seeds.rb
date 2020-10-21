@@ -1,1 +1,2 @@
 Restaurant.create(name: "Taco Bell", address: "123 Test Street, San Diego, Ca, ZIP", category: "Fast Food", opening_time: "10:00 A.M", closing_time: "2:00 A.M", price_range: 1)
+Restaurant.create(name: "In N Out", address: "456 Test Street, San Diego, Ca, ZIP", category: "Fast Food", opening_time: "10:00 A.M", closing_time: "2:00 A.M", price_range: 1)

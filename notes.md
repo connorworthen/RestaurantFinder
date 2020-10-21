@@ -105,3 +105,113 @@ cursor: pointer;
 }
 
 <div>Logo made by <a href="https://www.designevo.com/logo-maker/" title="Free Online Logo Maker">DesignEvo free logo creator</a></div>
+
+//variables
+
+const cartBtn = document.querySelector(".cart-btn");
+const closeCartBtn = document.querySelector(".close-cart");
+const clearCartBtn = document.querySelector(".clear-cart");
+const cartDOM = document.querySelector(".cart");
+const cartOverlay = document.querySelector(".cart-overlay");
+const cartItems = document.querySelector(".cart-items");
+const cartTotal = document.querySelector(".cart-total");
+const cartContent = document.querySelector(".cart-content");
+const productsDOM = document.querySelector(".products-center");
+
+//cart
+let cart = [];
+
+//grabbing products
+class Products {
+async getProducts() {
+try {
+let result = await fetch("http://localhost:3000/restaurants");
+let data = await result.json();
+let products = data.items;
+products = products.map((item) => {
+const { title, price } = item.fields;
+const { id } = item.sys;
+const image = item.fields.image.fields.file.url;
+return { title, price, id, image };
+});
+return products;
+} catch (error) {
+console.log(error);
+}
+}
+}
+
+//display products
+class UI {}
+
+//storage
+class Storage {}
+
+document.addEventListener("DOMContentLoaded", () => {
+const ui = new UI();
+const products = new Products();
+
+//get all products
+products.getProducts().then((data) => console.log(data));
+});
+
+// //grabbing products
+// class Products {
+// async getProducts() {
+// try {
+// let result = await fetch("http://localhost:3000/restaurants");
+// let data = await result.json();
+// let products = data.items;
+// products = products.map((item) => {
+// const { title, price } = item.fields;
+// const { id } = item.sys;
+// const image = item.fields.image.fields.file.url;
+// return { title, price, id, image };
+// });
+// return products;
+// } catch (error) {
+// console.log(error);
+// }
+// }
+// }
+
+// //display products
+// class UI {}
+
+// //storage
+// class Storage {}
+
+// document.addEventListener("DOMContentLoaded", () => {
+// const ui = new UI();
+// const products = new Products();
+
+// //get all products
+// products.getProducts().then((data) => console.log(data));
+// });
+
+// const url = "http://localhost:3000/restaurants";
+
+// async function getRestaurants() {
+// const response = await fetch(url);
+// const data = await response.json();
+// console.log(data);
+// }
+
+// getRestaurants();
+
+<!-- test product -->
+
+        <article class="product">
+          <div class="img-container">
+            <img src="images/product1.jpg" alt="product" class="product-img" />
+            <button class="bag-btn" data-id="1">
+              <i class="fas fa-shopping-cart"></i>
+              add to cart
+            </button>
+          </div>
+            <h3><div id="restaurant-names-list"></div></h3>
+          </div>
+        </article>
+        <!-- end of test product -->
+
+Need to add images to rails db + image for each
