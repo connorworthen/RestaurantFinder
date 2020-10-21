@@ -13,7 +13,7 @@ class RestaurantsController < ApplicationController
   private
 
   def restaurant_params
-    params.require(:restaurant).require(:name, :address, :category, :closing_time, :opening_time, :price_range)
+    params.require(:restaurant).require(:name, :address, :category, :closing_time, :opening_time, :price_range, :image)
   end
   
 end

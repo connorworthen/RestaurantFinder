@@ -35,6 +35,7 @@ ActiveRecord::Schema.define(version: 2020_09_28_234250) do
     t.time "closing_time"
     t.time "opening_time"
     t.integer "price_range"
+    t.string "image"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
