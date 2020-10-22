@@ -7,7 +7,6 @@ class CreateRestaurants < ActiveRecord::Migration[6.0]
       t.time :closing_time
       t.time :opening_time
       t.integer :price_range
-      t.string :image
       
       t.timestamps
     end
