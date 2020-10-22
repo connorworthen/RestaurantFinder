@@ -19,19 +19,7 @@ function renderRestaurantNameOnList(restaurantNameObject) {
 function displayProduct(restaurantNamesObject) {
   let result = "";
   restaurantNamesObject.forEach((restaurantNameObject) => {
-    result += `
-        <article class="product">
-          <div class="img-container">
-            <img src=${restaurantNameObject.image} alt="product" class="product-img" />
-            <button class="bag-btn" data-id=${restaurantNameObject.id}>
-              <i class="fas fa-shopping-cart"></i>
-              add to cart
-            </button>
-          </div>
-          <h3>${restaurantNameObject.name}</h3>
-          <h3>${restaurantNameObject.address}</h3>
-        </article>
-      `;
+    result += `<article class="product"> <div class="img-container"> <img src=${restaurantNameObject.image} alt="product" class="product-img" /> <button class="bag-btn" data-id=${restaurantNameObject.id}> <i class="fas fa-shopping-cart"></i> add to cart </button> </div> <h3>${restaurantNameObject.name}</h3> <h3>${restaurantNameObject.address}</h3> </article>`;
   });
   restaurantNameListDiv.innerHTML = result;
 }
