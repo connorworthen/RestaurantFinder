@@ -1,6 +1,13 @@
 const url = "http://localhost:3000/restaurants";
-// const restaurantNameListDiv = document.getElementById("restaurant-names-list");
 const restaurantNameListDiv = document.querySelector(".products-center");
+
+document.addEventListener("DOMContentLoaded", () => {
+  fetch(url)
+    .then((response) => response.json())
+    .then((RestaurantNamesObject) => {
+      renderRestaurantNamesList(RestaurantNamesObject);
+    });
+});
 
 function renderRestaurantNamesList(restaurantNamesObject) {
   restaurantNamesObject.forEach((restaurantNameObject) => {
@@ -11,15 +18,9 @@ function renderRestaurantNamesList(restaurantNamesObject) {
 function renderRestaurantNameOnList(restaurantNameObject) {
   const restaurantNameDiv = document.createElement("div");
 
-  restaurantNameDiv.innerHTML = `<img src="images/restaurant1.jpg" alt="product" class="product-img"/> <button> ${restaurantNameObject.name} </button`;
+  restaurantNameDiv.innerHTML = `<img src="images/restaurant1.jpg" alt="product" class="product-img"/><link href="scss/index.css" rel="stylesheet" />
+<script defer src="src/index.js"></script>
+<button data-modal-target="#modal">${restaurantNameObject.name}</button>`;
 
   restaurantNameListDiv.prepend(restaurantNameDiv);
 }
-
-document.addEventListener("DOMContentLoaded", () => {
-  fetch(url)
-    .then((response) => response.json())
-    .then((RestaurantNamesObject) => {
-      renderRestaurantNamesList(RestaurantNamesObject);
-    });
-});
