@@ -1,82 +1,112 @@
-*,
-*::after,
-*::before {
-  box-sizing: border-box;
-}
+@import url("https://fonts.googleapis.com/css?family=Lato:400,700");
 
-body {
-  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
-  background-color: white;
+.restaurants {
+  padding: 4rem 0;
 }
-
-header {
-  width: 100vw;
-  height: 60px;
-  background-color: solid black;
-}
-
-header h1 {
-  color: white;
-  font-size: 28px;
-  font-weight: 900;
-  line-height: 60px;
+.sections-title h2 {
   text-align: center;
-  text-transform: uppercase;
+  font-size: 2.5rem;
+  margin-bottom: 5rem;
+  text-transform: capitalize;
+  letter-spacing: var(--mainSpacing);
+}
+.restaurants-center {
+  width: 90vw;
+  margin: 0 auto;
+  max-width: 1170px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  grid-column-gap: 1.5rem;
+  grid-row-gap: 2rem;
 }
 
-main .sort-options {
-  display: flex;
-  justify-content: space-between;
+/* .img-container {
+  position: relative;
+  overflow: hidden;
+} */
+
+.restaurant-img {
+  display: block;
   width: 100%;
-  max-width: 480px;
-  margin: 30px auto;
+  min-height: 12rem;
+  transition: var(--mainTransition);
+}
+.img-container:hover .restaurant-img {
+  opacity: 0.5;
 }
 
-main .sort-options button {
-  flex: 1 1 33%;
-  appearance: none;
-  background-color: yellow;
-  border: none;
-  border-radius: 8px;
-  outline: none;
-  padding: 15px 0px;
-  margin: 0px 8px;
-  font-size: 16px;
-  font-weight: 700;
-  text-transform: uppercase;
+.restaurant h3 {
+  text-transform: capitalize;
+  font-size: 1.1rem;
+  margin-top: 1rem;
+  letter-spacing: var(--mainSpacing);
+  text-align: center;
+}
+
+.restaurant h4 {
+  margin-top: 0.7rem;
+  letter-spacing: var(--mainSpacing);
+  color: var(--primaryColor);
+  text-align: center;
+}
+
+/*-modal css*/
+
+.button {
+  background-color: blue;
+  border: 2px solid white;
+  border-radius: 30px;
+  text-decoration: none;
+  padding: 10px 28px;
+  color: white;
+  margin-top: 10px;
+  display: inline-block;
+  /* &:hover {
+    background-color: white;
+    color: $blue;
+    border: 2px solid $blue;
+  } */
+}
+
+.bg-modal {
+  background-color: rgba(0, 0, 0, 0.8);
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  display: none;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-contents {
+  height: 300px;
+  width: 500px;
+  background-color: white;
+  text-align: center;
+  padding: 20px;
+  position: relative;
+  border-radius: 4px;
+}
+
+input {
+  margin: 15px auto;
+  display: block;
+  width: 50%;
+  padding: 8px;
+  border: 1px solid gray;
+}
+
+.close {
+  position: absolute;
+  top: 0;
+  right: 10px;
+  font-size: 42px;
+  color: #333;
+  transform: rotate(45deg);
   cursor: pointer;
 }
 
-main .list-headers {
-  display: flex;
-  justify-content: space-between;
-  max-width: 480px;
-  margin: 30px auto;
-  margin: 30px auto 0px;
-  padding: 0px 15px;
-  font-weight: 700;
-  text-transform: uppercase;
-}
-
-main .list {
-  display: block;
-  width: 100%;
-  max-width: 480px;
-  margin: 0 auto;
-}
-
-main .list .list-item {
-  display: flex;
-  display: flex;
-  justify-content: space-between;
-  margin: 30px auto;
-  margin: 15px 0px;
-  padding: 15px;
-  border: 1px solid black;
-  border-radius: 8px;
-}
-
-main .list .list-item div:nth-child(1),
-main .list .list-item div:nth-child(2) {
-  flex: 1;
+.close:hover {
+  color: #666;
 }

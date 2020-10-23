@@ -18,8 +18,8 @@ function renderRestaurantNamesList(restaurantNamesObject) {
 function renderRestaurantNameOnList(restaurantNameObject) {
   const restaurantNameDiv = document.createElement("div");
 
-  restaurantNameDiv.innerHTML = `<img src="images/restaurant1.jpg" alt="product" class="product-img"/>
-  <div>${restaurantNameObject.name}</div>`;
+  restaurantNameDiv.innerHTML = `<img src="images/restaurant1.jpg" alt="product" class="product-img" />
+  <h3>${restaurantNameObject.name}<h3>`;
 
   restaurantNameListDiv.prepend(restaurantNameDiv);
 }
