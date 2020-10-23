@@ -80,59 +80,28 @@
     <!-- end of cart -->
     <script src="src/app.js"></script>
   </body>
-
-  <!-- 
-  <body>
-    <link rel="stylesheet" href="scss/main.css" />
-    <header>
-      <h1>Food Finder Beta</h1>
-    </header>
-    <main>
-      <section class="sort-options">
-        <button class="sort-name">Sort by name</button>
-        <button class="sort-meta">Sort by Meta</button>
-        <button class="sort-age">Sort by age</button>
-      </section>
-      <section class="list-headers">
-        <div class="header-title">Name</div>
-        <div class="header-meta">Suit Color</div>
-        <div class="header-age">Age</div>
-      </section>
-      <section class="list"></section>
-    </main>
-    <script src="src/main.js"></script>
-  </body> -->
-
-  <!-- <input
-    type="text"
-    id="myInput"
-    onkeyup="myFunction()"
-    placeholder="Search for names.."
-  /> -->
-
-  <!-- <body>
-    <link href="scss/index.css" rel="stylesheet" />
-    <script defer src="src/index.js"></script>
-    <button data-modal-target="#modal">Open Modal</button>
-    <div class="modal" id="modal">
-      <div class="modal-header">
-        <div class="title">Example Modal</div>
-        <button data-close-button class="close-button">&times;</button>
-      </div>
-      <div class="modal-body"></div>
+  <!-- test of modal -->
+  <section class="test">
+    <div class="test-content">
+      <h1>Let's create a modal</h1>
+      <h3>Sign Up Now</h3>
+      <a href="#" id="button" class="button">Click Me</a>
     </div>
-    <div id="overlay"></div>
-  </body> -->
+  </section>
 
-  <!-- <script>
-    const url = "http://localhost:3000/restaurants";
+  <!-- Modal Section -->
+  <script src="src/modal.js"></script>
+  <link rel="stylesheet" href="scss/modal.css" />
+  <div class="bg-modal">
+    <div class="modal-contents">
+      <div class="close">+</div>
 
-    async function getRestaurants() {
-      const response = await fetch(url);
-      const data = await response.json();
-      console.log(data);
-    }
-
-    getRestaurants();
-  </script> -->
+      <form action="">
+        <input type="text" placeholder="Name" />
+        <input type="email" placeholder="E-Mail" />
+        <a href="#" class="button">Submit</a>
+      </form>
+    </div>
+  </div>
+  <!-- test of modal -->
 </html>
