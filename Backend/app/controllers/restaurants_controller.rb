@@ -1,8 +1,7 @@
 class RestaurantsController < ApplicationController
-  include ActionController::Serialization
-  
+
   def index
-    restaurants = Restaurant.all
+    restaurants = Restaurant.all.with_attached_image
     render json: restaurants
   end
 
