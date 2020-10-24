@@ -16,15 +16,15 @@ function renderRestaurantNamesList(restaurantNamesObject) {
 }
 
 function renderRestaurantNameOnList(restaurantNameObject) {
-  // const restaurantNameDiv = document.createElement("div");
-  let restaurantNameDiv = document.getElementById("restaurants-center");
-  // restaurantNameListDiv.innerHTML = "";
-  for (var i = 0; i < restaurantNameObject.length; i++)
-    restaurantNameDiv.innerHTML +=
-      '<img src="' + restaurantNameObject[i] + '">';
-  // restaurantNameDiv.innerHTML = `${restaurantNameObject.image}`;
+  // let restaurantNameDiv = document.getElementById("restaurants-center");
+  // for (var i = 0; i < restaurantNameObject.length; i++)
+  //   restaurantNameDiv.innerHTML +=
+  //     '<img src="' + restaurantNameObject[i] + '">';
+  const restaurantNameDiv = document.createElement("div");
 
-  // restaurantNameListDiv.prepend(restaurantNameDiv);
+  restaurantNameDiv.innerHTML = `<img src=${restaurantNameObject.image}/>`;
+
+  restaurantNameListDiv.prepend(restaurantNameDiv);
 }
 
 window.onload = function () {
