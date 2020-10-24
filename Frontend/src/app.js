@@ -16,10 +16,25 @@ function renderRestaurantNamesList(restaurantNamesObject) {
 }
 
 function renderRestaurantNameOnList(restaurantNameObject) {
-  const restaurantNameDiv = document.createElement("div");
+  // const restaurantNameDiv = document.createElement("div");
+  let restaurantNameDiv = document.getElementById("restaurants-center");
+  // restaurantNameListDiv.innerHTML = "";
+  for (var i = 0; i < restaurantNameObject.length; i++)
+    restaurantNameDiv.innerHTML +=
+      '<img src="' + restaurantNameObject[i] + '">';
+  // restaurantNameDiv.innerHTML = `${restaurantNameObject.image}`;
 
-  restaurantNameDiv.innerHTML = `<img src="images/restaurant1.jpg" alt="product" class="product-img" />
-  <h3>${restaurantNameObject.name}<h3>`;
-
-  restaurantNameListDiv.prepend(restaurantNameDiv);
+  // restaurantNameListDiv.prepend(restaurantNameDiv);
 }
+
+window.onload = function () {
+  document.getElementById("button").addEventListener("click", function () {
+    document.querySelector(".bg-modal").style.display = "flex";
+  });
+};
+
+window.onload = function () {
+  document.querySelector(".close").addEventListener("click", function () {
+    document.querySelector(".bg-modal").style.display = "none";
+  });
+};

@@ -1,12 +1,12 @@
-// document.getElementById("button").addEventListener("click", function () {
-//   document.querySelector(".bg-modal").style.display = "flex";
-// });
+document.getElementById("button").addEventListener("click", function () {
+  document.querySelector(".bg-modal").style.display = "flex";
+});
 
-// window.onload = function () {
-//   document.querySelector(".close").addEventListener("click", function () {
-//     document.querySelector(".bg-modal").style.display = "none";
-//   });
-// };
+window.onload = function () {
+  document.querySelector(".close").addEventListener("click", function () {
+    document.querySelector(".bg-modal").style.display = "none";
+  });
+};
 
 const toggleModal = () => {
   document.querySelector(".modal").classList.toggle("modal--hidden");
