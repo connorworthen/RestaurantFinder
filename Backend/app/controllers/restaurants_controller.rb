@@ -1,5 +1,6 @@
 class RestaurantsController < ApplicationController
-
+  include ActionController::Serialization
+  
   def index
     restaurants = Restaurant.all
     render json: restaurants
