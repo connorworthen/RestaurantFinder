@@ -16,14 +16,8 @@ function renderRestaurantNamesList(restaurantNamesObject) {
 }
 
 function renderRestaurantNameOnList(restaurantNameObject) {
-  // let restaurantNameDiv = document.getElementById("restaurants-center");
-  // for (var i = 0; i < restaurantNameObject.length; i++)
-  //   restaurantNameDiv.innerHTML +=
-  //     '<img src="' + restaurantNameObject[i] + '">';
   const restaurantNameDiv = document.createElement("div");
-
   restaurantNameDiv.innerHTML = `<img src=${restaurantNameObject.image}/>`;
-
   restaurantNameListDiv.prepend(restaurantNameDiv);
 }
 
