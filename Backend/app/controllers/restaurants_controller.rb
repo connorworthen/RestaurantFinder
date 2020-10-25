@@ -1,8 +1,8 @@
 class RestaurantsController < ApplicationController
 
   def index
-    restaurants = Restaurant.all.with_attached_image
-    render json: restaurants
+    # restaurants = Restaurant.all.with_attached_image
+    render json: Restaurant.all.with_attached_image
   end
 
   def show
