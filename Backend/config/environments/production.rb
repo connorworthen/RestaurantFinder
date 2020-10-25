@@ -3,6 +3,8 @@ Rails.application.configure do
   # Code is not reloaded between requests.
   config.cache_classes = true
 
+  config.action_mailer.default_url_options = { host: "localhost:3000" } 
+  Rails.application.routes.default_url_options[:host] = "localhost:3000"
   # Eager load code on boot. This eager loads most of Rails and
   # your application in memory, allowing both threaded web servers
   # and those relying on copy on write to perform better.
@@ -53,8 +55,7 @@ Rails.application.configure do
   # config.active_job.queue_name_prefix = "FoodFinderBeta_production"
 
   config.action_mailer.perform_caching = false
-  # config.action_mailer.default_url_options = { host: ‘localhost:3000’ } 
-  # Rails.application.routes.default_url_options[:host] = ‘localhost:3000’
+
 
   # Ignore bad email addresses and do not raise email delivery errors.
   # Set this to true and configure the email server for immediate delivery to raise delivery errors.

@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   # resources :restaurants, only: [:create, :index, :show]
   # resources :users, only: [:create]
-
+  
   resources :restaurants
   resources :users
   resources :likes
