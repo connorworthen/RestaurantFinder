@@ -7,63 +7,41 @@ const cartOverlay = document.querySelector(".cart-overlay");
 const cartItems = document.querySelector(".cart-items");
 const cartTotal = document.querySelector(".cart-total");
 const cartContent = document.querySelector(".cart-content");
-const productsDOM = document.querySelector(".products-center");
-
+const restaurantsDOM = document.querySelector(".products-center");
+const url = "http://localhost:3000/restaurants";
 //cart
 let cart = [];
 
 //grabbing products
-class Restaurants {
-  async getRestaurants() {
-    try {
-      let result = await fetch("http://localhost:3000/restaurants");
-      let data = await result.json();
-      let restaurants = data.items;
-      restaurants = restaurants.map((item) => {
-        const { name, category } = item.fields;
-        const { id } = item.sys;
-        const image = item.fields.image.fields.file.url;
-        return { name, category, id, image };
-      });
-      return restaurants;
-    } catch (error) {
-      console.log(error);
-    }
-  }
-}
+document.addEventListener("DOMContentLoaded", () => {
+  fetch(url)
+    .then((response) => response.json())
+    .then((RestaurantNamesObject) => {
+      renderRestaurantNamesList(RestaurantNamesObject);
+    });
+});
+
 //display products
-//storage
-class UI {
-  displayRestaurants(restaurants) {
-    let result = " ";
-    restaurants.forEach((restaurant) => {
-      result += `
+function renderRestaurantNamesList(restaurantNamesObject) {
+  let result = " ";
+  restaurantNamesObject.forEach((restaurantNameObject) => {
+    result += `
         <article class="product">
           <div class="img-container">
             <img
-              src=${restaurant.image.url}
+              src=${restaurantNameObject.image.url}
               alt="product"
               class="product-img"
             />
-            <button class="bag-btn" data-id=${restaurant.id}>
+            <button class="bag-btn" data-id=${restaurantNameObject.id}>
               <i class="fas fa-shopping-cart"></i>
                 add to cart
             </button>
           </div>
-          <h3>${restaurant.name}</h3>
-          <h4>${restaurant.category}</h4>
+          <h3>${restaurantNameObject.name}</h3>
+          <h4>${restaurantNameObject.category}</h4>
         </article>
       `;
-    });
-    productsDOM.innerHTML = result;
-  }
+  });
+  restaurantsDOM.innerHTML = result;
 }
-
-class Storage {}
-
-document.addEventListener("DOMContentLoaded", () => {
-  const ui = new UI();
-  const restaurants = new Restaurants();
-  //get all products
-  restaurants.getRestaurants().then((data) => console.log(data));
-});
