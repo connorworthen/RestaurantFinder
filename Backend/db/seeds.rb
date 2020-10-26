@@ -1,10 +1,10 @@
-@restaurant = Restaurant.create(
-  name:  "TEST3",
-  address: "456 Test Drive, San Diego, CA 12345",
-  category: "Fast Food",
-  opening_time: "8:00 A.M",
-  closing_time: "2:00 A.M",
-  price_range: 3
-)
-
-@restaurant.image.attach(io: File.open('./public/images/restaurant1.jpg'), filename: 'restaurant1.jpg', content_type: 'application/jpg')
+10.times do |x|
+  Restaurant.create(
+    name: "Test#{x}",
+    address: "123 Test Drive, San Diego, CA 12345",
+    category: "Test Category",
+    opening_time: "8:00 A.M",
+    closing_time: "2:00 A.M",
+    price_range: 2
+  )
+end
