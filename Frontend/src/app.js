@@ -45,3 +45,26 @@ function renderRestaurantNamesList(restaurantNamesObject) {
   });
   restaurantsDOM.innerHTML = result;
 }
+
+function getBagButtons() {
+  const buttons = [...document.querySelectorAll(".bag-btn")];
+  buttons.forEach((button) => {
+    let id = button.dataset.id;
+    let inCart = cart.find((item) => item.id === id);
+    if (inCart) {
+      button.innerText = "In Cart";
+      button.disabled = true;
+    } else {
+      button.addEventListener("click", (event) => {
+        event.target.innerText = "In Cart";
+        event.target.disabled = true;
+      });
+    }
+  });
+}
+
+class Storage {
+  static saveRestaurants(restaurants) {
+    localStorage.setItem("restaurants", JSON.stringify(restaurants));
+  }
+}
