@@ -16,9 +16,10 @@ function renderRestaurantNamesList(restaurantNamesObject) {
 }
 
 function renderRestaurantNameOnList(restaurantNameObject) {
-  const restaurantNameDiv = document.createElement("div");
-  restaurantNameDiv.innerHTML = `<img src=${restaurantNameObject.url} alt="product" class="product-img" />`;
-  restaurantNameListDiv.prepend(restaurantNameDiv);
+  const restaurantNameImg = document.createElement("img");
+  restaurantNameImg.src = `${restaurantNameObject.image.url}`;
+  restaurantNameImg.className = "product-img";
+  restaurantNameListDiv.prepend(restaurantNameImg);
 }
 
 window.onload = function () {
