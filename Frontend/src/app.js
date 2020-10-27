@@ -9,9 +9,10 @@ const cartTotal = document.querySelector(".cart-total");
 const cartContent = document.querySelector(".cart-content");
 const restaurantsDOM = document.querySelector(".products-center");
 const url = "http://localhost:3000/restaurants";
+
 //cart
 let cart = [];
-
+let buttonsDom = [];
 //grabbing products
 document.addEventListener("DOMContentLoaded", () => {
   fetch(url)
@@ -33,10 +34,7 @@ function renderRestaurantNamesList(restaurantNamesObject) {
               alt="product"
               class="product-img"
             />
-            <button class="bag-btn" data-id=${restaurantNameObject.id}>
-              <i class="fas fa-shopping-cart"></i>
-                add to cart
-            </button>
+            <button id="modal-btn"> click me, I make a modal</button>
           </div>
           <h3>${restaurantNameObject.name}</h3>
           <h4>${restaurantNameObject.category}</h4>
@@ -46,25 +44,43 @@ function renderRestaurantNamesList(restaurantNamesObject) {
   restaurantsDOM.innerHTML = result;
 }
 
-function getBagButtons() {
-  const buttons = [...document.querySelectorAll(".bag-btn")];
-  buttons.forEach((button) => {
-    let id = button.dataset.id;
-    let inCart = cart.find((item) => item.id === id);
-    if (inCart) {
-      button.innerText = "In Cart";
-      button.disabled = true;
-    } else {
-      button.addEventListener("click", (event) => {
-        event.target.innerText = "In Cart";
-        event.target.disabled = true;
-      });
-    }
-  });
-}
-
-class Storage {
-  static saveRestaurants(restaurants) {
-    localStorage.setItem("restaurants", JSON.stringify(restaurants));
+modalBtn.onclick = function () {
+  modal.style.display = "block";
+};
+closeBtn.onclick = function () {
+  modal.style.display = "none";
+};
+window.onclick = function (e) {
+  if (e.target == modal) {
+    modal.style.display = "none";
   }
-}
+};
+// function getBagButtons() {
+//   const buttons = [...document.querySelectorAll(".bag-btn")];
+//   buttonsDom = buttons;
+//   buttons.forEach((button) => {
+//     let id = button.dataset.id;
+//     let inCart = cart.find((item) => item.id === id);
+//     if (inCart) {
+//       button.innerText = "In Cart";
+//       button.disabled = true;
+//     } else {
+//       button.addEventListener("click", (event) => {
+//         event.target.innerText = "In Cart";
+//         event.target.disabled = true;
+//         let cartItem = { ...Storage.getRestaurant(id), amount: 1 };
+//         (cart = [...cart, cartItem]), Storage.saveCart(cart);
+//       });
+//     }
+//   });
+// }
+
+// class Storage {
+//   static saveRestaurants(restaurants) {
+//     localStorage.setItem("restaurants", JSON.stringify(restaurants));
+//   }
+//   static getRestaurant(id) {
+//     let restaurants = JSON.parse(localStorage.getItem("restaurants"));
+//     return restaurants.find((restaurant) => restaurant.id === id);
+//   }
+// }
