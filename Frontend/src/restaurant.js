@@ -24,27 +24,33 @@ class Restaurant {
     `;
   }
 
-  static getRestaurant() {
+  fetchRestaurants() {
     fetch(url)
       .then((response) => response.json())
-      .then(function (places) {
-        let place_array = places["data"];
-        Restaurant.renderRestaurant();
-
-        for (let i = 0; i < place_array.length; i++) {
-          let new_place = new Restaurant(
-            place_array[i]["attributes"]["url"],
-            place_array[i]["id"],
-            place_array[i]["attributes"]["name"],
-            place_array[i]["attributes"]["category"]
-          );
-
-          new_place.renderRestaurant();
-
-          Restaurant.instances.push(new_place);
-        }
-      });
+      .then((data) => console.log(data));
   }
 }
 
 // for (const restaurant of RestaurantNamesObject) { let restaurant_object = new Restaurant(restaurant['address'], restaurant['name']…} new_restaurant.renderRestaurant()restaurant_object.renderRestaurant()
+
+// static getRestaurant() {
+//   fetch(url)
+//     .then((response) => response.json())
+//     .then(function (places) {
+//       let place_array = places["data"];
+//       Restaurant.renderRestaurant();
+
+//       for (let i = 0; i < place_array.length; i++) {
+//         let new_place = new Restaurant(
+//           place_array[i]["attributes"]["url"],
+//           place_array[i]["id"],
+//           place_array[i]["attributes"]["name"],
+//           place_array[i]["attributes"]["category"]
+//         );
+
+//         new_place.renderRestaurant();
+
+//         Restaurant.instances.push(new_place);
+//       }
+//     });
+// }
