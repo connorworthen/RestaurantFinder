@@ -42,10 +42,18 @@ function renderRestaurantNamesList(restaurantNamesObject) {
               alt="product"
               class="product-img"
             />
-            <button id=${restaurantNameObject.id}> click me, I make a modal</button>
+            <button id=${restaurantNameObject.id}>Details</button>
+            <div class="modal">
+              <div class="modal-header">
+                <span class="close-btn">&times;</span>
+                  <h1>${restaurantNameObject.name}</h1>
+                </div>
+              <div class="modal-content">
+                <p>${restaurantNameObject.category}</p>
+              </div>
+            </div>
           </div>
           <h3>${restaurantNameObject.name}</h3>
-          <h4>${restaurantNameObject.category}</h4>
         </article>
       `;
   });
