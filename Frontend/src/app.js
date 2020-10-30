@@ -9,7 +9,7 @@ const cartTotal = document.querySelector(".cart-total");
 const cartContent = document.querySelector(".cart-content");
 const restaurantsDOM = document.querySelector(".products-center");
 const url = "http://localhost:3000/restaurants";
-
+const modal = document.querySelector(".modal");
 //cart
 let cart = [];
 let buttonsDom = [];
@@ -19,6 +19,14 @@ document.addEventListener("DOMContentLoaded", () => {
     .then((response) => response.json())
     .then((RestaurantNamesObject) => {
       renderRestaurantNamesList(RestaurantNamesObject);
+      modalBtn = document.getElementById("27");
+      closeBtn = document.querySelector(".close-btn");
+      modalBtn.onclick = function () {
+        modal.style.display = "block";
+      };
+      closeBtn.onclick = function () {
+        modal.style.display = "none";
+      };
     });
 });
 
@@ -34,7 +42,7 @@ function renderRestaurantNamesList(restaurantNamesObject) {
               alt="product"
               class="product-img"
             />
-            <button id="modal-btn"> click me, I make a modal</button>
+            <button id=${restaurantNameObject.id}> click me, I make a modal</button>
           </div>
           <h3>${restaurantNameObject.name}</h3>
           <h4>${restaurantNameObject.category}</h4>
@@ -43,18 +51,18 @@ function renderRestaurantNamesList(restaurantNamesObject) {
   });
   restaurantsDOM.innerHTML = result;
 }
-
-modalBtn.onclick = function () {
-  modal.style.display = "block";
-};
-closeBtn.onclick = function () {
-  modal.style.display = "none";
-};
-window.onclick = function (e) {
-  if (e.target == modal) {
-    modal.style.display = "none";
-  }
-};
+// document.getElementById(restaurantNameObject.id)
+// modalBtn.onclick = function () {
+//   modal.style.display = "block";
+// };
+// closeBtn.onclick = function () {
+//   modal.style.display = "none";
+// };
+// window.onclick = function (e) {
+//   if (e.target == modal) {
+//     modal.style.display = "none";
+//   }
+// };
 // function getBagButtons() {
 //   const buttons = [...document.querySelectorAll(".bag-btn")];
 //   buttonsDom = buttons;
