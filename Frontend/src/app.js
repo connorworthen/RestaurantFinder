@@ -23,7 +23,6 @@ document.addEventListener("DOMContentLoaded", () => {
   //     renderRestaurantNamesList(RestaurantNamesObject);
   //     modal = document.querySelector(".modal");
   //     modalBtn = document.getElementById("27");
-  //     // modalBtn = document.querySelectorAll(RestaurantNamesObject.map(id => `#${id}`).join(', '));
   //     closeBtn = document.querySelector(".close-btn");
   //     modalBtn.onclick = function () {
   //       modal.style.display = "block";
