@@ -33,15 +33,12 @@ class Restaurant {
   }
 
   addRestaurantModal() {
-    modal = document.querySelector(".modal");
-    modalBtn = document.getElementById(this.id);
-    closeBtn = document.querySelector(".close-btn");
-    modalBtn.onclick = function () {
-      modal.style.display = "block";
-    };
-    closeBtn.onclick = function () {
-      modal.style.display = "none";
-    };
+    modalBtn = document.addEventListener("click", function () {
+      document.getElementById("27").style.display = "block";
+    });
+    closeBtn = document.addEventListener("click", function () {
+      document.document.querySelector(".close-btn").style.display = "none";
+    });
   }
 
   static fetchRestaurants() {
