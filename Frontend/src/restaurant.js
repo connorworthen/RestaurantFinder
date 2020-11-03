@@ -9,25 +9,57 @@ class Restaurant {
   }
 
   renderRestaurant() {
-    document.querySelector(".products-center").innerHTML = ` 
+    document.querySelector(".products-center").innerHTML += ` 
       <article class="product">
           <div class="img-container">
             <img
-              src=${restaurantNameObject.image.url}
+              src=${this.image}
               alt="product"
               class="product-img"
             />
-            <button id=${restaurantNameObject.id}>Details</button>
+            <button id=${this.id}>Details</button>
+            <div class="modal">
+              <div class="modal-header">
+                <span class="close-btn">&times;</span>
+                  <h1>${this.name}</h1>
+                </div>
+              <div class="modal-content">
+                <p>${this.category}</p>
+              </div>
           </div>
-          <h3>${restaurantNameObject.name}</h3>
+          <h3>${this.name}</h3>
         </article>
     `;
   }
 
-  fetchRestaurants() {
+  // addRestaurantModal() {
+  //   modal = document.querySelector(".modal");
+  //   modalBtn = document.getElementById(this.id);
+  //   // modalBtn = document.querySelectorAll(RestaurantNamesObject.map(id => `#${id}`).join(', '));
+  //   closeBtn = document.querySelector(".close-btn");
+  //   modalBtn.onclick = function () {
+  //     modal.style.display = "block";
+  //   };
+  //   closeBtn.onclick = function () {
+  //     modal.style.display = "none";
+  //   };
+  // }
+
+  static fetchRestaurants() {
     fetch(url)
       .then((response) => response.json())
-      .then((data) => console.log(data));
+      .then((restaurantData) => {
+        for (const restaurant of restaurantData) {
+          let new_restaurant = new Restaurant(
+            restaurant["image"]["url"],
+            restaurant["id"],
+            restaurant["name"],
+            restaurant["category"]
+          );
+          new_restaurant.renderRestaurant();
+          // new_restaurant.addRestaurantModal();
+        }
+      });
   }
 }
 

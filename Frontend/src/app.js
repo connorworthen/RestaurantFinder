@@ -8,7 +8,7 @@ const cartItems = document.querySelector(".cart-items");
 const cartTotal = document.querySelector(".cart-total");
 const cartContent = document.querySelector(".cart-content");
 const restaurantsDOM = document.querySelector(".products-center");
-const url = "http://localhost:3000/restaurants";
+// const url = "http://localhost:3000/restaurants";
 // const modal = document.querySelector(".modal");
 // const ids = ["27", "28", "29", "30"];
 //cart
@@ -16,22 +16,24 @@ let cart = [];
 let buttonsDom = [];
 //grabbing products
 document.addEventListener("DOMContentLoaded", () => {
-  fetch(url)
-    .then((response) => response.json())
-    .then((RestaurantNamesObject) => {
-      // debugger;
-      renderRestaurantNamesList(RestaurantNamesObject);
-      modal = document.querySelector(".modal");
-      modalBtn = document.getElementById("27");
-      // modalBtn = document.querySelectorAll(RestaurantNamesObject.map(id => `#${id}`).join(', '));
-      closeBtn = document.querySelector(".close-btn");
-      modalBtn.onclick = function () {
-        modal.style.display = "block";
-      };
-      closeBtn.onclick = function () {
-        modal.style.display = "none";
-      };
-    });
+  // fetch(url)
+  //   .then((response) => response.json())
+  //   .then((RestaurantNamesObject) => {
+  //     // debugger;
+  //     renderRestaurantNamesList(RestaurantNamesObject);
+  //     modal = document.querySelector(".modal");
+  //     modalBtn = document.getElementById("27");
+  //     // modalBtn = document.querySelectorAll(RestaurantNamesObject.map(id => `#${id}`).join(', '));
+  //     closeBtn = document.querySelector(".close-btn");
+  //     modalBtn.onclick = function () {
+  //       modal.style.display = "block";
+  //     };
+  //     closeBtn.onclick = function () {
+  //       modal.style.display = "none";
+  //     };
+  //   });
+  // debugger;
+  Restaurant.fetchRestaurants();
 });
 
 //display products
