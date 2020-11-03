@@ -7,13 +7,13 @@ const cartOverlay = document.querySelector(".cart-overlay");
 const cartItems = document.querySelector(".cart-items");
 const cartTotal = document.querySelector(".cart-total");
 const cartContent = document.querySelector(".cart-content");
-const restaurantsDOM = document.querySelector(".products-center");
+// const restaurantsDOM = document.querySelector(".products-center");
 // const url = "http://localhost:3000/restaurants";
 // const modal = document.querySelector(".modal");
 // const ids = ["27", "28", "29", "30"];
 //cart
-let cart = [];
-let buttonsDom = [];
+// let cart = [];
+// let buttonsDom = [];
 //grabbing products
 document.addEventListener("DOMContentLoaded", () => {
   // fetch(url)
@@ -37,35 +37,35 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 //display products
-function renderRestaurantNamesList(restaurantNamesObject) {
-  let result = " ";
-  restaurantNamesObject.forEach((restaurantNameObject) => {
-    result += `
-        <article class="product">
-          <div class="img-container">
-            <img
-              src=${restaurantNameObject.image.url}
-              alt="product"
-              class="product-img"
-            />
-            <button id=${restaurantNameObject.id}>Details</button>
-            <div class="modal">
-              <div class="modal-header">
-                <span class="close-btn">&times;</span>
-                  <h1>${restaurantNameObject.name}</h1>
-                </div>
-              <div class="modal-content">
-                <p>${restaurantNameObject.category}</p>
-              </div>
-            </div>
-          </div>
-          <h3>${restaurantNameObject.name}</h3>
-        </article>
-      `;
-  });
-  restaurantsDOM.innerHTML = result;
-}
-// document.getElementById(restaurantNameObject.id)
+// function renderRestaurantNamesList(restaurantNamesObject) {
+//   let result = " ";
+//   restaurantNamesObject.forEach((restaurantNameObject) => {
+//     result += `
+//         <article class="product">
+//           <div class="img-container">
+//             <img
+//               src=${restaurantNameObject.image.url}
+//               alt="product"
+//               class="product-img"
+//             />
+//             <button id=${restaurantNameObject.id}>Details</button>
+//             <div class="modal">
+//               <div class="modal-header">
+//                 <span class="close-btn">&times;</span>
+//                   <h1>${restaurantNameObject.name}</h1>
+//                 </div>
+//               <div class="modal-content">
+//                 <p>${restaurantNameObject.category}</p>
+//               </div>
+//             </div>
+//           </div>
+//           <h3>${restaurantNameObject.name}</h3>
+//         </article>
+//       `;
+//   });
+//   restaurantsDOM.innerHTML = result;
+// }
+// // document.getElementById(restaurantNameObject.id)
 // modalBtn.onclick = function () {
 //   modal.style.display = "block";
 // };

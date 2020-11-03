@@ -17,28 +17,33 @@ class Restaurant {
               alt="product"
               class="product-img"
             />
-            <button id=${this.id}>Details</button>
-            <div class="modal">
-              <div class="modal-header">
-                <span class="close-btn">&times;</span>
-                  <h1>${this.name}</h1>
-                </div>
-              <div class="modal-content">
-                <p>${this.category}</p>
-              </div>
-          </div>
+            </div>
+            <button id=${this.id} onclick=${Restaurant.addRestaurantModal(
+      this.id
+    )}>Details</button>
           <h3>${this.name}</h3>
         </article>
     `;
   }
 
-  addRestaurantModal() {
-    modalBtn = document.addEventListener("click", function () {
-      document.getElementById("27").style.display = "block";
-    });
-    closeBtn = document.addEventListener("click", function () {
-      document.document.querySelector(".close-btn").style.display = "none";
-    });
+  static addRestaurantModal(restaurant) {
+    debugger;
+    // document.querySelector(`${restaurant.id}`).addEventListener("click", () => {
+    //   console.log("hello");
+    // document.getElementsByClassName("modal")[0].style.display = "block";
+    // document.getElementById(
+    //   "restaurant-name"
+    // ).innerHTML += `${restaurant.name}`;
+    // document.getElementById(
+    //   "category"
+    // ).innerHTML += `${restaurant.category}`;
+    // // debugger;
+    // });
+    // document.querySelector(".close-btn").addEventListener("click", function () {
+    //   document.querySelector(".close-btn").style.display = "none";
+    //   document.getElementById("restaurant-name").innerHTML = ``;
+    //   document.getElementById("category").innerHTML = ``;
+    // });
   }
 
   static fetchRestaurants() {
@@ -53,7 +58,7 @@ class Restaurant {
             restaurant["category"]
           );
           new_restaurant.renderRestaurant();
-          new_restaurant.addRestaurantModal();
+          // Restaurant.addRestaurantModal(new_restaurant);
         }
       });
   }
