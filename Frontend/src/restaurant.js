@@ -18,32 +18,29 @@ class Restaurant {
               class="product-img"
             />
             </div>
-            <button id=${this.id} onclick=${Restaurant.addRestaurantModal(
-      this.id
-    )}>Details</button>
+            <button id=${this.id}>Details</button>
           <h3>${this.name}</h3>
         </article>
     `;
   }
 
   static addRestaurantModal(restaurant) {
-    debugger;
-    // document.querySelector(`${restaurant.id}`).addEventListener("click", () => {
-    //   console.log("hello");
-    // document.getElementsByClassName("modal")[0].style.display = "block";
-    // document.getElementById(
-    //   "restaurant-name"
-    // ).innerHTML += `${restaurant.name}`;
-    // document.getElementById(
-    //   "category"
-    // ).innerHTML += `${restaurant.category}`;
-    // // debugger;
-    // });
-    // document.querySelector(".close-btn").addEventListener("click", function () {
-    //   document.querySelector(".close-btn").style.display = "none";
-    //   document.getElementById("restaurant-name").innerHTML = ``;
-    //   document.getElementById("category").innerHTML = ``;
-    // });
+    document
+      .getElementById(`${restaurant.id}`)
+      .addEventListener("click", () => {
+        document.getElementsByClassName("modal")[0].style.display = "block";
+        document.getElementById(
+          "restaurant-name"
+        ).innerHTML += `${restaurant.name}`;
+        document.getElementById(
+          "category"
+        ).innerHTML += `${restaurant.category}`;
+      });
+    document.querySelector(".close-btn").addEventListener("click", function () {
+      document.querySelector(".close-btn").style.display = "none";
+      document.getElementById("restaurant-name").innerHTML = ``;
+      document.getElementById("category").innerHTML = ``;
+    });
   }
 
   static fetchRestaurants() {
@@ -58,7 +55,7 @@ class Restaurant {
             restaurant["category"]
           );
           new_restaurant.renderRestaurant();
-          // Restaurant.addRestaurantModal(new_restaurant);
+          Restaurant.addRestaurantModal(new_restaurant);
         }
       });
   }
