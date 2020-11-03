@@ -32,18 +32,17 @@ class Restaurant {
     `;
   }
 
-  // addRestaurantModal() {
-  //   modal = document.querySelector(".modal");
-  //   modalBtn = document.getElementById(this.id);
-  //   // modalBtn = document.querySelectorAll(RestaurantNamesObject.map(id => `#${id}`).join(', '));
-  //   closeBtn = document.querySelector(".close-btn");
-  //   modalBtn.onclick = function () {
-  //     modal.style.display = "block";
-  //   };
-  //   closeBtn.onclick = function () {
-  //     modal.style.display = "none";
-  //   };
-  // }
+  addRestaurantModal() {
+    modal = document.querySelector(".modal");
+    modalBtn = document.getElementById(this.id);
+    closeBtn = document.querySelector(".close-btn");
+    modalBtn.onclick = function () {
+      modal.style.display = "block";
+    };
+    closeBtn.onclick = function () {
+      modal.style.display = "none";
+    };
+  }
 
   static fetchRestaurants() {
     fetch(url)
@@ -57,7 +56,7 @@ class Restaurant {
             restaurant["category"]
           );
           new_restaurant.renderRestaurant();
-          // new_restaurant.addRestaurantModal();
+          new_restaurant.addRestaurantModal();
         }
       });
   }
