@@ -24,22 +24,6 @@ class Restaurant {
     `;
   }
 
-  // static addRestaurantModal(restaurant) {
-  //   // debugger;
-  //   document.getElementById(restaurant["id"]).addEventListener("click", () => {
-  //     document.getElementsByClassName("modal")[0].style.display = "block";
-  //     document.getElementById(
-  //       "restaurant-name"
-  //     ).innerHTML += `${restaurant.name}`;
-  //     document.getElementById("category").innerHTML += `${restaurant.category}`;
-  //   });
-  //   document.querySelector(".close-btn").addEventListener("click", function () {
-  //     document.querySelector(".close-btn").style.display = "none";
-  //     document.getElementById("restaurant-name").innerHTML = ``;
-  //     document.getElementById("category").innerHTML = ``;
-  //   });
-  // }
-
   static addRestaurantModal(restaurant) {
     // debugger;
     document.getElementById(`${restaurant.id}`).onclick = () => {
