@@ -18,26 +18,42 @@ class Restaurant {
               class="product-img"
             />
             </div>
-            <button id=${this.id} onclick="addRestaurantModal(${this.id})">Details</button>
+            <button id=${this.id} onclick="addRestaurantModal('${this.id}')">Click Me!</button>
           <h3>${this.name}</h3>
         </article>
     `;
   }
 
+  // static addRestaurantModal(restaurant) {
+  //   // debugger;
+  //   document.getElementById(restaurant["id"]).addEventListener("click", () => {
+  //     document.getElementsByClassName("modal")[0].style.display = "block";
+  //     document.getElementById(
+  //       "restaurant-name"
+  //     ).innerHTML += `${restaurant.name}`;
+  //     document.getElementById("category").innerHTML += `${restaurant.category}`;
+  //   });
+  //   document.querySelector(".close-btn").addEventListener("click", function () {
+  //     document.querySelector(".close-btn").style.display = "none";
+  //     document.getElementById("restaurant-name").innerHTML = ``;
+  //     document.getElementById("category").innerHTML = ``;
+  //   });
+  // }
+
   static addRestaurantModal(restaurant) {
     // debugger;
-    document.getElementById(restaurant["id"]).addEventListener("click", () => {
+    document.getElementById(`${restaurant.id}`).onclick = () => {
       document.getElementsByClassName("modal")[0].style.display = "block";
       document.getElementById(
         "restaurant-name"
       ).innerHTML += `${restaurant.name}`;
       document.getElementById("category").innerHTML += `${restaurant.category}`;
-    });
-    document.querySelector(".close-btn").addEventListener("click", function () {
+    };
+    document.querySelector(".close-btn").onclick = () => {
       document.querySelector(".close-btn").style.display = "none";
       document.getElementById("restaurant-name").innerHTML = ``;
       document.getElementById("category").innerHTML = ``;
-    });
+    };
   }
 
   static fetchRestaurants() {
