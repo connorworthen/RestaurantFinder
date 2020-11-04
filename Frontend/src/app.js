@@ -32,6 +32,7 @@ document.addEventListener("DOMContentLoaded", () => {
   //     };
   //   });
   // debugger;
+  Restaurant.instances = [];
   Restaurant.fetchRestaurants();
 });
 
