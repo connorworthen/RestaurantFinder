@@ -62,4 +62,16 @@ class Restaurant {
         Restaurant.addRestaurantModal();
       });
   }
+
+  static createRestaurant() {
+    document
+      .getElementsByClassName("banner-btn")
+      .addEventListener("click", () => {
+        Restaurant.renderNewRestaurant();
+      });
+  }
+
+  static renderNewRestaurant() {
+    document.getElementsByClassName;
+  }
 }
