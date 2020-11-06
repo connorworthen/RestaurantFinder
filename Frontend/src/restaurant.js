@@ -60,18 +60,35 @@ class Restaurant {
           Restaurant.instances.push(newRestaurant);
         }
         Restaurant.addRestaurantModal();
+        Restaurant.createRestaurant();
       });
   }
 
   static createRestaurant() {
-    document
-      .getElementsByClassName("banner-btn")
-      .addEventListener("click", () => {
-        Restaurant.renderNewRestaurant();
-      });
+    document.getElementsByClassName("banner-btn").onclick = () => {
+      document.getElementsByClassName("create-modal")[0].style.display =
+        "block";
+      document.querySelector(".close-modal").style.display = "block";
+    };
+    document.querySelector(".close-modal").onclick = () => {
+      document.querySelector(".close-modal").style.display = "none";
+      document.getElementsByClassName("create-modal")[0].style.display = "none";
+    };
   }
 
-  static renderNewRestaurant() {
-    document.getElementsByClassName;
-  }
+  // static renderNewRestaurant() {
+  //   document.getElementsByClassName("new-restaurant-modal")[0].innerHTML = `
+  //     <article class="product">
+  //         <div class="img-container">
+  //           <img
+  //             src=${this.image}
+  //             alt="product"
+  //             class="product-img"
+  //           />
+  //           </div>
+  //           <button id="37">Click Me!</button>
+  //         <h3>${this.name}</h3>
+  //       </article>
+  //   `
+  // }
 }
