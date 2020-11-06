@@ -65,31 +65,34 @@ class Restaurant {
   }
 
   static createRestaurant() {
-    // debugger;
     document.getElementById("banner-btn").addEventListener("click", () => {
+      Restaurant.renderNewRestaurant();
       document.getElementsByClassName("create-modal")[0].style.display =
         "block";
-      document.querySelector(".close-modal").style.display = "block";
-    });
-    document.querySelector(".close-modal").addEventListener("click", () => {
-      document.querySelector(".close-modal").style.display = "none";
-      document.getElementsByClassName("create-modal")[0].style.display = "none";
     });
   }
 
-  // static renderNewRestaurant() {
-  //   document.getElementsByClassName("new-restaurant-modal")[0].innerHTML = `
-  //     <article class="product">
-  //         <div class="img-container">
-  //           <img
-  //             src=${this.image}
-  //             alt="product"
-  //             class="product-img"
-  //           />
-  //           </div>
-  //           <button id="37">Click Me!</button>
-  //         <h3>${this.name}</h3>
-  //       </article>
-  //   `
-  // }
+  static renderNewRestaurant() {
+    document.getElementsByClassName("modal-title")[0].innerHTML = `
+      <form id="restaurant-submit">
+	<h1>Create New Restaurant</h1>
+          <label for="name">Name:</label>
+          <input type="text" name="name" id="newname"></input><br><br>
+          
+          <label for="addy">Address:</label>
+          <input type="text" name="name" id="newaddy"></input><br><br>
+          
+          <label for="category">Category:</label>
+          <input type="text" name="name" id="newcategory"></input><br><br>
+   
+          <label for="img">Image:</label>
+          <input type="file" name="newPhoto"accept="image/png, image/jpeg" onChange={this.handleImageChange} /><br><br>
+          
+          <button id="38">Submit Restaurant</button>
+      </form>
+    `;
+    // Restaurant.renderPostNewRestaurant();
+  }
+
+  // static renderPostNewRestaurant() {}
 }
