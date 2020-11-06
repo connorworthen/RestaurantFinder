@@ -65,15 +65,16 @@ class Restaurant {
   }
 
   static createRestaurant() {
-    document.getElementsByClassName("banner-btn").onclick = () => {
+    // debugger;
+    document.getElementById("banner-btn").addEventListener("click", () => {
       document.getElementsByClassName("create-modal")[0].style.display =
         "block";
       document.querySelector(".close-modal").style.display = "block";
-    };
-    document.querySelector(".close-modal").onclick = () => {
+    });
+    document.querySelector(".close-modal").addEventListener("click", () => {
       document.querySelector(".close-modal").style.display = "none";
       document.getElementsByClassName("create-modal")[0].style.display = "none";
-    };
+    });
   }
 
   // static renderNewRestaurant() {
