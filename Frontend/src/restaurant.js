@@ -91,8 +91,16 @@ class Restaurant {
           <button id="38">Submit Restaurant</button>
       </form>
     `;
-    // Restaurant.renderPostNewRestaurant();
+    Restaurant.renderPostNewRestaurant();
   }
 
-  // static renderPostNewRestaurant() {}
+  static renderPostNewRestaurant() {
+    document.getElementById("restaurant-submit").onsubmit = function (event) {
+      console.log("submit");
+
+      let configObj = {
+        method: "POST",
+      };
+    };
+  }
 }
