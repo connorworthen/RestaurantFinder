@@ -100,6 +100,15 @@ class Restaurant {
 
       let configObj = {
         method: "POST",
+        headers: {
+          "Content-Type": "applications/json",
+        },
+        body: JSON.stringify({
+          restaurant: {
+            name: event.target["newname"].value,
+            category: event.target["newcategory"].value;
+          },
+        }),
       };
     };
   }
