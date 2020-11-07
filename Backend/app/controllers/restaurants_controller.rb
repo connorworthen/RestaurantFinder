@@ -5,6 +5,11 @@ class RestaurantsController < ApplicationController
     render json: Restaurant.all.with_attached_image
   end
 
+  def create
+    restaurant = Restaurant.create(restaurant_params)
+    render json: restaurant
+  end
+
   def show
   end
 
