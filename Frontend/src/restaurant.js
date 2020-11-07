@@ -6,6 +6,7 @@ class Restaurant {
     this.id = id;
     this.name = name;
     this.category = category;
+    // this.address = address;
   }
 
   renderRestaurant() {
@@ -55,6 +56,7 @@ class Restaurant {
             restaurant["id"],
             restaurant["name"],
             restaurant["category"]
+            // restaurant["address"]
           );
           newRestaurant.renderRestaurant();
           Restaurant.instances.push(newRestaurant);
@@ -77,16 +79,13 @@ class Restaurant {
       <form id="restaurant-submit">
 	<h1>Create New Restaurant</h1>
           <label for="name">Name:</label>
-          <input type="text" name="name" id="newname"></input><br><br>
-          
-          <label for="addy">Address:</label>
-          <input type="text" name="name" id="newaddy"></input><br><br>
+          <input type="text" name="newname" id="newname"></input><br><br>
           
           <label for="category">Category:</label>
-          <input type="text" name="name" id="newcategory"></input><br><br>
+          <input type="text" name="newcategory" id="newcategory"></input><br><br>
    
           <label for="img">Image:</label>
-          <input type="file" name="newPhoto"accept="image/png, image/jpeg" onChange={this.handleImageChange} /><br><br>
+          <input id="file" type="file" name="newphoto" accept="image/png, image/jpg"/><br><br>
           
           <button id="38">Submit Restaurant</button>
       </form>
@@ -96,6 +95,7 @@ class Restaurant {
 
   static renderPostNewRestaurant() {
     document.getElementById("restaurant-submit").onsubmit = function (event) {
+      debugger;
       console.log("submit");
 
       let configObj = {
@@ -106,10 +106,25 @@ class Restaurant {
         body: JSON.stringify({
           restaurant: {
             name: event.target["newname"].value,
-            category: event.target["newcategory"].value;
+            category: event.target["newcategory"].value,
           },
         }),
       };
+      fetch(url, configObj)
+        .then((response) => response.json())
+        .then((restaurantData) => {
+          debugger;
+          let newRestaurant = new Restaurant(
+            restaurantData["image"]["url"],
+            restaurant["id"],
+            restaurant["name"],
+            restaurant["category"]
+            // restaurant["address"]
+          );
+          newRestaurant.renderRestaurant();
+          Restaurant.instances.push(newRestaurant);
+          Restaurant.addRestaurantModal();
+        });
     };
   }
 }
