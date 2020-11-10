@@ -7,7 +7,12 @@ class RestaurantsController < ApplicationController
 
   def create
     restaurant = Restaurant.create(restaurant_params)
-    render json: restaurant
+    if restaurant.valid?
+      restaurant.save
+      render :json => RestaurantSerializer.new(restaurant), status: :accepted
+    else
+      render :json => status: :unprocessible_entity
+    end
   end
 
   def show
