@@ -93,8 +93,8 @@ class Restaurant {
   static renderNewRestaurant() {
     document.getElementsByClassName("modal-title")[0].innerHTML = `
       <form id="restaurant-submit">
-	<h1>Create New Restaurant</h1>
-          <label for="name"><i class="fa fa-user"></i> Full Name:</label>
+	<h1>Create New Restaurant</h1><br>
+          <label for="name"><i class="fa fa-user"></i> Restaurant Name:</label>
           <input type="text" name="newname" id="newname"></input><br><br>
           
           <label for="category"><i class="fa fa-cutlery" aria-hidden="true"></i> Category:</label>
@@ -115,7 +115,7 @@ class Restaurant {
           <label for="img"><i class="fa fa-file-image-o" aria-hidden="true"></i> Image:</label>
           <input id="file" type="file" name="newphoto" accept="image/png, image/jpg"/><br><br>
           
-          <button id="38">Submit Restaurant</button>
+          <button id="newbutton">Submit Restaurant</button>
       </form>
     `;
     Restaurant.renderPostNewRestaurant();
@@ -124,13 +124,14 @@ class Restaurant {
   static renderPostNewRestaurant() {
     document.getElementById("restaurant-submit").onsubmit = function (event) {
       console.log("submit");
-
+      debugger;
       let configObj = {
         method: "POST",
         headers: {
-          "Content-Type": "applications/json",
-          Accept: "applications/json",
+          Accept: "application/json",
+          "Content-Type": "application/json",
         },
+
         body: JSON.stringify({
           restaurant: {
             name: event.target["newname"].value,
@@ -143,23 +144,24 @@ class Restaurant {
           },
         }),
       };
+      debugger;
       fetch(url, configObj)
         .then((response) => response.json())
         .then((restaurantData) => {
-          // debugger;
           let newRestaurant = new Restaurant(
-            restaurant["name"],
-            restaurant["category"],
-            restaurant["address"],
-            restaurant["category"],
-            restaurant["price_range"],
-            restaurant["opening_time"],
-            restaurant["closing_time"],
-            restaurant["newphoto"]
+            restaurantData["name"],
+            restaurantData["category"],
+            restaurantData["address"],
+            restaurantData["category"],
+            restaurantData["price_range"],
+            restaurantData["opening_time"],
+            restaurantData["closing_time"],
+            restaurantData["newphoto"]
           );
-          newRestaurant.renderRestaurant();
+          // newRestaurant.renderRestaurant();
           Restaurant.instances.push(newRestaurant);
-          Restaurant.addRestaurantModal();
+          newRestaurant.renderRestaurant();
+          // Restaurant.addRestaurantModal();
         });
     };
   }
