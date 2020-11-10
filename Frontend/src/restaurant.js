@@ -94,25 +94,25 @@ class Restaurant {
     document.getElementsByClassName("modal-title")[0].innerHTML = `
       <form id="restaurant-submit">
 	<h1>Create New Restaurant</h1>
-          <label for="name">Name:</label>
+          <label for="name"><i class="fa fa-user"></i> Full Name:</label>
           <input type="text" name="newname" id="newname"></input><br><br>
           
-          <label for="category">Category:</label>
+          <label for="category"><i class="fa fa-cutlery" aria-hidden="true"></i> Category:</label>
           <input type="text" name="newcategory" id="newcategory"></input><br><br>
 
-          <label for="address">Address:</label>
+          <label for="address"><i class="fa fa-address-card-o"></i> Address:</label>
           <input type="text" name="newaddress" id="newadress"></input><br><br>
 
-          <label for="price_range">Price Range:</label>
-          <input type="text" name="newprice_range" id="newprice_range"></input><br><br>
+          <label for="price_range"><i class="fa fa-money" aria-hidden="true"></i> Price Range:</label>
+          <input type="number" name="newprice_range" id="newprice_range" min="1" max="3"></input><br><br>
 
-          label for="opening_time">Opening Time:</label>
-          <input type="text" name="newopening_time" id="newopening_time"></input><br><br>
+          <label for="opening_time"><i class="fa fa-clock-o" aria-hidden="true"></i> Opening Time:</label>
+          <input type="time" name="newopening_time" id="newopening_time"></input><br><br>
 
-          label for="closing_time">Closing Time:</label>
-          <input type="text" name="newclosing_time" id="newclosing_time"></input><br><br>
+          <label for="closing_time"><i class="fa fa-clock-o" aria-hidden="true"></i> Closing Time:</label>
+          <input type="time" name="newclosing_time" id="newclosing_time"></input><br><br>
    
-          <label for="img">Image:</label>
+          <label for="img"><i class="fa fa-file-image-o" aria-hidden="true"></i> Image:</label>
           <input id="file" type="file" name="newphoto" accept="image/png, image/jpg"/><br><br>
           
           <button id="38">Submit Restaurant</button>
