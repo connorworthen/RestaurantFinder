@@ -92,7 +92,7 @@ class Restaurant {
 
   static renderNewRestaurant() {
     document.getElementsByClassName("modal-title")[0].innerHTML = `
-      <form id="restaurant-submit">
+      <form id="restaurantsubmit">
 	<h1>Create New Restaurant</h1><br>
           <label for="name"><i class="fa fa-user"></i> Restaurant Name:</label>
           <input type="text" name="newname" id="newname"></input><br><br>
@@ -115,14 +115,14 @@ class Restaurant {
           <label for="img"><i class="fa fa-file-image-o" aria-hidden="true"></i> Image:</label>
           <input id="file" type="file" name="newphoto" accept="image/png, image/jpg"/><br><br>
           
-          <button id="newbutton">Submit Restaurant</button>
+          <input class="button is-primary" type="submit" value="Submit Restaurant" id="restaurantsubmit"></input>
       </form>
     `;
     Restaurant.renderPostNewRestaurant();
   }
 
   static renderPostNewRestaurant() {
-    document.getElementById("restaurant-submit").onsubmit = function (event) {
+    document.getElementById("restaurantsubmit").onsubmit = function (event) {
       console.log("submit");
       debugger;
       let configObj = {
