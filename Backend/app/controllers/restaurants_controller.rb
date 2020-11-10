@@ -1,3 +1,4 @@
+require 'pry'
 class RestaurantsController < ApplicationController
 
   def index
@@ -6,13 +7,10 @@ class RestaurantsController < ApplicationController
   end
 
   def create
+    # binding.pry
     restaurant = Restaurant.create(restaurant_params)
-    if restaurant.valid?
-      restaurant.save
-      render :json => RestaurantSerializer.new(restaurant), status: :accepted
-    else
-      render :json => status: :unprocessible_entity
-    end
+    restaurant.save
+    render :json => RestaurantSerializer.new(restaurant), status: :accepted
   end
 
   def show
@@ -21,7 +19,8 @@ class RestaurantsController < ApplicationController
   private
 
   def restaurant_params
-    params.require(:restaurant).require(:name, :address, :category, :closing_time, :opening_time, :price_range, :image)
+    # params.require(:restaurant).permit(:name, :address, :category, :closing_time, :opening_time, :price_range, :image)
+    params.require(:restaurant).permit!
   end
   
 end
