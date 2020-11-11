@@ -1,5 +1,4 @@
 const url = "http://localhost:3000/restaurants";
-
 class Restaurant {
   constructor(
     image,
