@@ -128,7 +128,6 @@ class Restaurant {
       let configObj = {
         method: "POST",
         headers: {
-          // Accept: "application/json",
           "Content-Type": "application/json",
         },
 
@@ -140,15 +139,13 @@ class Restaurant {
             price_range: event.target["newprice_range"].value,
             opening_time: event.target["newopening_time"].value,
             closing_time: event.target["newclosing_time"].value,
-            // image: event.target["newphoto"].files,
+            // image: event.target["newphoto"].files[0],
           },
         }),
       };
-      debugger;
       fetch(url, configObj)
         .then((response) => response.json())
         .then((restaurantData) => {
-          debugger;
           let newRestaurant = new Restaurant(
             restaurantData["name"],
             restaurantData["category"],
@@ -159,32 +156,8 @@ class Restaurant {
             restaurantData["closing_time"]
             // restaurantData["newphoto"]
           );
-          // newRestaurant.renderRestaurant();
           Restaurant.instances.push(newRestaurant);
           newRestaurant.renderRestaurant();
-          // Restaurant.addRestaurantModal();
-          let file = event.target["newphoto"].files[0];
-          let formData = new FormData();
-          formData.append("file", file);
-          let configObj2 = {
-            method: "POST",
-            headers: {
-              // Accept: "application/json",
-              "Content-Type": "application/json",
-            },
-
-            body: formData,
-          };
-          debugger;
-          fetch(
-            "http://localhost:3000/rails/active_storage/direct_uploads",
-            configObj2
-          )
-            .then((response) => response.json())
-            .then((restaurantData) => {
-              console.log(restaurantData);
-              debugger;
-            });
         });
     };
   }
