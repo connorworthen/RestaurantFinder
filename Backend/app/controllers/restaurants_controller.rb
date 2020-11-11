@@ -2,12 +2,10 @@ require 'pry'
 class RestaurantsController < ApplicationController
 
   def index
-    # restaurants = Restaurant.all.with_attached_image
     render json: Restaurant.all.with_attached_image
   end
 
   def create
-    # binding.pry
     restaurant = Restaurant.create(restaurant_params)
     restaurant.save
     render :json => RestaurantSerializer.new(restaurant), status: :accepted
@@ -19,8 +17,8 @@ class RestaurantsController < ApplicationController
   private
 
   def restaurant_params
-    # params.require(:restaurant).permit(:name, :address, :category, :closing_time, :opening_time, :price_range, :image)
-    params.require(:restaurant).permit!
+    params.require(:restaurant).permit(:name, :address, :category, :closing_time, :opening_time, :price_range, :image)
+    # params.require(:restaurant).permit!
   end
   
 end
