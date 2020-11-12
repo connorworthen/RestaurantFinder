@@ -112,7 +112,7 @@ class Restaurant {
           <input type="time" name="newclosing_time" id="newclosing_time"></input><br><br>
    
           <label for="img"><i class="fa fa-file-image-o" aria-hidden="true"></i> Image:</label>
-          <input type="file" name="image" accept="image/jpg, image/jpeg"></input><br><br>
+          <input type="file" accept="image/*"></input><br><br>
           
           <input type="submit">Submit</input>
       </form>
