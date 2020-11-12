@@ -6,6 +6,7 @@ class RestaurantsController < ApplicationController
   end
 
   def create
+    
     restaurant = Restaurant.create(restaurant_params)
     restaurant.save
     render :json => RestaurantSerializer.new(restaurant), status: :accepted
