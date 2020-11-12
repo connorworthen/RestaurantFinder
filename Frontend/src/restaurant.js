@@ -112,16 +112,16 @@ class Restaurant {
           <input type="time" name="newclosing_time" id="newclosing_time"></input><br><br>
    
           <label for="img"><i class="fa fa-file-image-o" aria-hidden="true"></i> Image:</label>
-          <input type="file" name="picture" accept="image/jpg, image/jpeg"></input><br><br>
+          <input type="file" name="image" accept="image/jpg, image/jpeg"></input><br><br>
           
-          <input type="submit" value="Submit"</input>
+          <input type="submit">Submit</input>
       </form>
     `;
     Restaurant.renderPostNewRestaurant();
   }
 
   static renderPostNewRestaurant() {
-    document.getElementById("formElem").onsubmit = function () {
+    document.getElementById("formElem").onsubmit = function (event) {
       debugger
       let configObj = {
         method: "POST",
