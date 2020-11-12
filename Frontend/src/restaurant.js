@@ -91,7 +91,7 @@ class Restaurant {
 
   static renderNewRestaurant() {
     document.getElementsByClassName("modal-title")[0].innerHTML = `
-      <form id="restaurantsubmit">
+      <form id="formElem">
 	<h1>Create New Restaurant</h1><br>
           <label for="name"><i class="fa fa-user"></i> Restaurant Name:</label>
           <input type="text" name="newname" id="newname"></input><br><br>
@@ -112,35 +112,20 @@ class Restaurant {
           <input type="time" name="newclosing_time" id="newclosing_time"></input><br><br>
    
           <label for="img"><i class="fa fa-file-image-o" aria-hidden="true"></i> Image:</label>
-          <input type="file" name="picture" accept="image/jpg, image/jpeg"/><br><br>
+          <input type="file" name="picture" accept="image/jpg, image/jpeg"></input><br><br>
           
-          <input type="submit"</input>
+          <input type="submit" value="Submit"</input>
       </form>
     `;
     Restaurant.renderPostNewRestaurant();
   }
 
   static renderPostNewRestaurant() {
-    document.getElementById("restaurantsubmit").onsubmit = function (event) {
-      console.log("submit");
+    document.getElementById("formElem").onsubmit = function () {
       debugger
       let configObj = {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          "Content-Type": "multipart/form-data"
-        },
-        body: JSON.stringify({
-          restaurant: {
-            name: event.target["newname"].value,
-            category: event.target["newcategory"].value,
-            address: event.target["newaddress"].value,
-            price_range: event.target["newprice_range"].value,
-            opening_time: event.target["newopening_time"].value,
-            closing_time: event.target["newclosing_time"].value,
-            image: event.target["post[files][]"].files[0],
-          },
-        }),
+        body: newFormData(formElem)
       };
       debugger
       fetch(url, configObj)
@@ -154,7 +139,7 @@ class Restaurant {
             restaurantData["price_range"],
             restaurantData["opening_time"],
             restaurantData["closing_time"],
-            restaurantData["post[files][]"]["url"]
+            restaurantData["picture"]
           );
           Restaurant.instances.push(newRestaurant);
           newRestaurant.renderRestaurant();
