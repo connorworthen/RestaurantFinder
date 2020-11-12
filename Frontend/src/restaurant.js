@@ -112,7 +112,7 @@ class Restaurant {
           <input type="time" name="newclosing_time" id="newclosing_time"></input><br><br>
    
           <label for="img"><i class="fa fa-file-image-o" aria-hidden="true"></i> Image:</label>
-          <input id="file" type="file" name="newphoto" accept="image/png, image/jpg"/><br><br>
+          <input class="form-control" data-direct-upload-url="http://localhost:3000/rails/active_storage/direct_uploads" type="file" name="post[files][]" id="post_files"><br><br>
           
           <input class="button is-primary" type="submit" value="Submit Restaurant" id="restaurantsubmit"></input>
       </form>
@@ -123,7 +123,6 @@ class Restaurant {
   static renderPostNewRestaurant() {
     document.getElementById("restaurantsubmit").onsubmit = function (event) {
       console.log("submit");
-      debugger;
       let configObj = {
         method: "POST",
         headers: {
@@ -138,7 +137,7 @@ class Restaurant {
             price_range: event.target["newprice_range"].value,
             opening_time: event.target["newopening_time"].value,
             closing_time: event.target["newclosing_time"].value,
-            // image: event.target["newphoto"].files[0],
+            image: event.target["post[files][]"].files[0],
           },
         }),
       };
@@ -152,8 +151,8 @@ class Restaurant {
             restaurantData["category"],
             restaurantData["price_range"],
             restaurantData["opening_time"],
-            restaurantData["closing_time"]
-            // restaurantData["newphoto"]
+            restaurantData["closing_time"],
+            restaurantData["post[files][]"]
           );
           Restaurant.instances.push(newRestaurant);
           newRestaurant.renderRestaurant();
