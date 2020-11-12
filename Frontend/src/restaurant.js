@@ -121,26 +121,18 @@ class Restaurant {
   }
 
   static renderPostNewRestaurant() {
-    document.getElementById("formElem").onsubmit = function (event) {
+    document.getElementById("formElem").onsubmit = function (e) {
+      e.preventDefault();
       debugger
       let configObj = {
         method: "POST",
-        body: newFormData(formElem)
+        body: new FormData(formElem)
       };
       debugger
       fetch(url, configObj)
         .then((response) => response.json())
         .then((restaurantData) => {
-          let newRestaurant = new Restaurant(
-            restaurantData["name"],
-            restaurantData["category"],
-            restaurantData["address"],
-            restaurantData["category"],
-            restaurantData["price_range"],
-            restaurantData["opening_time"],
-            restaurantData["closing_time"],
-            restaurantData["picture"]
-          );
+          let newRestaurant = new Restaurant(restaurantData);
           Restaurant.instances.push(newRestaurant);
           newRestaurant.renderRestaurant();
         });
