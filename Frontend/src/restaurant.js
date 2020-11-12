@@ -126,8 +126,18 @@ class Restaurant {
       debugger
       let configObj = {
         method: "POST",
-        body: new FormData(formElem)
-      };
+        body: JSON.stringify({
+          restaurant: {
+            name: e.target["newname"].value,
+            category: e.target["newcategory"].value,
+            address: e.target["newaddress"].value,
+            price_range: e.target["newprice_range"].value,
+            opening_time: e.target["newopening_time"].value,
+            closing_time: e.target["newclosing_time"].value,
+            image: e.target["image"].files[0],
+            },
+          }),
+        };
       debugger
       fetch(url, configObj)
         .then((response) => response.json())
