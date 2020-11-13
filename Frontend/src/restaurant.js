@@ -112,7 +112,7 @@ class Restaurant {
           <input type="time" name="newclosing_time" id="newclosing_time"></input><br><br>
    
           <label for="img"><i class="fa fa-file-image-o" aria-hidden="true"></i> Image:</label>
-          <input type="file" accept="image/*"></input><br><br>
+          <input type="file" name="newimage" accept="image/*"></input><br><br>
           
           <input type="submit">Submit</input>
       </form>
@@ -134,7 +134,7 @@ class Restaurant {
             price_range: e.target['newprice_range'].value,
             opening_time: e.target['newopening_time'].value,
             closing_time: e.target['newclosing_time'].value,
-            image: e.target['image'].files[0],
+            image: e.target['newimage'].files[0],
             },
           }),
         };
@@ -142,15 +142,16 @@ class Restaurant {
       fetch(url, configObj)
         .then((response) => response.json())
         .then((restaurantData) => {
+          console.log(restaurantData)
           let newRestaurant = new Restaurant(
-            restaurantData['data']['id'],
-            restaurantData['data']['attributes']['name'],
-            restaurantData['data']['attributes']['category'],
-            restaurantData['data']['attributes']['address'],
-            restaurantData['data']['attributes']['price_range'],
-            restaurantData['data']['attributes']['opening_time'],
-            restaurantData['data']['attributes']['closing_time'],
-            restaurantData['data']['attributes']['image']['url']
+            // restaurantData['data']['id'],
+            restaurantData['data']['name'],
+            restaurantData['data']['category'],
+            restaurantData['data']['address'],
+            restaurantData['data']['price_range'],
+            restaurantData['data']['opening_time'],
+            restaurantData['data']['closing_time'],
+            restaurantData['data']['image']['url']
             );
           Restaurant.instances.push(newRestaurant);
           newRestaurant.renderRestaurant();
