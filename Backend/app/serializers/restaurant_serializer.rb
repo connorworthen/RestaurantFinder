@@ -1,4 +1,9 @@
 class RestaurantSerializer < ActiveModel::Serializer
+  extend ActiveModel::Naming
+  include ActiveModel::Conversion
+  def persisted?
+    false
+  end
   # include FastJsonapi::ObjectSerializer
   include Rails.application.routes.url_helpers
   
@@ -6,7 +11,7 @@ class RestaurantSerializer < ActiveModel::Serializer
   
   def image
     return unless object.image.attached?
-
+    
     object.image.blob.attributes
           .slice('filename', 'byte_size')
           .merge(url: image_url)
