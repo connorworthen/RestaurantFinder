@@ -124,23 +124,30 @@ class Restaurant {
     document.getElementById("formElem").onsubmit = function (e) {
       e.preventDefault();
       // debugger
+      // let configObj = {
+      //   method: "POST",
+      //   headers: {
+      //     "Content-Type": "application/json"
+      //   },
+      //   body: JSON.stringify({
+      //     restaurant: {
+      //       name: e.target['newname'].value,
+      //       category: e.target['newcategory'].value,
+      //       address: e.target['newaddress'].value,
+      //       price_range: e.target['newprice_range'].value,
+      //       opening_time: e.target['newopening_time'].value,
+      //       closing_time: e.target['newclosing_time'].value,
+      //       image: e.target['newimage'].files[0],
+      //       },
+      //     }),
+      //   };
       let configObj = {
         method: "POST",
         headers: {
           "Content-Type": "application/json"
         },
-        body: JSON.stringify({
-          restaurant: {
-            name: e.target['newname'].value,
-            category: e.target['newcategory'].value,
-            address: e.target['newaddress'].value,
-            price_range: e.target['newprice_range'].value,
-            opening_time: e.target['newopening_time'].value,
-            closing_time: e.target['newclosing_time'].value,
-            image: e.target['newimage'].files[0],
-            },
-          }),
-        };
+        body: new FormData(formElem)
+      };
       debugger
       fetch(url, configObj)
         .then((response) => response.json())
