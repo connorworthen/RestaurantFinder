@@ -123,9 +123,12 @@ class Restaurant {
   static renderPostNewRestaurant() {
     document.getElementById("formElem").onsubmit = function (e) {
       e.preventDefault();
-      debugger
+      // debugger
       let configObj = {
         method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
         body: JSON.stringify({
           restaurant: {
             name: e.target['newname'].value,
@@ -142,7 +145,7 @@ class Restaurant {
       fetch(url, configObj)
         .then((response) => response.json())
         .then((restaurantData) => {
-          console.log(restaurantData)
+          console.log("DATA", restaurantData)
           let newRestaurant = new Restaurant(
             restaurantData['data']['name'],
             restaurantData['data']['category'],
