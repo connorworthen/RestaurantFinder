@@ -144,7 +144,6 @@ class Restaurant {
         .then((restaurantData) => {
           console.log(restaurantData)
           let newRestaurant = new Restaurant(
-            // restaurantData['data']['id'],
             restaurantData['data']['name'],
             restaurantData['data']['category'],
             restaurantData['data']['address'],
