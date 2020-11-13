@@ -91,7 +91,7 @@ class Restaurant {
 
   static renderNewRestaurant() {
     document.getElementsByClassName("modal-title")[0].innerHTML = `
-      <form id="formElem">
+      <form id="formElem" method="POST">
 	<h1>Create New Restaurant</h1><br>
           <label for="name"><i class="fa fa-user"></i> Restaurant Name:</label>
           <input type="text" name="newname" id="newname"></input><br><br>
@@ -128,13 +128,13 @@ class Restaurant {
         method: "POST",
         body: JSON.stringify({
           restaurant: {
-            name: e.target["newname"].value,
-            category: e.target["newcategory"].value,
-            address: e.target["newaddress"].value,
-            price_range: e.target["newprice_range"].value,
-            opening_time: e.target["newopening_time"].value,
-            closing_time: e.target["newclosing_time"].value,
-            image: e.target["image"].files[0],
+            name: e.target['newname'].value,
+            category: e.target['newcategory'].value,
+            address: e.target['newaddress'].value,
+            price_range: e.target['newprice_range'].value,
+            opening_time: e.target['newopening_time'].value,
+            closing_time: e.target['newclosing_time'].value,
+            image: e.target['image'].files[0],
             },
           }),
         };
@@ -142,7 +142,16 @@ class Restaurant {
       fetch(url, configObj)
         .then((response) => response.json())
         .then((restaurantData) => {
-          let newRestaurant = new Restaurant(restaurantData);
+          let newRestaurant = new Restaurant(
+            restaurantData['data']['id'],
+            restaurantData['data']['attributes']['name'],
+            restaurantData['data']['attributes']['category'],
+            restaurantData['data']['attributes']['address'],
+            restaurantData['data']['attributes']['price_range'],
+            restaurantData['data']['attributes']['opening_time'],
+            restaurantData['data']['attributes']['closing_time'],
+            restaurantData['data']['attributes']['image']['url']
+            );
           Restaurant.instances.push(newRestaurant);
           newRestaurant.renderRestaurant();
         });
