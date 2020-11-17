@@ -114,7 +114,7 @@ class Restaurant {
           <label for="img"><i class="fa fa-file-image-o" aria-hidden="true"></i> Image:</label>
           <input type="file" name="image"></input><br><br>
           
-          <input type="submit" id="button">Submit</input>
+          <input type="submit"></input>
       </form>
     `;
     Restaurant.renderPostNewRestaurant();
