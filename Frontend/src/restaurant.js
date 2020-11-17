@@ -91,28 +91,28 @@ class Restaurant {
 
   static renderNewRestaurant() {
     document.getElementsByClassName("modal-title")[0].innerHTML = `
-      <form id="formElem" method="POST">
+      <form id="formElem">
 	<h1>Create New Restaurant</h1><br>
           <label for="name"><i class="fa fa-user"></i> Restaurant Name:</label>
-          <input type="text" name="newname" id="newname"></input><br><br>
+          <input type="text" name="name"></input><br><br>
           
           <label for="category"><i class="fa fa-cutlery" aria-hidden="true"></i> Category:</label>
-          <input type="text" name="newcategory" id="newcategory"></input><br><br>
+          <input type="text" name="category"></input><br><br>
 
           <label for="address"><i class="fa fa-address-card-o"></i> Address:</label>
-          <input type="text" name="newaddress" id="newadress"></input><br><br>
+          <input type="text" name="address""></input><br><br>
 
           <label for="price_range"><i class="fa fa-money" aria-hidden="true"></i> Price Range:</label>
-          <input type="number" name="newprice_range" id="newprice_range" min="1" max="3"></input><br><br>
+          <input type="number" name="price_range" min="1" max="3"></input><br><br>
 
           <label for="opening_time"><i class="fa fa-clock-o" aria-hidden="true"></i> Opening Time:</label>
-          <input type="time" name="newopening_time" id="newopening_time"></input><br><br>
+          <input type="time" name="opening_time"></input><br><br>
 
           <label for="closing_time"><i class="fa fa-clock-o" aria-hidden="true"></i> Closing Time:</label>
-          <input type="time" name="newclosing_time" id="newclosing_time"></input><br><br>
+          <input type="time" name="closing_time""></input><br><br>
    
           <label for="img"><i class="fa fa-file-image-o" aria-hidden="true"></i> Image:</label>
-          <input type="file" name="newimage" accept="image/*"></input><br><br>
+          <input type="file" name="image"></input><br><br>
           
           <input type="submit">Submit</input>
       </form>
@@ -121,50 +121,12 @@ class Restaurant {
   }
 
   static renderPostNewRestaurant() {
-    document.getElementById("formElem").onsubmit = function (e) {
-      e.preventDefault();
-      // debugger
-      // let configObj = {
-      //   method: "POST",
-      //   headers: {
-      //     "Content-Type": "application/json"
-      //   },
-      //   body: JSON.stringify({
-      //     restaurant: {
-      //       name: e.target['newname'].value,
-      //       category: e.target['newcategory'].value,
-      //       address: e.target['newaddress'].value,
-      //       price_range: e.target['newprice_range'].value,
-      //       opening_time: e.target['newopening_time'].value,
-      //       closing_time: e.target['newclosing_time'].value,
-      //       image: e.target['newimage'].files[0],
-      //       },
-      //     }),
-      //   };
-      let configObj = {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json"
-        },
-        body: new FormData(formElem)
-      };
-      debugger
-      fetch(url, configObj)
-        .then((response) => response.json())
-        .then((restaurantData) => {
-          console.log("DATA", restaurantData)
-          let newRestaurant = new Restaurant(
-            restaurantData['data']['name'],
-            restaurantData['data']['category'],
-            restaurantData['data']['address'],
-            restaurantData['data']['price_range'],
-            restaurantData['data']['opening_time'],
-            restaurantData['data']['closing_time'],
-            restaurantData['data']['image']['url']
-            );
-          Restaurant.instances.push(newRestaurant);
-          newRestaurant.renderRestaurant();
-        });
-    };
-  }
+    var formElem = document.getElementById('formElem');
+    formElem.onsubmit = function(e) {
+      var request = new XMLHttpRequest();
+      request.open('POST', url)
+      var formData = new FormData(document.getElementById("formElem"))
+      request.send(formData);
+    }
+  };
 }
