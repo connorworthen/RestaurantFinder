@@ -114,7 +114,7 @@ class Restaurant {
           <label for="img"><i class="fa fa-file-image-o" aria-hidden="true"></i> Image:</label>
           <input type="file" name="image"></input><br><br>
           
-          <input type="submit">Submit</input>
+          <input type="submit" id="button">Submit</input>
       </form>
     `;
     Restaurant.renderPostNewRestaurant();
@@ -122,8 +122,8 @@ class Restaurant {
 
   static renderPostNewRestaurant() {
     var formElem = document.getElementById('formElem');
-    formElem.onsubmit = function() {
-      // e.preventDefault();
+    formElem.onsubmit = function(e) {
+      e.preventDefault();
       var request = new XMLHttpRequest();
       request.open('POST', url)
       var formData = new FormData(document.getElementById("formElem"))
