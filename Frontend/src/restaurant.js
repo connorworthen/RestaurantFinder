@@ -92,7 +92,7 @@ class Restaurant {
   static renderNewRestaurant() {
     document.getElementsByClassName("modal-title")[0].innerHTML = `
       <form id="formElem">
-	<h1>Create New Restaurant</h1><br>
+  <h1>Create New Restaurant</h1><br>
           <label for="name"><i class="fa fa-user"></i> Restaurant Name:</label>
           <input type="text" name="name"></input><br><br>
           
@@ -128,6 +128,13 @@ class Restaurant {
       request.open('POST', url)
       var formData = new FormData(document.getElementById("formElem"))
       request.send(formData);
+      // document.getElementsByClassName("modal-create")[0].style.display = "block";
+      // document.querySelector(".close-btn1").style.display = "block";
     }
+    // document.querySelector("close-btn1").onclick = () => {
+    //     document.querySelector("close-btn1").style.display = "none";
+    //     document.getElementsByClassName("create-modal")[0].style.display = "none";
+    //     document.querySelector("formElem").style.display = ``;
+    //   }
   };
 }
