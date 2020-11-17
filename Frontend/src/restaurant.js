@@ -122,7 +122,8 @@ class Restaurant {
 
   static renderPostNewRestaurant() {
     var formElem = document.getElementById('formElem');
-    formElem.onsubmit = function(e) {
+    formElem.onsubmit = function() {
+      // e.preventDefault();
       var request = new XMLHttpRequest();
       request.open('POST', url)
       var formData = new FormData(document.getElementById("formElem"))
