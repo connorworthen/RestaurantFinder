@@ -1,4 +1,4 @@
-const url = "http://localhost:3000/restaurants";
+const restaurantUrl = "http://localhost:3000/restaurants";
 class Restaurant {
   constructor(
     image,
@@ -58,7 +58,7 @@ class Restaurant {
   }
 
   static fetchRestaurants() {
-    fetch(url)
+    fetch(restaurantUrl)
       .then((response) => response.json())
       .then((restaurantData) => {
         for (const restaurant of restaurantData) {
@@ -125,7 +125,7 @@ class Restaurant {
     formElem.onsubmit = function(e) {
       e.preventDefault();
       const request = new XMLHttpRequest();
-      request.open('POST', url)
+      request.open('POST', restaurantUrl)
       const formData = new FormData(document.getElementById("formElem"))
       request.send(formData);
       document.getElementsByClassName("create-modal")[0].style.display = "none";

@@ -1,4 +1,4 @@
-const url = "http://localhost:3000/menus";
+const menuUrl = "http://localhost:3000/menus";
 class Menu {
   constructor(
     appetizer,
@@ -55,7 +55,7 @@ class Menu {
   }
 
   static fetchMenus() {
-    fetch(url)
+    fetch(menuUrl)
       .then((response) => response.json())
       .then((menuData) => {
         for (const menu of menuData) {
