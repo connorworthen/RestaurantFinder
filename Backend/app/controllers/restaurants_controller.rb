@@ -6,7 +6,6 @@ class RestaurantsController < ApplicationController
   end
 
   def create
-    # binding.pry
     restaurant = Restaurant.create(restaurant_params)
     restaurant.save
     render :json => restaurant, status: :accepted
@@ -18,11 +17,7 @@ class RestaurantsController < ApplicationController
   private
 
   def restaurant_params
-    # params.require(:restaurant).permit(:name, :address, :category, :closing_time, :opening_time, :price_range, :image)
     params.permit(:name, :address, :category, :closing_time, :opening_time, :price_range, :image)
   end
   
 end
-
-
-# render json: RestaurantSerializer.new(restaurant)
