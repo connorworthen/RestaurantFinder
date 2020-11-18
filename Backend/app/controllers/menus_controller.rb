@@ -14,7 +14,7 @@ class MenusController < ApplicationController
   private
 
   def menu_params
-    params.permit(:appetizer, :entree, :dessert, :drink)
+    params.permit(:appetizer, :entree, :dessert, :drink, :description)
   end
   
 end
