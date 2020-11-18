@@ -9,7 +9,7 @@ class RestaurantsController < ApplicationController
     # binding.pry
     restaurant = Restaurant.create(restaurant_params)
     restaurant.save
-    render :json => RestaurantSerializer.new(restaurant), status: :accepted
+    render :json => restaurant, status: :accepted
   end
 
   def show
