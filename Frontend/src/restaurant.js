@@ -121,12 +121,12 @@ class Restaurant {
   }
 
   static renderPostNewRestaurant() {
-    var formElem = document.getElementById('formElem');
+    const formElem = document.getElementById('formElem');
     formElem.onsubmit = function(e) {
       e.preventDefault();
-      var request = new XMLHttpRequest();
+      const request = new XMLHttpRequest();
       request.open('POST', url)
-      var formData = new FormData(document.getElementById("formElem"))
+      const formData = new FormData(document.getElementById("formElem"))
       request.send(formData);
       document.getElementsByClassName("create-modal")[0].style.display = "none";
     }
