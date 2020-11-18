@@ -128,13 +128,7 @@ class Restaurant {
       request.open('POST', url)
       var formData = new FormData(document.getElementById("formElem"))
       request.send(formData);
-      // document.getElementsByClassName("modal-create")[0].style.display = "block";
-      // document.querySelector(".close-btn1").style.display = "block";
+      document.getElementsByClassName("create-modal")[0].style.display = "none";
     }
-    // document.querySelector("close-btn1").onclick = () => {
-    //     document.querySelector("close-btn1").style.display = "none";
-    //     document.getElementsByClassName("create-modal")[0].style.display = "none";
-    //     document.querySelector("formElem").style.display = ``;
-    //   }
   };
 }
