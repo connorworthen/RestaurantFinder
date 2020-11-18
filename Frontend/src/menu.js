@@ -53,4 +53,25 @@ class Menu {
       </article>
     `
   }
+
+  static fetchMenus() {
+    fetch(url)
+      .then((response) => response.json())
+      .then((menuData) => {
+        for (const menu of menuData) {
+          let newMenu = new Menu(
+            menu["id"],
+            menu["appetizer"],
+            menu["entree"],
+            menu["dessert"],
+            menu["drink"],
+            menu["description"]
+          );
+          newMenu.renderMenu();
+          Menu.instances.push(newMenu);
+        }
+        Menu.addMenuModal();
+        Menu.createMenu();
+      });
+  }
 }
