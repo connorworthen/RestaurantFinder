@@ -12,13 +12,33 @@ class User {
     this.password = password
   }
 
+  // static fetchUsers() {
+  //   fetch(userUrl)
+  //     .then((response) => response.json())
+  //     .then((userData) => {
+  //       for (const user of userData) {
+  //         let newUser = new User(
+  //           user["id"],
+  //           user["first_name"],
+  //           user["last_name"],
+  //           user["email"],
+  //           user["password"],
+  //         );
+  //         // newRestaurant.renderRestaurant();
+  //         // Restaurant.instances.push(newRestaurant);
+  //       }
+  //       // Restaurant.addRestaurantModal();
+  //       User.createUser();
+  //     });
+  // }
 
   static createUser() {
-    document.getElementsByClassName("form-button-signup nav-button").addEventListener("click", () => {
+    document.getElementById("form-button-signup").onclick = () => {
+      console.log("click")
       User.renderNewUser();
       document.getElementsByClassName("signup-modal")[0].style.display =
         "block";
-    });
+    };
   }
 
   static renderNewUser() {

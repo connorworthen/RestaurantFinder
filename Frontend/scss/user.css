@@ -1,4 +1,4 @@
-.form-button-signup nav-button {
+.form-button-signup {
   padding: 1rem 3rem;
   text-transform: uppercase;
   letter-spacing: var(--mainSpacing);
@@ -9,7 +9,7 @@
   transition: var(--mainTransition);
   cursor: pointer;
 }
-.form-button-signup nav-button:hover {
+.form-button-signup:hover {
   background: transparent;
   color: var(--primaryColor);
 }
