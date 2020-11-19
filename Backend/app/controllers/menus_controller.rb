@@ -2,7 +2,7 @@ require 'pry'
 class MenusController < ApplicationController
 
   def index
-    render json: Menus.all
+    render json: Menu.all
   end
 
   def create
@@ -14,7 +14,7 @@ class MenusController < ApplicationController
   private
 
   def menu_params
-    params.permit(:appetizer, :entree, :dessert, :drink, :description)
+    params.require(:menu).permit(:appetizers, :entrees, :desserts, :drinks, :description)
   end
   
 end
