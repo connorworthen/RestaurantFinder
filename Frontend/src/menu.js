@@ -1,16 +1,16 @@
 const menuUrl = "http://localhost:3000/menus";
 class Menu {
   constructor(
-    appetizer,
-    entree,
-    dessert,
-    drink,
+    appetizers,
+    entrees,
+    desserts,
+    drinks,
     description
   ) {
-    this.appetizer = appetizer,
-    this.entree = entree,
-    this.dessert = dessert,
-    this.drink = drink
+    this.appetizers = appetizers,
+    this.entrees = entrees,
+    this.desserts = desserts,
+    this.drinks = drinks
     this.description = description
   }
 
