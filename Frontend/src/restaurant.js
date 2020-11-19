@@ -78,6 +78,7 @@ class Restaurant {
         }
         Restaurant.addRestaurantModal();
         Restaurant.createRestaurant();
+        // User.createUser();
       });
   }
 
