@@ -1,7 +1,7 @@
 class UserSerializer < ActiveModel::Serializer
-  attributes :id, :name, :email, :likedRestaurants
+  attributes :id, :first_name, :last_name, :email, :password
 
-  def likedRestaurants
-    object.findlikedRestaurants
-  end
+  # def likedRestaurants
+  #   object.findlikedRestaurants
+  # end
 end
