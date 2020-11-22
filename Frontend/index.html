@@ -6,83 +6,65 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta http-equiv="X-UA-Compatible" content="ie=edge" />
   <title>FoodFinder</title>
+  <!-- Font Awesome-->
   <script src="https://kit.fontawesome.com/e0e9acc72f.js" crossorigin="anonymous"></script>
+  <!-- end of font awesome -->
+  <!-- custom css -->
   <link rel="stylesheet" href="scss/app.css" />
 </head>
 
-  <div>
-    <div class="modal-background">
-      <div class="modal-child">
-        <div>
-          <div class="form-container">
-            <form class="form-box">
-              <div class="close-x">&times;</div>
-              <h2 class="form-title">Welcome to Food Finder!</h2>
-            
-              <input type="text" placeholder="First Name *" class="form-input" value=""
-                style="background-image: url(&quot;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAABHklEQVQ4EaVTO26DQBD1ohQWaS2lg9JybZ+AK7hNwx2oIoVf4UPQ0Lj1FdKktevIpel8AKNUkDcWMxpgSaIEaTVv3sx7uztiTdu2s/98DywOw3Dued4Who/M2aIx5lZV1aEsy0+qiwHELyi+Ytl0PQ69SxAxkWIA4RMRTdNsKE59juMcuZd6xIAFeZ6fGCdJ8kY4y7KAuTRNGd7jyEBXsdOPE3a0QGPsniOnnYMO67LgSQN9T41F2QGrQRRFCwyzoIF2qyBuKKbcOgPXdVeY9rMWgNsjf9ccYesJhk3f5dYT1HX9gR0LLQR30TnjkUEcx2uIuS4RnI+aj6sJR0AM8AaumPaM/rRehyWhXqbFAA9kh3/8/NvHxAYGAsZ/il8IalkCLBfNVAAAAABJRU5ErkJggg==&quot;); background-repeat: no-repeat; background-attachment: scroll; background-size: 16px 18px; background-position: 98% 50%; cursor: auto;">
-            
-              <input type="text" placeholder="Last Name *" class="form-input" value="">
-            
-              <input type="text" placeholder="Enter Email *" class="form-input" value="">
-            
-              <input type="text" placeholder="Password *" class="form-input" value=""
-                style="background-image: url(&quot;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAACIUlEQVQ4EX2TOYhTURSG87IMihDsjGghBhFBmHFDHLWwSqcikk4RRKJgk0KL7C8bMpWpZtIqNkEUl1ZCgs0wOo0SxiLMDApWlgOPrH7/5b2QkYwX7jvn/uc//zl3edZ4PPbNGvF4fC4ajR5VrNvt/mo0Gr1ZPOtfgWw2e9Lv9+chX7cs64CS4Oxg3o9GI7tUKv0Q5o1dAiTfCgQCLwnOkfQOu+oSLyJ2A783HA7vIPLGxX0TgVwud4HKn0nc7Pf7N6vV6oZHkkX8FPG3uMfgXC0Wi2vCg/poUKGGcagQI3k7k8mcp5slcGswGDwpl8tfwGJg3xB6Dvey8vz6oH4C3iXcFYjbwiDeo1KafafkC3NjK7iL5ESFGQEUF7Sg+ifZdDp9GnMF/KGmfBdT2HCwZ7TwtrBPC7rQaav6Iv48rqZwg+F+p8hOMBj0IbxfMdMBrW5pAVGV/ztINByENkU0t5BIJEKRSOQ3Aj+Z57iFs1R5NK3EQS6HQqF1zmQdzpFWq3W42WwOTAf1er1PF2USFlC+qxMvFAr3HcexWX+QX6lUvsKpkTyPSEXJkw6MQ4S38Ljdbi8rmM/nY+CvgNcQqdH6U/xrYK9t244jZv6ByUOSiDdIfgBZ12U6dHEHu9TpdIr8F0OP692CtzaW/a6y3y0Wx5kbFHvGuXzkgf0xhKnPzA4UTyaTB8Ph8AvcHi3fnsrZ7Wore02YViqVOrRXXPhfqP8j6MYlawoAAAAASUVORK5CYII=&quot;); background-repeat: no-repeat; background-attachment: scroll; background-size: 16px 18px; background-position: 98% 50%; cursor: auto;">
-            
-              <input type="submit" class="form-button" value="Create Account">
-            </form>
-          </div>
+<body>
+  <!-- navbar start -->
+  <nav class="navbar">
+    <div class="navbar-center">
+      <span class="nav-icon">
+        <i class="fas fa-bars"></i>
+      </span>
+      <img src="images/logo.jpeg" alt="store logo" />
+      <div class="form-nav-buttons">
+        <button class="form-button-signup">Sign up</button>
+        <button class="form-button-signin">Sign in</button>
+      </div>
+    </div>
+  </nav>
+  <!-- end navbar -->
+  <!-- start of hero -->
+  <header class="hero">
+    <div class="banner">
+      <h1 class="banner-title">Test Collection</h1>
+      <button id="banner-btn">Create Restaurant</button>
+    </div>
+      <div class="create-modal">
+        <div class="modal-title">
+          <span class="close-x">&times;</span>
+        </div>
+      </div>
+  </header>
+  <!-- end of hero -->
+
+  <!-- products -->
+  <section class="products">
+    <div class="section-title">
+      <h2>Our Products</h2>
+    </div>
+    <div class="products-center"></div>
+    <!-- start of modal -->
+    <div class="modal">
+      <!-- Modal content -->
+      <div class="modal-content">
+        <div class="modal-header">
+          <span class="close-btn">&times;</span>
+          <h1 id="restaurant-name"></h1>
+        </div>
+        <div class="modal-body">
+          <p id="category"></p>
         </div>
       </div>
     </div>
-    <header class="nav-bar">
-      <ul class="nav-bar-items">
-        <li>
-          <div class="nav-logo">
-            <link rel="stylesheet" href="images/logo.jpeg">
-            <h1 class="logo">Food Finder</h1>
-          </div>
-        </li>
-        <li></li>
-        <li>
-          <nav class="greeting-links">
-            <button class="form-button-signup nav-button">Sign up</button>
-            <button class="form-button-signin nav-button">Sign in</button></nav>
-        </li>
-      </ul>
-    </header>
-    <div class="home-page">
-      <header class="cover">
-        <div class="cover-wrapper">
-          <div class="cover-content">
-            <h3 class="search-title">Find your Restaurant now!</h3>
-            <div>
-              <form class="search-form-container" _lpchecked="1">
-                <div class="search-field">
-                  <div role="combobox" aria-haspopup="listbox" aria-owns="react-autowhatever-1" aria-expanded="false"
-                    class="react-autosuggest__container"><input type="text" autocomplete="off" aria-autocomplete="list"
-                      aria-controls="react-autowhatever-1" class="search-input" placeholder="Search Location or Cuisine" value=""
-                      style="background-image: url(&quot;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAABHklEQVQ4EaVTO26DQBD1ohQWaS2lg9JybZ+AK7hNwx2oIoVf4UPQ0Lj1FdKktevIpel8AKNUkDcWMxpgSaIEaTVv3sx7uztiTdu2s/98DywOw3Dued4Who/M2aIx5lZV1aEsy0+qiwHELyi+Ytl0PQ69SxAxkWIA4RMRTdNsKE59juMcuZd6xIAFeZ6fGCdJ8kY4y7KAuTRNGd7jyEBXsdOPE3a0QGPsniOnnYMO67LgSQN9T41F2QGrQRRFCwyzoIF2qyBuKKbcOgPXdVeY9rMWgNsjf9ccYesJhk3f5dYT1HX9gR0LLQR30TnjkUEcx2uIuS4RnI+aj6sJR0AM8AaumPaM/rRehyWhXqbFAA9kh3/8/NvHxAYGAsZ/il8IalkCLBfNVAAAAABJRU5ErkJggg==&quot;); background-repeat: no-repeat; background-attachment: scroll; background-size: 16px 18px; background-position: 98% 50%;">
-                    <div id="react-autowhatever-1" role="listbox" class="react-autosuggest__suggestions-container"></div>
-                  </div>
-                </div>
-                <div><input type="submit" class="search-submit-button" value="Let's Eat"
-                    style="background-image: url(&quot;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAASCAYAAABSO15qAAAAAXNSR0IArs4c6QAAAPhJREFUOBHlU70KgzAQPlMhEvoQTg6OPoOjT+JWOnRqkUKHgqWP4OQbOPokTk6OTkVULNSLVc62oJmbIdzd95NcuGjX2/3YVI/Ts+t0WLE2ut5xsQ0O+90F6UxFjAI8qNcEGONia08e6MNONYwCS7EQAizLmtGUDEzTBNd1fxsYhjEBnHPQNG3KKTYV34F8ec/zwHEciOMYyrIE3/ehKAqIoggo9inGXKmFXwbyBkmSQJqmUNe15IRhCG3byphitm1/eUzDM4qR0TTNjEixGdAnSi3keS5vSk2UDKqqgizLqB4YzvassiKhGtZ/jDMtLOnHz7TE+yf8BaDZXA509yeBAAAAAElFTkSuQmCC&quot;); background-repeat: no-repeat; background-attachment: scroll; background-size: 16px 18px; background-position: 98% 50%;">
-                </div>
-              </form>
-            </div>
-          </div>
-        </div>
-      </header>
-      <div class="carousel">
-        <div class="slider-container">
-          <div class="slider-header"></div>
-        </div>
-      </div>
-      <div class="features"></div>
-    </div>
-  </div>
-  
+  </section>
+    <!-- end of modal -->
+
+  <!-- end of products -->
   <script src="src/user.js"></script>
   <script src="src/index.js"></script>
   <script src="src/restaurant.js"></script>
