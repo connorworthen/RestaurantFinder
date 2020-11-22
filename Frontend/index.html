@@ -17,14 +17,15 @@
   <!-- navbar start -->
   <nav class="navbar">
     <div class="navbar-center">
-      <span class="nav-icon">
-        <i class="fas fa-bars"></i>
-      </span>
-      <img src="images/logo.jpeg" alt="store logo" />
-      <div class="form-nav-buttons">
-        <button class="form-button-signup">Sign up</button>
-        <button class="form-button-signin">Sign in</button>
+      <div id="mySidenav" class="sidenav">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <a href="#">About</a>
+        <a id="banner-btn">Create Restaurant</a>
+        <a class="form-button-signup">Sign up</a>
+        <a class="form-button-signin">Sign in</a>
       </div>
+      <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; open</span>
+      <img src="images/logo.jpeg" alt="store logo" />
     </div>
   </nav>
   <!-- end navbar -->
@@ -32,7 +33,7 @@
   <header class="hero">
     <div class="banner">
       <h1 class="banner-title">Test Collection</h1>
-      <button id="banner-btn">Create Restaurant</button>
+      <!-- <button id="banner-btn">Create Restaurant</button> -->
     </div>
       <div class="create-modal">
         <div class="modal-title">
