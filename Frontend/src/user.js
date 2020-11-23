@@ -12,6 +12,24 @@ class User {
     this.password = password
   }
 
+  static fetchUsers() {
+    fetch(userUrl)
+      .then((response) => response.json())
+      .then((userData) => {
+        for (const user of userData) {
+          let newUser = new User(
+            user["first_name"],
+            user["last_name"],
+            user["email"],
+            user["password"]
+          );
+          // newUser.renderUser();
+          User.instances.push(newUser);
+        }
+        User.createUser();
+      });
+  }
+
   static createUser() {
     document.getElementById("form-button-signup").onclick = () => {
       User.renderNewUser();
@@ -37,10 +55,10 @@ class User {
           <input type="submit" class="form-button" value="Create Account">
       </form>
     `;
-    // document.querySelector(".close-form").onclick = () => {
-    //   document.querySelector(".close-form").style.display = "none";
-    //   document.getElementsByClassName("signup-modal")[0].style.display = "none";
-    // }
+    document.querySelector(".close-form").onclick = () => {
+      document.querySelector(".close-form").style.display = "none";
+      document.getElementsByClassName("signup-modal")[0].style.display = "none";
+    }
     User.renderPostSignup();
   }
 
