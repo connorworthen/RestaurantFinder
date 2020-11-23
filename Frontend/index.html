@@ -15,24 +15,43 @@
 
 <body>
   <!-- navbar start -->
+  
   <nav class="navbar">
     <div class="navbar-center">
-      <div id="mySidenav" class="sidenav">
-        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-        <a href="#">About</a>
-        <a id="banner-btn">Create Restaurant</a>
-        <a class="form-button-signup">Sign up</a>
-        <a class="form-button-signin">Sign in</a>
+<!-- side navbar start -->
+      <div class="nav-sidebar">
+        <div id="mySidenav" class="sidenav">
+          <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+          <a href="#">About</a>
+          <a id="banner-btn">Create Restaurant</a>
+          <a class="form-button-signup">Sign up</a>
+          <a class="form-button-signin">Sign in</a>
+        </div>
+        <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;</span>
       </div>
-      <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; open</span>
-      <img src="images/logo.jpeg" alt="store logo" />
+<!-- side navbar end -->
+
+<!-- logo navbar start -->
+      <div class="nav-logo">
+        <img src="images/logo.jpeg" alt="store logo" />
+      </div>
+<!-- logo navbar end -->
+
+<!-- user profile navbar start -->
+      <div class="nav-profile">
+        <i class="fas fa-user-circle"></i>
+      </div>
+<!-- user profile navbar end -->
     </div>
   </nav>
+
+
   <!-- end navbar -->
   <!-- start of hero -->
   <header class="hero">
     <div class="banner">
       <h1 class="banner-title">Test Collection</h1>
+      <button id="form-button-signup">Sign up</button>
       <!-- <button id="banner-btn">Create Restaurant</button> -->
     </div>
       <div class="create-modal">
