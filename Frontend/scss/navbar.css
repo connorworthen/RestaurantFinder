@@ -107,7 +107,7 @@
 /* ------------end of dropdown navbar----------------- */
 
 /* ------------start of signup modal navbar------------ */
-.signin-modal {
+.signup-modal {
   display: none;
   position: fixed;
   z-index: 1;
@@ -120,7 +120,7 @@
   transform: translate(-50%, -50%);
 }
 
-.signin-form {
+.signup-form {
   position: relative;
   background-color: #fefefe;
   margin: auto;

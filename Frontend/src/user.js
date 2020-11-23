@@ -35,13 +35,13 @@ class User {
   static createUser() {
     document.getElementById("form-button-signup").onclick = () => {
       User.renderNewUser();
-      document.getElementsByClassName("signin-modal")[0].style.display =
+      document.getElementsByClassName("signup-modal")[0].style.display =
         "block";
     };
   }
 
   static renderNewUser() {
-    document.getElementsByClassName("signin-form")[0].innerHTML = `
+    document.getElementsByClassName("signup-form")[0].innerHTML = `
       <form class="form-box">
         <div class="close-form">&times;</div>
         <h2 class="form-title">Welcome, sign up below!</h2>
@@ -57,10 +57,9 @@ class User {
           <input type="submit" class="form-button" value="Create Account">
       </form>
     `;
-    // Restaurant.renderPostNewRestaurant();
     document.querySelector(".close-form").onclick = () => {
       document.querySelector(".close-form").style.display = "none";
-      document.getElementsByClassName("signin-modal")[0].style.display = "none";
+      document.getElementsByClassName("signup-modal")[0].style.display = "none";
     }
   }
 }
