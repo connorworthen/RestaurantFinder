@@ -12,26 +12,6 @@ class User {
     this.password = password
   }
 
-  static fetchUsers() {
-    fetch(userUrl)
-      .then((response) => response.json())
-      .then((userData) => {
-        for (const user of userData) {
-          let newUser = new User(
-            user["id"],
-            user["first_name"],
-            user["last_name"],
-            user["email"],
-            user["password"],
-          );
-          // newRestaurant.renderRestaurant();
-          // Restaurant.instances.push(newRestaurant);
-        }
-        // Restaurant.addRestaurantModal();
-        User.createUser();
-      });
-  }
-
   static createUser() {
     document.getElementById("form-button-signup").onclick = () => {
       User.renderNewUser();
@@ -57,11 +37,26 @@ class User {
           <input type="submit" class="form-button" value="Create Account">
       </form>
     `;
-    document.querySelector(".close-form").onclick = () => {
-      document.querySelector(".close-form").style.display = "none";
+    // document.querySelector(".close-form").onclick = () => {
+    //   document.querySelector(".close-form").style.display = "none";
+    //   document.getElementsByClassName("signup-modal")[0].style.display = "none";
+    // }
+    User.renderPostSignup();
+  }
+
+  static renderPostSignup() {
+    const formBox = document.getElementsByClassName('form-box');
+    // debugger
+    formBox.onsubmit = function(e) {
+      e.preventDefault();
+      const request = new XMLHttpRequest();
+      request.open('POST', userUrl)
+      const formData = new FormData(document.getElementsByClassName("form-box"))
+      request.send(formData);
       document.getElementsByClassName("signup-modal")[0].style.display = "none";
     }
-  }
+  };
+
 
   static signinUser() {
     document.getElementById("form-button-signin").onclick = () => {
