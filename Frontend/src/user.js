@@ -58,6 +58,10 @@ class User {
       </form>
     `;
     // Restaurant.renderPostNewRestaurant();
+    document.querySelector(".close-form").onclick = () => {
+      document.querySelector(".close-form").style.display = "none";
+      document.getElementsByClassName("signin-modal")[0].style.display = "none";
+    }
   }
 }
 
