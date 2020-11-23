@@ -62,6 +62,33 @@ class User {
       document.getElementsByClassName("signup-modal")[0].style.display = "none";
     }
   }
+
+  static signinUser() {
+    document.getElementById("form-button-signin").onclick = () => {
+      User.renderCurrentUser();
+      document.getElementsByClassName("signin-modal")[0].style.display =
+        "block";
+    };
+  }
+
+  static renderCurrentUser() {
+    document.getElementsByClassName("signin-form")[0].innerHTML = `
+      <form class="form-box-signin">
+        <div class="close-form-signin">&times;</div>
+        <h2 class="form-title-signin">Welcome back! Sign in below</h2>
+
+          <input type="text" placeholder="Enter Email *" class="form-input-signin" value="">
+
+          <input type="text" placeholder="Password *" class="form-input-signin" value="" style="background-image: url(&quot;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAACIUlEQVQ4EX2TOYhTURSG87IMihDsjGghBhFBmHFDHLWwSqcikk4RRKJgk0KL7C8bMpWpZtIqNkEUl1ZCgs0wOo0SxiLMDApWlgOPrH7/5b2QkYwX7jvn/uc//zl3edZ4PPbNGvF4fC4ajR5VrNvt/mo0Gr1ZPOtfgWw2e9Lv9+chX7cs64CS4Oxg3o9GI7tUKv0Q5o1dAiTfCgQCLwnOkfQOu+oSLyJ2A783HA7vIPLGxX0TgVwud4HKn0nc7Pf7N6vV6oZHkkX8FPG3uMfgXC0Wi2vCg/poUKGGcagQI3k7k8mcp5slcGswGDwpl8tfwGJg3xB6Dvey8vz6oH4C3iXcFYjbwiDeo1KafafkC3NjK7iL5ESFGQEUF7Sg+ifZdDp9GnMF/KGmfBdT2HCwZ7TwtrBPC7rQaav6Iv48rqZwg+F+p8hOMBj0IbxfMdMBrW5pAVGV/ztINByENkU0t5BIJEKRSOQ3Aj+Z57iFs1R5NK3EQS6HQqF1zmQdzpFWq3W42WwOTAf1er1PF2USFlC+qxMvFAr3HcexWX+QX6lUvsKpkTyPSEXJkw6MQ4S38Ljdbi8rmM/nY+CvgNcQqdH6U/xrYK9t244jZv6ByUOSiDdIfgBZ12U6dHEHu9TpdIr8F0OP692CtzaW/a6y3y0Wx5kbFHvGuXzkgf0xhKnPzA4UTyaTB8Ph8AvcHi3fnsrZ7Wore02YViqVOrRXXPhfqP8j6MYlawoAAAAASUVORK5CYII=&quot;); background-repeat: no-repeat; background-attachment: scroll; background-size: 16px 18px; background-position: 98% 50%; cursor: auto;">
+          
+          <input type="submit" class="form-button-signin" value="Create Account">
+      </form>
+    `;
+    document.querySelector(".close-form-signin").onclick = () => {
+      document.querySelector(".close-form-signin").style.display = "none";
+      document.getElementsByClassName("signin-modal")[0].style.display = "none";
+    }
+  }
 }
 
 function openNav() {
