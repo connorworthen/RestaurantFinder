@@ -53,43 +53,41 @@ class User {
           <input type="submit" class="form-button" value="Create Account">
       </form>
     `;
-    // document.querySelector(".close-form").onclick = () => {
-    //   document.querySelector(".close-form").style.display = "none";
-    //   document.getElementsByClassName("signup-modal")[0].style.display = "none";
-    // }
+    document.querySelector(".close-form").onclick = () => {
+      document.querySelector(".close-form").style.display = "none";
+      document.getElementsByClassName("signup-modal")[0].style.display = "none";
+    }
     User.renderPostSignup();
   }
 
   static renderPostSignup() {
     document.getElementById('form-box').onsubmit = function(e) {
     let configObj = {
-            method: "POST",
-            headers: {
-                'Content-Type': 'application/json'
-            },
+      method: "POST",
+      headers: {
+        'Content-Type': 'application/json'
+      },
             
-            body: JSON.stringify({
-                
-                user: {
-                    first_name: e.target['first_name'].value,
-                    last_name: e.target['last_name'].value,
-                    email: e.target['email'].value,
-                    password: e.target['password'].value
-                }    
-            })
+      body: JSON.stringify({    
+        user: {
+          first_name: e.target['first_name'].value,
+          last_name: e.target['last_name'].value,
+          email: e.target['email'].value,
+          password: e.target['password'].value
+        }    
+      })
     };
 
     fetch(userUrl, configObj) 
       .then((response) => response.json())
       .then((userData) => {
         let newSignup = new Signup(
-            userData['data']['id'], 
-            userData['data']['attributes']['first_name'], 
-            userData['data']['attributes']['last_name'], 
-            userData['data']['attributes']['email'],
-            userData['data']['attributes']['password']
+          userData['data']['id'], 
+          userData['data']['attributes']['first_name'], 
+          userData['data']['attributes']['last_name'], 
+          userData['data']['attributes']['email'],
+          userData['data']['attributes']['password']
         )
-        document.getElementsByClassName("signup-modal")[0].style.display = "none";
         User.instances.push(newSignup)
       })
     }
