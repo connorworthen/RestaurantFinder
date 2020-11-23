@@ -1,4 +1,4 @@
-const userUrl = "http://localhost:3000/users";
+const userUrl = "http://localhost:3000/signup";
 class User {
   constructor(
     first_name,
@@ -12,23 +12,21 @@ class User {
     this.password = password
   }
 
-  static fetchUsers() {
-    fetch(userUrl)
-      .then((response) => response.json())
-      .then((userData) => {
-        for (const user of userData) {
-          let newUser = new User(
-            user["first_name"],
-            user["last_name"],
-            user["email"],
-            user["password"]
-          );
-          // newUser.renderUser();
-          User.instances.push(newUser);
-        }
-        User.createUser();
-      });
-  }
+  // static fetchUsers() {
+  //   fetch(userUrl)
+  //     .then((response) => response.json())
+  //     .then((userData) => {
+  //         let newUser = new User(
+  //           userData["first_name"],
+  //           userData["last_name"],
+  //           userData["email"],
+  //           userData["password"]
+  //         );
+  //         // newUser.renderUser();
+  //         User.createUser();
+  //         User.instances.push(newUser);
+  //       })
+  //     }
 
   static createUser() {
     document.getElementById("form-button-signup").onclick = () => {
@@ -40,7 +38,7 @@ class User {
 
   static renderNewUser() {
     document.getElementsByClassName("signup-form")[0].innerHTML = `
-      <form class="form-box">
+      <form class="form-box" id="form-box">
         <div class="close-form">&times;</div>
         <h2 class="form-title">Welcome, sign up below!</h2>
 
@@ -55,21 +53,21 @@ class User {
           <input type="submit" class="form-button" value="Create Account">
       </form>
     `;
-    document.querySelector(".close-form").onclick = () => {
-      document.querySelector(".close-form").style.display = "none";
-      document.getElementsByClassName("signup-modal")[0].style.display = "none";
-    }
+    // document.querySelector(".close-form").onclick = () => {
+    //   document.querySelector(".close-form").style.display = "none";
+    //   document.getElementsByClassName("signup-modal")[0].style.display = "none";
+    // }
     User.renderPostSignup();
   }
 
   static renderPostSignup() {
-    const formBox = document.getElementsByClassName('form-box');
-    // debugger
+    const formBox = document.getElementById("form-box");
     formBox.onsubmit = function(e) {
       e.preventDefault();
       const request = new XMLHttpRequest();
       request.open('POST', userUrl)
-      const formData = new FormData(document.getElementsByClassName("form-box"))
+      const formData = new FormData(document.getElementById("form-box"))
+      debugger
       request.send(formData);
       document.getElementsByClassName("signup-modal")[0].style.display = "none";
     }
