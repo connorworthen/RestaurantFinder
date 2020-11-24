@@ -66,18 +66,16 @@ class User {
     fetch(signupUrl, configObj) 
       .then((response) => response.json())
       .then((userData) => {
-        let newSignup = new Signup(
-          userData['data']['id'], 
-          userData['data']['attributes']['first_name'], 
-          userData['data']['attributes']['last_name'], 
-          userData['data']['attributes']['email'],
-          userData['data']['attributes']['password']
-        )
-        User.instances.push(newSignup)
+        User.currentUser = new User(userData['user']["data"]["attributes"]["first_name"], userData['user']["data"]["attributes"]["last_name"], userData['user']["data"]["attributes"]["email"], userData['user']["data"]["attributes"]["password"])
+          localStorage.setItem('jwt_token', user_data.jwt)
+          localStorage.setItem('user_id', User.currentUser.id)
+          localStorage.setItem('first_name', User.first_name)
+          localStorage.setItem('last_name', User.last_name)
+          localStorage.setItem('last_name', User.email)
+          localStorage.setItem('last_name', User.password)
       })
     }
   }
-
 
   static signinUser() {
     document.getElementById("form-button-signin").onclick = () => {
@@ -97,13 +95,14 @@ class User {
 
           <input type="password" name="password" placeholder="Password *" class="form-input" style="background-image: url(&quot;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAACIUlEQVQ4EX2TOYhTURSG87IMihDsjGghBhFBmHFDHLWwSqcikk4RRKJgk0KL7C8bMpWpZtIqNkEUl1ZCgs0wOo0SxiLMDApWlgOPrH7/5b2QkYwX7jvn/uc//zl3edZ4PPbNGvF4fC4ajR5VrNvt/mo0Gr1ZPOtfgWw2e9Lv9+chX7cs64CS4Oxg3o9GI7tUKv0Q5o1dAiTfCgQCLwnOkfQOu+oSLyJ2A783HA7vIPLGxX0TgVwud4HKn0nc7Pf7N6vV6oZHkkX8FPG3uMfgXC0Wi2vCg/poUKGGcagQI3k7k8mcp5slcGswGDwpl8tfwGJg3xB6Dvey8vz6oH4C3iXcFYjbwiDeo1KafafkC3NjK7iL5ESFGQEUF7Sg+ifZdDp9GnMF/KGmfBdT2HCwZ7TwtrBPC7rQaav6Iv48rqZwg+F+p8hOMBj0IbxfMdMBrW5pAVGV/ztINByENkU0t5BIJEKRSOQ3Aj+Z57iFs1R5NK3EQS6HQqF1zmQdzpFWq3W42WwOTAf1er1PF2USFlC+qxMvFAr3HcexWX+QX6lUvsKpkTyPSEXJkw6MQ4S38Ljdbi8rmM/nY+CvgNcQqdH6U/xrYK9t244jZv6ByUOSiDdIfgBZ12U6dHEHu9TpdIr8F0OP692CtzaW/a6y3y0Wx5kbFHvGuXzkgf0xhKnPzA4UTyaTB8Ph8AvcHi3fnsrZ7Wore02YViqVOrRXXPhfqP8j6MYlawoAAAAASUVORK5CYII=&quot;); background-repeat: no-repeat; background-attachment: scroll; background-size: 16px 18px; background-position: 98% 50%; cursor: auto;">
           
-          <input type="submit" class="form-button-signin" value="Create Account">
+          <input type="submit" class="form-button-signin" value="Login">
       </form>
     `;
     document.querySelector(".close-form-signin").onclick = () => {
       document.querySelector(".close-form-signin").style.display = "none";
       document.getElementsByClassName("signin-modal")[0].style.display = "none";
     }
+    User.renderPostSignin();
   }
 
   static renderPostSignin() {
@@ -125,11 +124,11 @@ class User {
     fetch(signinUrl, configObj) 
       .then((response) => response.json())
       .then((userData) => {
-        let newSignin = new Signin(
-          userData['data']['attributes']['email'],
-          userData['data']['attributes']['password']
-        )
-        User.instances.push(newSignin)
+        User.currentUser = new User(userData['user']["data"]["attributes"]["email"], userData['user']["data"]["attributes"]["password"])
+          localStorage.setItem('jwt_token', user_data.jwt)
+          localStorage.setItem('user_id', User.currentUser.id)
+          localStorage.setItem('last_name', User.email)
+          localStorage.setItem('last_name', User.password)
       })
     }
   }
