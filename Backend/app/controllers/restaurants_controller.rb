@@ -11,9 +11,6 @@ class RestaurantsController < ApplicationController
     render :json => restaurant, status: :accepted
   end
 
-  def show
-  end
-
   private
 
   def restaurant_params
