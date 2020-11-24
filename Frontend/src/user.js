@@ -107,6 +107,7 @@ class User {
 
   static renderPostSignin() {
     document.getElementById('form-box-signin').onsubmit = function(e) {
+    debugger
     let configObj = {
       method: "POST",
       headers: {
@@ -124,12 +125,23 @@ class User {
     fetch(signinUrl, configObj) 
       .then((response) => response.json())
       .then((userData) => {
+        debugger
         User.currentUser = new User(userData['user']["data"]["attributes"]["email"], userData['user']["data"]["attributes"]["password"])
           localStorage.setItem('jwt_token', user_data.jwt)
           localStorage.setItem('user_id', User.currentUser.id)
           localStorage.setItem('last_name', User.email)
           localStorage.setItem('last_name', User.password)
       })
+    }
+  }
+
+  static checkPostSignin() {
+    if (User.currentUser.id !== undefined) {
+      console.log("pass")
+      return true
+    } else {
+      console.log("fail")
+      return false
     }
   }
 
