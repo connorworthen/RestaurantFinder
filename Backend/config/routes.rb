@@ -1,10 +1,8 @@
 Rails.application.routes.draw do
-  # resources :restaurants, only: [:create, :index, :show]
-  # resources :users, only: [:create]
-  # get '/signup', to: 'users#new'
+  resources :users, only: [:create]
   post '/signup', to: 'users#create' 
-  # get '/login', to: 'sessions#login'
-  post '/login', to: 'sessions#create'
+  post '/login', to: 'users#login'
+  get '/auto_login', to: 'users#login'
   delete '/logout', to: 'sessions#destroy'
   
   resources :restaurants
