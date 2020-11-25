@@ -119,7 +119,7 @@ class User {
           email: e.target['email'].value,
           password: e.target['password'].value
         }    
-      })
+      })  
     };
 
     fetch(signinUrl, configObj) 
