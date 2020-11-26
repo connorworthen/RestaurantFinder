@@ -91,32 +91,31 @@ class Restaurant {
 
   static renderNewRestaurant() {
     document.getElementsByClassName("modal-title")[0].innerHTML = `
-      <form id="formElem">
-  <h1>Create New Restaurant</h1><br>
-          <label for="name"><i class="fa fa-user"></i> Restaurant Name:</label>
-          <input type="text" name="name"></input><br><br>
-          
-          <label for="category"><i class="fa fa-cutlery" aria-hidden="true"></i> Category:</label>
-          <input type="text" name="category"></input><br><br>
+      <form class="formElem" id="formElem">
+        <div class="close-form-restaurant">&times;</div>
+        <h2 class="new-restaurant">Create New Restaurant</h2>
+        
+          <input type="text" name="name" placeholder="Restaurant Name *" class="form-restaurant">
 
-          <label for="address"><i class="fa fa-address-card-o"></i> Address:</label>
-          <input type="text" name="address""></input><br><br>
+          <input type="text" name="category" placeholder="Category *" class="form-restaurant">
 
-          <label for="price_range"><i class="fa fa-money" aria-hidden="true"></i> Price Range:</label>
-          <input type="number" name="price_range" min="1" max="3"></input><br><br>
+          <input type="address" name="address" placeholder="Address *" class="form-restaurant">
 
-          <label for="opening_time"><i class="fa fa-clock-o" aria-hidden="true"></i> Opening Time:</label>
-          <input type="time" name="opening_time"></input><br><br>
+          <input type="number" name="price Range" placeholder="Price Range 1-3 *" class="form-restaurant">
 
-          <label for="closing_time"><i class="fa fa-clock-o" aria-hidden="true"></i> Closing Time:</label>
-          <input type="time" name="closing_time""></input><br><br>
-   
-          <label for="img"><i class="fa fa-file-image-o" aria-hidden="true"></i> Image:</label>
-          <input type="file" name="image"></input><br><br>
-          
-          <input type="submit"></input>
+          <input type="time" name="opening_time" class="form-restaurant">
+
+          <input type="time" name="closing_time" class="form-restaurant">
+
+          <input type="file" name="image" class="form-restaurant">
+
+          <input type="submit" class="form-submit" value="Submit"></input>
       </form>
     `;
+    document.querySelector(".close-form-restaurant").onclick = () => {
+      document.querySelector(".close-form-restaurant").style.display = "none";
+      document.getElementsByClassName("create-modal")[0].style.display = "none";
+    }
     Restaurant.renderPostNewRestaurant();
   }
 
