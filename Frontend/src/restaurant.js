@@ -42,11 +42,11 @@ class Restaurant {
         document.getElementsByClassName("modal")[0].style.display = "block";
         document.getElementById("restaurant-name").innerHTML += `<h2 class="restaurant-display-name">${restaurant.name}</h2>`;
         document.getElementById("category").innerHTML += `
-        <h5 class="restaurant-input">${restaurant.address}</h5>
-        <h5 class="restaurant-input">${restaurant.category}</h5>
-        <h5 class="restaurant-input">${restaurant.price_range}</h5>
-        <h5 class="restaurant-input">${restaurant.opening_time}</h5>
-        <h5 class="restaurant-input">${restaurant.closing_time}</h5>
+        <label class="restaurant-input">${restaurant.address}</label>
+        <label class="restaurant-input">${restaurant.category}</label>
+        <label class="restaurant-input">${restaurant.price_range}</label>
+        <label type="time" class="restaurant-input">${restaurant.opening_time}</label>
+        <h5>Price Range <i class="far fa-clock"></i> ${restaurant.closing_time}</h5>
         `;
         document.querySelector(".close-btn").style.display = "block";
       };
