@@ -40,12 +40,8 @@ class Restaurant {
     for (const restaurant of Restaurant.instances) {
       document.getElementById(`${restaurant.id}`).onclick = () => {
         document.getElementsByClassName("modal")[0].style.display = "block";
-        document.getElementById(
-          "restaurant-name"
-        ).innerHTML += `${restaurant.name}`;
-        document.getElementById(
-          "category"
-        ).innerHTML += `${restaurant.category}, ${restaurant.address}, ${restaurant.price_range}, ${restaurant.opening_time}, ${restaurant.closing_time}`;
+        document.getElementById("restaurant-name").innerHTML += `<h2 class="restaurant-display-name">${restaurant.name}</h2>`;
+        document.getElementById("category").innerHTML += `${restaurant.category}`;
         document.querySelector(".close-btn").style.display = "block";
       };
       document.querySelector(".close-btn").onclick = () => {
