@@ -41,7 +41,13 @@ class Restaurant {
       document.getElementById(`${restaurant.id}`).onclick = () => {
         document.getElementsByClassName("modal")[0].style.display = "block";
         document.getElementById("restaurant-name").innerHTML += `<h2 class="restaurant-display-name">${restaurant.name}</h2>`;
-        document.getElementById("category").innerHTML += `${restaurant.category}`;
+        document.getElementById("category").innerHTML += `
+        <h5 class="restaurant-input">${restaurant.address}</h5>
+        <h5 class="restaurant-input">${restaurant.category}</h5>
+        <h5 class="restaurant-input">${restaurant.price_range}</h5>
+        <h5 class="restaurant-input">${restaurant.opening_time}</h5>
+        <h5 class="restaurant-input">${restaurant.closing_time}</h5>
+        `;
         document.querySelector(".close-btn").style.display = "block";
       };
       document.querySelector(".close-btn").onclick = () => {
