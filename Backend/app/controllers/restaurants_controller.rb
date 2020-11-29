@@ -1,7 +1,7 @@
 require 'pry'
 class RestaurantsController < ApplicationController
   
-  skip_before_action :authorized, only: [:index]
+  skip_before_action :authorized, only: [:index, :create]
 
   def index
     render json: Restaurant.all
