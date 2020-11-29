@@ -1,7 +1,7 @@
 class RestaurantSerializer < ActiveModel::Serializer  
   include Rails.application.routes.url_helpers
   
-  attributes :id, :name, :phone_number, :address, :open, :close, :price, :category, :image
+  attributes :id, :name, :phone_number, :address, :hours, :price, :category, :image
 
   def image
     return unless object.image.attached?

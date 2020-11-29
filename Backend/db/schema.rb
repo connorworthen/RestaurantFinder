@@ -54,8 +54,7 @@ ActiveRecord::Schema.define(version: 2020_10_22_210150) do
     t.string "name"
     t.string "phone_number"
     t.string "address"
-    t.string "open"
-    t.string "close"
+    t.string "hours"
     t.string "price"
     t.string "category"
     t.datetime "created_at", precision: 6, null: false
