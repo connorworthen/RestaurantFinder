@@ -1,5 +1,6 @@
 class UserSerializer < ActiveModel::Serializer
-  attributes :id, :email, :password
+  include FastJsonapi::ObjectSerializer
+  attributes :id, :email
 
   # def likedRestaurants
   #   object.findlikedRestaurants

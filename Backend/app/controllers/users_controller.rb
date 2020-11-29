@@ -1,32 +1,22 @@
 class UsersController < ApplicationController
-  before_action :authorized, only: [:auto_login]
+  # before_action :authorized, only: [:auto_login]
 
-  # REGISTER
-  def create
-    @user = User.create(user_params)
-    if @user.valid?
-      token = encode_token({user_id: @user.id})
-      render json: {user: @user, token: token}
+  def create 
+    user = User.create(user_params)
+    if user.valid?
+      render json: UserSerializer.new(user)
     else
-      render json: {error: "Invalid username or password"}
+      render json: {message: "Something went wrong"}
     end
   end
 
-  # LOGGING IN
-  def login
-    @user = User.find_by(email: params[:email])
-
-    if @user && @user.authenticate(params[:password])
-      token = encode_token({user_id: @user.id})
-      render json: {user: @user, token: token}
+  def session
+    user = User.find_by(email: params[:user][:email])
+    if user.try(:authenticate, params[:password])
+      render json: UserSerializer.new(user)
     else
-      render json: {error: "Invalid username or password"}
+      render json: {message: "No User Found."}
     end
-  end
-
-
-  def auto_login
-    render json: @user
   end
 
   private
