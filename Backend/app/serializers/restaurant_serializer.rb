@@ -1,17 +1,7 @@
-class RestaurantSerializer < ActiveModel::Serializer
-  # extend ActiveModel::Naming
-  # include ActiveModel::Conversion
-  # def persisted?
-  #   false
-  # end
-  # include FastJsonapi::ObjectSerializer
+class RestaurantSerializer < ActiveModel::Serializer  
   include Rails.application.routes.url_helpers
   
-  attributes :id, :name, :address, :category, :price, :day_of_week, :open, :close, :image
-  
-  # def image
-  #   rails_blob_path(object.image, only_path: true) if object.image.attached?
-  # end
+  attributes :id, :name, :phone_number, :address, :open, :close, :price, :category, :image
 
   def image
     return unless object.image.attached?
