@@ -6,18 +6,20 @@ class Restaurant {
     name,
     address,
     category,
-    price_range,
-    closing_time,
-    opening_time
+    price,
+    day_of_week,
+    open,
+    close
   ) {
     this.image = image;
     this.id = id;
     this.name = name;
     this.address = address;
     this.category = category;
-    this.price_range = price_range;
-    this.opening_time = opening_time;
-    this.closing_time = closing_time;
+    this.price = price
+    this.day_of_week = day_of_week
+    this.open = open
+    this.close = close
   }
 
   renderRestaurant() {
@@ -42,11 +44,12 @@ class Restaurant {
         document.getElementsByClassName("modal")[0].style.display = "block";
         document.getElementById("restaurant-name").innerHTML += `<h2 class="restaurant-display-name">${restaurant.name}</h2>`;
         document.getElementById("category").innerHTML += `
-        <div><h5>Category <i class="fas fa-layer-group"></i></h5> ${restaurant.category}</div>
-        <h5>Address <i class="fas fa-map-marked"></i> ${restaurant.address}</h5>
-        <h5>Price Range <i class="fas fa-dollar-sign"></i> ${restaurant.price_range}</h5>
-        <h5>Opening Time <i class="far fa-clock"></i> ${restaurant.opening_time}</h5>
-        <h5>Closing Time <i class="far fa-clock"></i> ${restaurant.closing_time}</h5>
+        <div><h5>Address <i class="fas fa-layer-group"></i></h5> ${restaurant.category}</div>
+        <h5>Category <i class="fas fa-map-marked"></i> ${restaurant.address}</h5>
+        <h5>Price Range <i class="fas fa-map-marked"></i> ${restaurant.price}</h5>
+        <h5>Business Days <i class="far fa-clock"></i> ${restaurant.day_of_week}</h5>
+        <h5>Opening Time <i class="far fa-clock"></i> ${restaurant.open}</h5>
+        <h5>Closing Time <i class="fas fa-dollar-sign"></i> ${restaurant.close}</h5>
         `;
         document.querySelector(".close-btn").style.display = "block";
       };
@@ -70,9 +73,10 @@ class Restaurant {
             restaurant["name"],
             restaurant["category"],
             restaurant["address"],
-            restaurant["price_range"],
-            restaurant["opening_time"],
-            restaurant["closing_time"]
+            restaurant["price"],
+            restaurant["day_of_week"],
+            restaurant["open"],
+            restaurant["close"]
           );
           newRestaurant.renderRestaurant();
           Restaurant.instances.push(newRestaurant);
@@ -102,11 +106,13 @@ class Restaurant {
 
           <input type="address" name="address" placeholder="Address *" class="form-restaurant">
 
-          <input type="number" name="price Range" placeholder="Price Range 1-3 *" class="form-restaurant">
+          <input type="price" name="price" placeholder="Price Range $-$$$ *" class="form-restaurant">
 
-          <input type="time" name="opening_time" class="form-restaurant">
+          <input type="string" name="day_of_week" placeholder="Days of week open/closed *" class="form-restaurant">
 
-          <input type="time" name="closing_time" class="form-restaurant">
+          <input type="time" name="open" class="form-restaurant">
+
+          <input type="time" name="close" class="form-restaurant">
 
           <input type="file" name="image" class="form-restaurant">
 
