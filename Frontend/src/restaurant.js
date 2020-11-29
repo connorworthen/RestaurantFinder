@@ -42,11 +42,11 @@ class Restaurant {
         document.getElementsByClassName("modal")[0].style.display = "block";
         document.getElementById("restaurant-name").innerHTML += `<h2 class="restaurant-display-name">${restaurant.name}</h2>`;
         document.getElementById("category").innerHTML += `
-        <label class="restaurant-input">${restaurant.address}</label>
-        <label class="restaurant-input">${restaurant.category}</label>
-        <label class="restaurant-input">${restaurant.price_range}</label>
-        <label type="time" class="restaurant-input">${restaurant.opening_time}</label>
-        <h5>Price Range <i class="far fa-clock"></i> ${restaurant.closing_time}</h5>
+        <div><h5>Category <i class="fas fa-layer-group"></i></h5> ${restaurant.category}</div>
+        <h5>Address <i class="fas fa-map-marked"></i> ${restaurant.address}</h5>
+        <h5>Price Range <i class="fas fa-dollar-sign"></i> ${restaurant.price_range}</h5>
+        <h5>Opening Time <i class="far fa-clock"></i> ${restaurant.opening_time}</h5>
+        <h5>Closing Time <i class="far fa-clock"></i> ${restaurant.closing_time}</h5>
         `;
         document.querySelector(".close-btn").style.display = "block";
       };
@@ -70,7 +70,6 @@ class Restaurant {
             restaurant["name"],
             restaurant["category"],
             restaurant["address"],
-            restaurant["category"],
             restaurant["price_range"],
             restaurant["opening_time"],
             restaurant["closing_time"]
