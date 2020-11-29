@@ -52,12 +52,12 @@ ActiveRecord::Schema.define(version: 2020_10_22_210150) do
 
   create_table "restaurants", force: :cascade do |t|
     t.string "name"
+    t.string "phone_number"
     t.string "address"
-    t.string "category"
-    t.integer "day_of_week"
-    t.time "open"
-    t.time "close"
+    t.string "open"
+    t.string "close"
     t.string "price"
+    t.string "category"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
