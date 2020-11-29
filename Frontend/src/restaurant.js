@@ -42,12 +42,15 @@ class Restaurant {
         document.getElementsByClassName("modal")[0].style.display = "block";
         document.getElementById("restaurant-name").innerHTML += `<h2 class="restaurant-display-name">${restaurant.name}</h2>`;
         document.getElementById("category").innerHTML += `
-        <div><h5>Address <i class="fas fa-layer-group"></i></h5> ${restaurant.category}</div>
-        <h5>Category <i class="fas fa-map-marked"></i> ${restaurant.address}</h5>
-        <h5>Price Range <i class="fas fa-map-marked"></i> ${restaurant.price}</h5>
-        <h5>Business Days <i class="far fa-clock"></i> ${restaurant.day_of_week}</h5>
-        <h5>Opening Time <i class="far fa-clock"></i> ${restaurant.open}</h5>
-        <h5>Closing Time <i class="fas fa-dollar-sign"></i> ${restaurant.close}</h5>
+        <div><h5>Phone Number <i class="fas fa-phone"></i></h5> ${restaurant.phone_number}</div><br>
+
+        <div><h5>Address <i class="fas fa-map-pin"></i></h5> ${restaurant.address}</div><br>
+
+        <div><h5>Hours <i class="fas fa-business-time"></i></h5> ${restaurant.hours}</div><br>
+
+        <div><h5>Price $-$$$ <i class="fas fa-money-bill-wave"></i></h5> ${restaurant.price}</div><br>
+
+        <div><h5>Category <i class="fas fa-columns"></i></h5> ${restaurant.category}</div>
         `;
         document.querySelector(".close-btn").style.display = "block";
       };
