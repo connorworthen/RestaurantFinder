@@ -4,22 +4,22 @@ class Restaurant {
     image,
     id,
     name,
+    phone_number,
     address,
-    category,
-    price,
-    day_of_week,
     open,
-    close
+    close,
+    price,
+    category
   ) {
     this.image = image;
     this.id = id;
     this.name = name;
+    this.phone_number = phone_number;
     this.address = address;
-    this.category = category;
+    this.open = open;
+    this.close = close;
     this.price = price
-    this.day_of_week = day_of_week
-    this.open = open
-    this.close = close
+    this.category = category;
   }
 
   renderRestaurant() {
