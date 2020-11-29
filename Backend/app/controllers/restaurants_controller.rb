@@ -16,7 +16,7 @@ class RestaurantsController < ApplicationController
   private
 
   def restaurant_params
-    params.permit(:name, :address, :category, :closing_time, :opening_time, :price_range, :image)
+    params.permit(:name, :address, :category, :day_of_week, :open, :close, :price, :image)
     # , menu_attributes: [:appetizers, :entrees, :desserts, :drinks, :description]
   end
   
