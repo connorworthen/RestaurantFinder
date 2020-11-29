@@ -6,8 +6,7 @@ class Restaurant {
     name,
     phone_number,
     address,
-    open,
-    close,
+    hours,
     price,
     category
   ) {
@@ -16,8 +15,7 @@ class Restaurant {
     this.name = name;
     this.phone_number = phone_number;
     this.address = address;
-    this.open = open;
-    this.close = close;
+    this.hours = hours;
     this.price = price
     this.category = category;
   }
@@ -71,12 +69,11 @@ class Restaurant {
             restaurant["image"]["url"],
             restaurant["id"],
             restaurant["name"],
-            restaurant["category"],
+            restaurant["phone_number"],
             restaurant["address"],
+            restaurant["hours"],
             restaurant["price"],
-            restaurant["day_of_week"],
-            restaurant["open"],
-            restaurant["close"]
+            restaurant["category"]
           );
           newRestaurant.renderRestaurant();
           Restaurant.instances.push(newRestaurant);
@@ -102,17 +99,15 @@ class Restaurant {
         
           <input type="text" name="name" placeholder="Restaurant Name *" class="form-restaurant">
 
-          <input type="text" name="category" placeholder="Category *" class="form-restaurant">
+          <input type="text" name="phone_number" placeholder="Phone Number *" class="form-restaurant">
 
           <input type="address" name="address" placeholder="Address *" class="form-restaurant">
 
+          <input type="text" name="hours" placeholder="Restaurant Hours ex. 10:00 A.M. - 9:00 P.M. *" class="form-restaurant" rows = "5">
+
           <input type="price" name="price" placeholder="Price Range $-$$$ *" class="form-restaurant">
 
-          <input type="string" name="day_of_week" placeholder="Days of week open/closed *" class="form-restaurant">
-
-          <input type="time" name="open" class="form-restaurant">
-
-          <input type="time" name="close" class="form-restaurant">
+          <input type="category" name="category" placeholder="Category *" class="form-restaurant">
 
           <input type="file" name="image" class="form-restaurant">
 
