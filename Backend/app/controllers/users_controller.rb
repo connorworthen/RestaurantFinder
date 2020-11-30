@@ -1,28 +1,38 @@
+require 'pry'
 class UsersController < ApplicationController
-  # before_action :authorized, only: [:auto_login]
+  skip_before_action :authorized, only: [:create]
 
-  def create 
-    user = User.create(user_params)
-    if user.valid?
-      render json: UserSerializer.new(user)
+  def create
+    @user = User.create(user_params)
+    # binding.pry
+    if @user.valid?
+      @token = encode_token(user_id: @user.id)
+      render json: { user: UserSerializer.new(@user), jwt: @token }, status: :created
     else
-      render json: {message: "Something went wrong"}
+      render json: {error: "Invalid username or password"}
     end
   end
 
-  def session
-    user = User.find_by(email: params[:user][:email])
-    if user.try(:authenticate, params[:password])
-      render json: UserSerializer.new(user)
-    else
-      render json: {message: "No User Found."}
-    end
-  end
+  # def login
+  #   @user = User.find_by(email: params[:email])
+  #   if @user && @user.authenticate(params[:password])
+  #     token = encode_token({user_id: @user.id})
+  #     render json: {user: @user, token: token}
+  #   else
+  #     render json: {error: "Invalid username or password"}
+  #   end
+  # end
+
+
+  # def auto_login
+  #   render json: user
+  # end
 
   private
 
   def user_params
-    params.require(:user).permit(:first_name, :last_name, :email, :password)
+    params.require(:user).permit(:username, :password)
+    # params.fetch(:user, {}).permit(:username, :password)
   end
 
 end
