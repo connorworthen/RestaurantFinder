@@ -32,7 +32,11 @@ class Restaurant {
             </div>
             <button id=${this.id}>Click Me!</button>
           <h3>${this.name}</h3>
-        </article>
+          <span>Likes:
+            <span id="likes">Amount of likes</span>
+          </span>
+        <button id="like_button">Like</button>
+      </article>
     `;
   }
 
