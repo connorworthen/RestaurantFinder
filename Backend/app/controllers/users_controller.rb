@@ -26,11 +26,19 @@ class UsersController < ApplicationController
     render json: @user
   end
 
+  def update
+    @user = User.find_by(id: user_id)
+    if @user == current_user
+      render json: {user: UserSerializer.new(@user)} status: :accepted
+    else
+      render :json => {error: "Invalid update. Please try again.", status: :unprocessible_entity}
+    end
+  end
+
   private
 
   def user_params
     params.require(:user).permit(:username, :password)
-    # params.fetch(:user, {}).permit(:username, :password)
   end
 
 end
