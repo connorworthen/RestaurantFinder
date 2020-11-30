@@ -29,7 +29,7 @@ class UsersController < ApplicationController
   def update
     @user = User.find_by(id: user_id)
     if @user == current_user
-      render json: {user: UserSerializer.new(@user)} status: :accepted
+      render json: { user: UserSerializer.new(@user) }, status: :updated
     else
       render :json => {error: "Invalid update. Please try again.", status: :unprocessible_entity}
     end
