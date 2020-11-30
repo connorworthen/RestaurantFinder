@@ -142,10 +142,28 @@ class User {
 // Login end
 
 // profile start
+  static renderProfile() {
+    document.getElementsByClassName("profile-form")[0].innerHTML = `
+      <form class="form-box-profile" id="form-box-profile">
+        <div class="close-form-profile">&times;</div>
+        <h2 class="form-title-profile">User Profile</h2>
+
+          <h4>${User.currentUser.username}</h5>
+          
+          <input type="submit" class="form-button-profile" value="Login">
+      </form>
+    `;
+    document.querySelector(".close-form-profile").onclick = () => {
+      document.querySelector(".close-form-profile").style.display = "none";
+      document.getElementsByClassName("profile-modal")[0].style.display = "none";
+    }
+  }
+
   static userProfile () {
     document.getElementById("form-button-profile").onclick = () => {
-      console.log("success")
-      // document.getElementsByClassName("signup-modal")[0].style.display = "block";
+      User.renderProfile();
+      // User.signinFormHandler();
+      document.getElementsByClassName("profile-modal")[0].style.display ="block";
     };
   }
 // profile end
