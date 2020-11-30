@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", () => {
   User.createUser();
-  // User.createUser();
-  // User.signinUser();  
+  User.signinUser();  
+  User.userProfile();
   Restaurant.instances = [];
   Restaurant.fetchRestaurants();
 });

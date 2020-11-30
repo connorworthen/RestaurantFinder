@@ -8,6 +8,8 @@ class User {
     this.id = id
   }
 
+// Signup Start
+
   static renderNewUser() {
     document.getElementsByClassName("signup-form")[0].innerHTML = `
       <form class="form-box" id="form-box">
@@ -70,21 +72,7 @@ class User {
     }
   }
 
-
-
-
-
-
-
-
-
-  static signinUser() {
-    document.getElementById("form-button-signin").onclick = () => {
-      User.renderCurrentUser();
-      document.getElementsByClassName("signin-modal")[0].style.display =
-        "block";
-    };
-  }
+// Login Start 
 
   static renderCurrentUser() {
     document.getElementsByClassName("signin-form")[0].innerHTML = `
@@ -92,9 +80,9 @@ class User {
         <div class="close-form-signin">&times;</div>
         <h2 class="form-title-signin">Welcome back! Sign in below</h2>
 
-          <input type="username" name="email" placeholder="Enter Email *" class="form-input">
+          <input type="username" id="login_username" placeholder="Username *" class="form-input" style="background-image: url(&quot;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAABHklEQVQ4EaVTO26DQBD1ohQWaS2lg9JybZ+AK7hNwx2oIoVf4UPQ0Lj1FdKktevIpel8AKNUkDcWMxpgSaIEaTVv3sx7uztiTdu2s/98DywOw3Dued4Who/M2aIx5lZV1aEsy0+qiwHELyi+Ytl0PQ69SxAxkWIA4RMRTdNsKE59juMcuZd6xIAFeZ6fGCdJ8kY4y7KAuTRNGd7jyEBXsdOPE3a0QGPsniOnnYMO67LgSQN9T41F2QGrQRRFCwyzoIF2qyBuKKbcOgPXdVeY9rMWgNsjf9ccYesJhk3f5dYT1HX9gR0LLQR30TnjkUEcx2uIuS4RnI+aj6sJR0AM8AaumPaM/rRehyWhXqbFAA9kh3/8/NvHxAYGAsZ/il8IalkCLBfNVAAAAABJRU5ErkJggg==&quot;); background-repeat: no-repeat; background-attachment: scroll; background-size: 16px 18px; background-position: 98% 50%; cursor: auto;">
 
-          <input type="password" name="password" placeholder="Password *" class="form-input" style="background-image: url(&quot;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAACIUlEQVQ4EX2TOYhTURSG87IMihDsjGghBhFBmHFDHLWwSqcikk4RRKJgk0KL7C8bMpWpZtIqNkEUl1ZCgs0wOo0SxiLMDApWlgOPrH7/5b2QkYwX7jvn/uc//zl3edZ4PPbNGvF4fC4ajR5VrNvt/mo0Gr1ZPOtfgWw2e9Lv9+chX7cs64CS4Oxg3o9GI7tUKv0Q5o1dAiTfCgQCLwnOkfQOu+oSLyJ2A783HA7vIPLGxX0TgVwud4HKn0nc7Pf7N6vV6oZHkkX8FPG3uMfgXC0Wi2vCg/poUKGGcagQI3k7k8mcp5slcGswGDwpl8tfwGJg3xB6Dvey8vz6oH4C3iXcFYjbwiDeo1KafafkC3NjK7iL5ESFGQEUF7Sg+ifZdDp9GnMF/KGmfBdT2HCwZ7TwtrBPC7rQaav6Iv48rqZwg+F+p8hOMBj0IbxfMdMBrW5pAVGV/ztINByENkU0t5BIJEKRSOQ3Aj+Z57iFs1R5NK3EQS6HQqF1zmQdzpFWq3W42WwOTAf1er1PF2USFlC+qxMvFAr3HcexWX+QX6lUvsKpkTyPSEXJkw6MQ4S38Ljdbi8rmM/nY+CvgNcQqdH6U/xrYK9t244jZv6ByUOSiDdIfgBZ12U6dHEHu9TpdIr8F0OP692CtzaW/a6y3y0Wx5kbFHvGuXzkgf0xhKnPzA4UTyaTB8Ph8AvcHi3fnsrZ7Wore02YViqVOrRXXPhfqP8j6MYlawoAAAAASUVORK5CYII=&quot;); background-repeat: no-repeat; background-attachment: scroll; background-size: 16px 18px; background-position: 98% 50%; cursor: auto;">
+          <input type="password" id="login_password" placeholder="Password *" class="form-input" style="background-image: url(&quot;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAACIUlEQVQ4EX2TOYhTURSG87IMihDsjGghBhFBmHFDHLWwSqcikk4RRKJgk0KL7C8bMpWpZtIqNkEUl1ZCgs0wOo0SxiLMDApWlgOPrH7/5b2QkYwX7jvn/uc//zl3edZ4PPbNGvF4fC4ajR5VrNvt/mo0Gr1ZPOtfgWw2e9Lv9+chX7cs64CS4Oxg3o9GI7tUKv0Q5o1dAiTfCgQCLwnOkfQOu+oSLyJ2A783HA7vIPLGxX0TgVwud4HKn0nc7Pf7N6vV6oZHkkX8FPG3uMfgXC0Wi2vCg/poUKGGcagQI3k7k8mcp5slcGswGDwpl8tfwGJg3xB6Dvey8vz6oH4C3iXcFYjbwiDeo1KafafkC3NjK7iL5ESFGQEUF7Sg+ifZdDp9GnMF/KGmfBdT2HCwZ7TwtrBPC7rQaav6Iv48rqZwg+F+p8hOMBj0IbxfMdMBrW5pAVGV/ztINByENkU0t5BIJEKRSOQ3Aj+Z57iFs1R5NK3EQS6HQqF1zmQdzpFWq3W42WwOTAf1er1PF2USFlC+qxMvFAr3HcexWX+QX6lUvsKpkTyPSEXJkw6MQ4S38Ljdbi8rmM/nY+CvgNcQqdH6U/xrYK9t244jZv6ByUOSiDdIfgBZ12U6dHEHu9TpdIr8F0OP692CtzaW/a6y3y0Wx5kbFHvGuXzkgf0xhKnPzA4UTyaTB8Ph8AvcHi3fnsrZ7Wore02YViqVOrRXXPhfqP8j6MYlawoAAAAASUVORK5CYII=&quot;); background-repeat: no-repeat; background-attachment: scroll; background-size: 16px 18px; background-position: 98% 50%; cursor: auto;">
           
           <input type="submit" class="form-button-signin" value="Login">
       </form>
@@ -103,11 +91,10 @@ class User {
       document.querySelector(".close-form-signin").style.display = "none";
       document.getElementsByClassName("signin-modal")[0].style.display = "none";
     }
-    User.renderPostSignin();
   }
 
-  static renderPostSignin() {
-    document.getElementById('form-box-signin').onsubmit = function(e) {
+  static renderPostSignin(username, password) {
+  
     let configObj = {
       method: "POST",
       headers: {
@@ -116,44 +103,56 @@ class User {
             
       body: JSON.stringify({    
         user: {
-          username: e.target['username'].value,
-          password: e.target['password'].value
+          username,
+          password
         }    
       })  
     };
 
     fetch(loginUrl, configObj) 
       .then((response) => response.json())
-      .then((userData) => {
-        User.currentUser = new User(userData['user']["data"]["attributes"]["email"], userData['user']["data"]["attributes"]["password"])
-          localStorage.setItem('jwt_token', user_data.jwt)
+      .then((loginData) => {
+        User.currentUser = new User(loginData['user']["data"]["attributes"]["username"], loginData['user']["data"]['id'])
+          localStorage.setItem('jwt_token', loginData.jwt)
           localStorage.setItem('user_id', User.currentUser.id)
-          localStorage.setItem('last_name', User.email)
-          localStorage.setItem('last_name', User.password)
+          localStorage.setItem('username', User.currentUser.username)
       })
-    }
-    // debugger
-    // User.displaySignedInUser();
+      document.getElementsByClassName("signin-modal")[0].style.display = "none";
+      document.getElementById("form-button-signup").style.visibility = 'hidden';
+      document.getElementById("form-button-signin").style.visibility = 'hidden';
+      document.getElementById("form-button-profile").style.visibility = 'visible';
   }
 
-  static displaySignedInUser() {
-    document.getElementsByClassName("nav-profile").onclick = () => {
-      debugger
-      User.renderSignedInUser();
-      // document.getElementsByClassName("signup-modal")[0].style.display =
-      //   "block";
+  static signinUser() {
+    document.getElementById("form-button-signin").onclick = () => {
+      User.renderCurrentUser();
+      User.signinFormHandler();
+      document.getElementsByClassName("signin-modal")[0].style.display =
+        "block";
     };
   }
 
-  static renderSignedInUser() {
-    document.getElementsByClassName("dropdown-content")[0].innerHTML = `
-      <a id="test">Test</a>
-      <a id="test">Test</a>
-    `
+  static signinFormHandler() {
+    document.getElementById("form-box-signin").onsubmit = (e) => {
+      e.preventDefault()
+      User.renderPostSignin(e.target['login_username'].value, e.target['login_password'].value)
+        return false
+    }
   }
+// Login end
 
+// profile start
+  static userProfile () {
+    document.getElementById("form-button-profile").onclick = () => {
+      console.log("success")
+      // document.getElementsByClassName("signup-modal")[0].style.display = "block";
+    };
+  }
+// profile end
 }
+// User Class end
 
+// nav functions
 function openNav() {
   document.getElementById("mySidenav").style.width = "250px";
 }
