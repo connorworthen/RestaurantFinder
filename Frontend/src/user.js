@@ -25,7 +25,6 @@ class User {
       document.querySelector(".close-form").style.display = "none";
       document.getElementsByClassName("signup-modal")[0].style.display = "none";
     }
-    // User.renderPostSignup();
   }
 
   static renderPostSignup(username, password) {
@@ -47,8 +46,6 @@ class User {
     fetch(signupUrl, configObj) 
       .then((response) => response.json())
       .then((userData) => {
-        console.log(userData)
-        // debugger
         User.currentUser = new User(userData['user']["data"]["attributes"]["username"], userData['user']["data"]['id'])
           localStorage.setItem('jwt_token', userData.jwt)
           localStorage.setItem('user_id', User.currentUser.id)
@@ -60,19 +57,15 @@ class User {
   static createUser() {
     document.getElementById("form-button-signup").onclick = () => {
       User.renderNewUser();
-      // debugger
       User.signupFormHandler();
-      document.getElementsByClassName("signup-modal")[0].style.display =
-        "block";
+      document.getElementsByClassName("signup-modal")[0].style.display = "block";
     };
   }
 
   static signupFormHandler() {
     document.getElementById("form-box").onsubmit = (e) => {
-      // debugger
       e.preventDefault()
       User.renderPostSignup(e.target['username'].value, e.target['password'].value)
-      // debugger
         return false
     }
   }
