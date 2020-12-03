@@ -1,6 +1,6 @@
 require 'pry'
 class UsersController < ApplicationController
-  skip_before_action :authorized, only: [:create, :login]
+  skip_before_action :authorized, only: [:create, :login, :show, :update]
 
   def create
     @user = User.create(user_params)
@@ -26,13 +26,8 @@ class UsersController < ApplicationController
     render json: @user
   end
 
-  def update
-    @user = User.find_by(id: user_id)
-    if @user == current_user
-      render json: { user: UserSerializer.new(@user) }, status: :updated
-    else
-      render :json => {error: "Invalid update. Please try again.", status: :unprocessible_entity}
-    end
+  def destroy
+
   end
 
   private
