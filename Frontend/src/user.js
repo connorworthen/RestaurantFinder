@@ -154,37 +154,35 @@ class User {
 
           <input type="password" id="profile_password" placeholder="Password *" class="form-input" style="background-image: url(&quot;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAACIUlEQVQ4EX2TOYhTURSG87IMihDsjGghBhFBmHFDHLWwSqcikk4RRKJgk0KL7C8bMpWpZtIqNkEUl1ZCgs0wOo0SxiLMDApWlgOPrH7/5b2QkYwX7jvn/uc//zl3edZ4PPbNGvF4fC4ajR5VrNvt/mo0Gr1ZPOtfgWw2e9Lv9+chX7cs64CS4Oxg3o9GI7tUKv0Q5o1dAiTfCgQCLwnOkfQOu+oSLyJ2A783HA7vIPLGxX0TgVwud4HKn0nc7Pf7N6vV6oZHkkX8FPG3uMfgXC0Wi2vCg/poUKGGcagQI3k7k8mcp5slcGswGDwpl8tfwGJg3xB6Dvey8vz6oH4C3iXcFYjbwiDeo1KafafkC3NjK7iL5ESFGQEUF7Sg+ifZdDp9GnMF/KGmfBdT2HCwZ7TwtrBPC7rQaav6Iv48rqZwg+F+p8hOMBj0IbxfMdMBrW5pAVGV/ztINByENkU0t5BIJEKRSOQ3Aj+Z57iFs1R5NK3EQS6HQqF1zmQdzpFWq3W42WwOTAf1er1PF2USFlC+qxMvFAr3HcexWX+QX6lUvsKpkTyPSEXJkw6MQ4S38Ljdbi8rmM/nY+CvgNcQqdH6U/xrYK9t244jZv6ByUOSiDdIfgBZ12U6dHEHu9TpdIr8F0OP692CtzaW/a6y3y0Wx5kbFHvGuXzkgf0xhKnPzA4UTyaTB8Ph8AvcHi3fnsrZ7Wore02YViqVOrRXXPhfqP8j6MYlawoAAAAASUVORK5CYII=&quot;); background-repeat: no-repeat; background-attachment: scroll; background-size: 16px 18px; background-position: 98% 50%; cursor: auto;">
           
-          <input type="update" class="form-button-profile" value="Update">
+          <input type="submit" class="form-button-profile" value="Update">
       </form>
     `;
+    debugger
     document.querySelector(".close-form-profile").onclick = () => {
       document.querySelector(".close-form-profile").style.display = "none";
       document.getElementsByClassName("profile-modal")[0].style.display = "none";
     }
-    User.renderPatchProfile();
   }
 
-  renderPatchProfile() {
-    document.getElementById("form-box-profile").onsubmit = (e) => {
-      e.preventDefault();
-    }
+  static renderPatchProfile(username, password) {
+    debugger
     let configObj = {
       method: "PATCH",
       headers: {
         'Content-Type': 'application/json',
         Authorization: `Bearer ${localStorage.getItem('jwt_token')}`
       },
-
+      
       body: JSON.stringify({    
         user: {
-          username: e.target['profile_username'].value, 
-          password: e.target['profile_password'].value,
-          user_id: User.currentUser.id,
+          username, 
+          password,
+          user_id
         }    
       })
     };
-
-    fetch(`http://localhost:3000/users/${e.target['currentUser.id'].value}`, configObj) 
+    debugger
+    fetch(`http://localhost:3000/users/${e.target['user.id'].value}`, configObj) 
       .then((response) => response.json())
       .then((userData) => {
         let updatedUser = User.instances.find(user => user.id === userData['data']['id'])
@@ -192,6 +190,25 @@ class User {
         console.log("updated")
       })
       document.getElementsByClassName("signup-modal")[0].style.display = "none";
+  }
+
+  static userProfile() {
+    document.getElementById("form-button-profile").onclick = () => {
+      User.renderProfile();
+      debugger
+      User.profileFormHandler();
+      debugger
+      document.getElementsByClassName("profile-modal")[0].style.display = "block";
+    };
+  }
+
+  static profileFormHandler() {
+    document.getElementById("form-button-profile").onsubmit = (e) => {
+      debugger
+      e.preventDefault()
+      User.renderPatchProfile(e.target['profile_username'].value, e.target['profile_password'].value)
+        return false
+    }
   }
 
 // profile end
