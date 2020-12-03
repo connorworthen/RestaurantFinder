@@ -54,6 +54,10 @@ class User {
           localStorage.setItem('username', User.username)
       })
       document.getElementsByClassName("signup-modal")[0].style.display = "none";
+      document.getElementById("form-button-signup").style.visibility = 'hidden';
+      document.getElementById("form-button-signin").style.visibility = 'hidden';
+      document.getElementById("form-button-profile").style.visibility = 'visible';
+      document.getElementById("form-button-logout").style.visibility = 'visible';
   }
 
   static createUser() {
@@ -157,6 +161,28 @@ class User {
     }
   }
 // logout end
+
+  static renderFavorites() {
+    document.getElementsByClassName("profile-form")[0].innerHTML = `
+      <form class="form-box-profile" id="form-box-profile">
+        <div class="close-form-profile">&times;</div>
+        <h2 class="form-title-profile">${User.currentUser.username}'s Favorites</h2>
+        test
+      </form>
+    `;
+    document.querySelector(".close-form-profile").onclick = () => {
+      document.querySelector(".close-form-profile").style.display = "none";
+      document.getElementsByClassName("profile-modal")[0].style.display = "none";
+    }
+  }
+
+  static userFavorites() {
+    document.getElementById("form-button-profile").onclick = () => {
+      User.renderFavorites();
+      document.getElementsByClassName("profile-modal")[0].style.display = "block";
+    };
+  }
+
 }
 
 // User Class end
