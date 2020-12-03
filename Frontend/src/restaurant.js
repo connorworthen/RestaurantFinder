@@ -32,12 +32,15 @@ class Restaurant {
             </div>
             <button id=${this.id}>Click Me!</button>
           <h3>${this.name}</h3>
-          <span>Likes:
-            <span id="likes">Amount of likes</span>
-          </span>
-        <button id="like_button">Like</button>
+        <button id="like_button"><i class="far fa-star"></i></button>
       </article>
     `;
+  }
+
+  static favoriteButton() {
+    document.getElementById("like_button").onclick = () => {
+      console.log("favorite")
+    }
   }
 
   static addRestaurantModal() {
@@ -87,6 +90,7 @@ class Restaurant {
         }
         Restaurant.addRestaurantModal();
         Restaurant.createRestaurant();
+        Restaurant.favoriteButton();
       });
   }
 
