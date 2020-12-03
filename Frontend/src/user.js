@@ -121,6 +121,7 @@ class User {
       document.getElementById("form-button-signup").style.visibility = 'hidden';
       document.getElementById("form-button-signin").style.visibility = 'hidden';
       document.getElementById("form-button-profile").style.visibility = 'visible';
+      document.getElementById("form-button-logout").style.visibility = 'visible';
   }
 
   static signinUser() {
@@ -141,78 +142,23 @@ class User {
   }
 // Login end
 
-// profile start
-  static renderProfile() {
-    document.getElementsByClassName("profile-form")[0].innerHTML = `
-      <form class="form-box-profile" id="form-box-profile">
-
-        <div class="close-form-profile">&times;</div>
-
-        <h2 class="form-title-profile">${User.currentUser.username}'s Profile</h2>
-
-          <input type="username" id="profile_username" placeholder="${User.currentUser.username} *" class="form-input" style="background-image: url(&quot;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAABHklEQVQ4EaVTO26DQBD1ohQWaS2lg9JybZ+AK7hNwx2oIoVf4UPQ0Lj1FdKktevIpel8AKNUkDcWMxpgSaIEaTVv3sx7uztiTdu2s/98DywOw3Dued4Who/M2aIx5lZV1aEsy0+qiwHELyi+Ytl0PQ69SxAxkWIA4RMRTdNsKE59juMcuZd6xIAFeZ6fGCdJ8kY4y7KAuTRNGd7jyEBXsdOPE3a0QGPsniOnnYMO67LgSQN9T41F2QGrQRRFCwyzoIF2qyBuKKbcOgPXdVeY9rMWgNsjf9ccYesJhk3f5dYT1HX9gR0LLQR30TnjkUEcx2uIuS4RnI+aj6sJR0AM8AaumPaM/rRehyWhXqbFAA9kh3/8/NvHxAYGAsZ/il8IalkCLBfNVAAAAABJRU5ErkJggg==&quot;); background-repeat: no-repeat; background-attachment: scroll; background-size: 16px 18px; background-position: 98% 50%; cursor: auto;">
-
-          <input type="password" id="profile_password" placeholder="Password *" class="form-input" style="background-image: url(&quot;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAACIUlEQVQ4EX2TOYhTURSG87IMihDsjGghBhFBmHFDHLWwSqcikk4RRKJgk0KL7C8bMpWpZtIqNkEUl1ZCgs0wOo0SxiLMDApWlgOPrH7/5b2QkYwX7jvn/uc//zl3edZ4PPbNGvF4fC4ajR5VrNvt/mo0Gr1ZPOtfgWw2e9Lv9+chX7cs64CS4Oxg3o9GI7tUKv0Q5o1dAiTfCgQCLwnOkfQOu+oSLyJ2A783HA7vIPLGxX0TgVwud4HKn0nc7Pf7N6vV6oZHkkX8FPG3uMfgXC0Wi2vCg/poUKGGcagQI3k7k8mcp5slcGswGDwpl8tfwGJg3xB6Dvey8vz6oH4C3iXcFYjbwiDeo1KafafkC3NjK7iL5ESFGQEUF7Sg+ifZdDp9GnMF/KGmfBdT2HCwZ7TwtrBPC7rQaav6Iv48rqZwg+F+p8hOMBj0IbxfMdMBrW5pAVGV/ztINByENkU0t5BIJEKRSOQ3Aj+Z57iFs1R5NK3EQS6HQqF1zmQdzpFWq3W42WwOTAf1er1PF2USFlC+qxMvFAr3HcexWX+QX6lUvsKpkTyPSEXJkw6MQ4S38Ljdbi8rmM/nY+CvgNcQqdH6U/xrYK9t244jZv6ByUOSiDdIfgBZ12U6dHEHu9TpdIr8F0OP692CtzaW/a6y3y0Wx5kbFHvGuXzkgf0xhKnPzA4UTyaTB8Ph8AvcHi3fnsrZ7Wore02YViqVOrRXXPhfqP8j6MYlawoAAAAASUVORK5CYII=&quot;); background-repeat: no-repeat; background-attachment: scroll; background-size: 16px 18px; background-position: 98% 50%; cursor: auto;">
-          
-          <input type="submit" class="form-button-profile" value="Update">
-      </form>
-    `;
-    debugger
-    document.querySelector(".close-form-profile").onclick = () => {
-      document.querySelector(".close-form-profile").style.display = "none";
-      document.getElementsByClassName("profile-modal")[0].style.display = "none";
+// logout start
+  static logoutUser() {
+    document.getElementById("form-button-logout").onclick = () =>  {
+      localStorage.removeItem('jwt_token')
+      localStorage.removeItem('user_id')
+      localStorage.removeItem('username')
+      localStorage.removeItem('password')
+      User.currentUser = undefined
+      document.getElementById("form-button-signup").style.visibility = 'visible';
+      document.getElementById("form-button-signin").style.visibility = 'visible';
+      document.getElementById("form-button-profile").style.visibility = 'hidden';
+      document.getElementById("form-button-logout").style.visibility = 'hidden';
     }
   }
-
-  static renderPatchProfile(username, password) {
-    debugger
-    let configObj = {
-      method: "PATCH",
-      headers: {
-        'Content-Type': 'application/json',
-        Authorization: `Bearer ${localStorage.getItem('jwt_token')}`
-      },
-      
-      body: JSON.stringify({    
-        user: {
-          username, 
-          password,
-          user_id
-        }    
-      })
-    };
-    debugger
-    fetch(`http://localhost:3000/users/${e.target['user.id'].value}`, configObj) 
-      .then((response) => response.json())
-      .then((userData) => {
-        let updatedUser = User.instances.find(user => user.id === userData['data']['id'])
-        // updatedUser.updateRenderUser(userData)                    
-        console.log("updated")
-      })
-      document.getElementsByClassName("signup-modal")[0].style.display = "none";
-  }
-
-  static userProfile() {
-    document.getElementById("form-button-profile").onclick = () => {
-      User.renderProfile();
-      debugger
-      User.profileFormHandler();
-      debugger
-      document.getElementsByClassName("profile-modal")[0].style.display = "block";
-    };
-  }
-
-  static profileFormHandler() {
-    document.getElementById("form-button-profile").onsubmit = (e) => {
-      debugger
-      e.preventDefault()
-      User.renderPatchProfile(e.target['profile_username'].value, e.target['profile_password'].value)
-        return false
-    }
-  }
-
-// profile end
+// logout end
 }
+
 // User Class end
 
 // nav functions
