@@ -167,6 +167,7 @@ class User {
       <form class="form-box-profile" id="form-box-profile">
         <div class="close-form-profile">&times;</div>
         <h2 class="form-title-profile">${User.currentUser.username}'s Favorites</h2>
+        <h4>Favorite Restaurants go here</h4>
         test
       </form>
     `;
