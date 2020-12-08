@@ -32,15 +32,17 @@ class Restaurant {
             </div>
             <button id=${this.id}>Click Me!</button>
           <h3>${this.name}</h3>
-          <button id="like_button"><i class="far fa-star"></i></button>
       </article>
     `;
   }
   static favoriteRestaurant() {
     document.getElementById("like_button").onclick = () => {
-      console.log("favorite")
+      console.log("it worked")
     }
+    // [0].value = "true";
+    // <button id="like_button" <i class="far fa-star"></i></button>
   }
+
   static addRestaurantModal() {
     for (const restaurant of Restaurant.instances) {
       document.getElementById(`${restaurant.id}`).onclick = () => {
@@ -88,7 +90,7 @@ class Restaurant {
         }
         Restaurant.addRestaurantModal();
         Restaurant.createRestaurant();
-        Restaurant.favoriteRestaurant();
+        // Restaurant.favoriteRestaurant();
       });
   }
 
