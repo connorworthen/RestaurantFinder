@@ -35,6 +35,7 @@ ActiveRecord::Schema.define(version: 2020_11_29_211446) do
 
   create_table "favorites", force: :cascade do |t|
     t.integer "restaurant_id", null: false
+    t.boolean "favorited", default: false, null: false
     t.integer "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
