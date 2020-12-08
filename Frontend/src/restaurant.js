@@ -31,23 +31,25 @@ class Restaurant {
             />
             </div>
             <button id=${this.id}>Click Me!</button>
-          <h3>${this.name}</h3>
+            <h3>${this.name}</h3>
       </article>
     `;
   }
-  static favoriteRestaurant() {
-    document.getElementById("like_button").onclick = () => {
+
+  static favoriteRestaurant() { 
+    document.getElementById("favorites").onclick = () => {
       console.log("it worked")
     }
-    // [0].value = "true";
-    // <button id="like_button" <i class="far fa-star"></i></button>
   }
 
   static addRestaurantModal() {
     for (const restaurant of Restaurant.instances) {
       document.getElementById(`${restaurant.id}`).onclick = () => {
         document.getElementsByClassName("modal")[0].style.display = "block";
-        document.getElementById("restaurant-name").innerHTML += `<h2 class="restaurant-display-name">${restaurant.name}</h2>`;
+        document.getElementById("restaurant-name").innerHTML += `
+        <h2 class="restaurant-display-name">${restaurant.name}</h2>
+        <button id="favorites">Add to Favorites</button>
+        `;
         document.getElementById("category").innerHTML += `
         <div><h5>Phone Number <i class="fas fa-phone"></i></h5> ${restaurant.phone_number}</div><br>
 
@@ -89,8 +91,8 @@ class Restaurant {
           Restaurant.instances.push(newRestaurant);
         }
         Restaurant.addRestaurantModal();
-        Restaurant.createRestaurant();
         // Restaurant.favoriteRestaurant();
+        Restaurant.createRestaurant();
       });
   }
 
