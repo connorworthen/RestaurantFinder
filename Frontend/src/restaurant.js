@@ -36,19 +36,13 @@ class Restaurant {
     `;
   }
 
-  static favoriteRestaurant() { 
-    document.getElementById("favorites").onclick = () => {
-      console.log("it worked")
-    }
-  }
-
   static addRestaurantModal() {
     for (const restaurant of Restaurant.instances) {
       document.getElementById(`${restaurant.id}`).onclick = () => {
         document.getElementsByClassName("modal")[0].style.display = "block";
         document.getElementById("restaurant-name").innerHTML += `
         <h2 class="restaurant-display-name">${restaurant.name}</h2>
-        <button id="favorites">Add to Favorites</button>
+        <button id=${restaurant.category}>Add to Favorites</button>
         `;
         document.getElementById("category").innerHTML += `
         <div><h5>Phone Number <i class="fas fa-phone"></i></h5> ${restaurant.phone_number}</div><br>
@@ -61,6 +55,10 @@ class Restaurant {
 
         <div><h5>Category <i class="fas fa-columns"></i></h5> ${restaurant.category}</div>
         `;
+        document.getElementById(`${restaurant.category}`).onclick = () => {
+          console.log("worked")
+          debugger
+        }
         document.querySelector(".close-btn").style.display = "block";
       };
       document.querySelector(".close-btn").onclick = () => {
@@ -91,7 +89,6 @@ class Restaurant {
           Restaurant.instances.push(newRestaurant);
         }
         Restaurant.addRestaurantModal();
-        // Restaurant.favoriteRestaurant();
         Restaurant.createRestaurant();
       });
   }
