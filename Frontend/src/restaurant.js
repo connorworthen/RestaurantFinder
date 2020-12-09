@@ -56,8 +56,7 @@ class Restaurant {
         <div><h5>Category <i class="fas fa-columns"></i></h5> ${restaurant.category}</div>
         `;
         document.getElementById(`${restaurant.category}`).onclick = () => {
-          console.log("worked")
-          debugger
+          Restaurant.saveFavorites()
         }
         document.querySelector(".close-btn").style.display = "block";
       };
@@ -68,6 +67,10 @@ class Restaurant {
         document.getElementById("category").innerHTML = ``;
       };
     }
+  }
+
+  static saveFavorites() {
+    console.log("success")
   }
 
   static fetchRestaurants() {
@@ -89,6 +92,7 @@ class Restaurant {
           Restaurant.instances.push(newRestaurant);
         }
         Restaurant.addRestaurantModal();
+        Restaurant.saveFavorites()
         Restaurant.createRestaurant();
       });
   }
