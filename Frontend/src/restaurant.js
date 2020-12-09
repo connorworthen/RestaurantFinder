@@ -1,4 +1,5 @@
 const restaurantUrl = "http://localhost:3000/restaurants";
+const favoriteUrl = "http://localhost:3000/favorites"
 class Restaurant {
   constructor(
     image,
@@ -42,7 +43,7 @@ class Restaurant {
         document.getElementsByClassName("modal")[0].style.display = "block";
         document.getElementById("restaurant-name").innerHTML += `
         <h2 class="restaurant-display-name">${restaurant.name}</h2>
-        <button id=${restaurant.category}>Add to Favorites</button>
+        <button id=${restaurant.name}>Add to Favorites</button>
         `;
         document.getElementById("category").innerHTML += `
         <div><h5>Phone Number <i class="fas fa-phone"></i></h5> ${restaurant.phone_number}</div><br>
@@ -55,8 +56,11 @@ class Restaurant {
 
         <div><h5>Category <i class="fas fa-columns"></i></h5> ${restaurant.category}</div>
         `;
-        document.getElementById(`${restaurant.category}`).onclick = () => {
-          Restaurant.saveFavorites()
+        document.getElementById(`${restaurant.name}`).onclick = () => {
+          debugger
+          const json = document.getElementById("restaurant-name")
+          const obj = JSON.parse(json);
+          console.log(obj);
         }
         document.querySelector(".close-btn").style.display = "block";
       };
@@ -69,8 +73,8 @@ class Restaurant {
     }
   }
 
-  static saveFavorites() {
-    console.log("success")
+  static saveFavorites(newFavorite) {
+    console.log(newFavorite)
   }
 
   static fetchRestaurants() {
@@ -92,7 +96,7 @@ class Restaurant {
           Restaurant.instances.push(newRestaurant);
         }
         Restaurant.addRestaurantModal();
-        Restaurant.saveFavorites()
+        Restaurant.saveFavorites();
         Restaurant.createRestaurant();
       });
   }
