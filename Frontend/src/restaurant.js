@@ -93,6 +93,14 @@ class Restaurant {
             restaurant["category"]
           );
           newRestaurant.renderRestaurant();
+          let sortedRestaurant = restaurantData.sort((a, b) => { 
+            if (a.name < b.name) {
+              return -1;
+            } else {
+              return 1; 
+            }
+          });
+          console.log(sortedRestaurant)
           Restaurant.instances.push(newRestaurant);
         }
         Restaurant.addRestaurantModal();
