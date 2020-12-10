@@ -56,9 +56,8 @@ class Restaurant {
         <div><h5>Category <i class="fas fa-columns"></i></h5> ${restaurant.category}</div>
         `;
         document.getElementById(`${restaurant.name}`).onclick = () => {
-          // const fav = document.getElementById(`${restaurant.id}`)
-          debugger
-          Favorite.storeRestaurant();
+          let fav = document.getElementById(`${restaurant.id}`)
+          Restaurant.saveFavorites(fav);
         }
         document.querySelector(".close-btn").style.display = "block";
       };
@@ -71,8 +70,8 @@ class Restaurant {
     }
   }
 
-  static saveFavorites(newFavorite) {
-    console.log(newFavorite)
+  static saveFavorites(fav) {
+    console.log(fav)
   }
 
   static fetchRestaurants() {

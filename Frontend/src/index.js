@@ -3,7 +3,6 @@ document.addEventListener("DOMContentLoaded", () => {
   User.signinUser();  
   User.logoutUser();
   User.userFavorites();
-  Favorite.setFavorite();
   Restaurant.instances = [];
   Restaurant.fetchRestaurants();
 });
