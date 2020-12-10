@@ -1,6 +1,6 @@
+// import {Restaurant} from './restaurant.js';
 const signupUrl = "http://localhost:3000/signup";
 const loginUrl = "http://localhost:3000/login";
-
 class User {
   constructor(username, password, id) {
     this.username = username

@@ -1,3 +1,4 @@
+// import {User} from './user.js';
 const restaurantUrl = "http://localhost:3000/restaurants";
 class Restaurant {
   constructor(
@@ -74,8 +75,6 @@ class Restaurant {
   static saveFavorites(fav, currentUser) {
     console.log(currentUser)
     console.log(fav)
-
-    debugger
   }
 
   static fetchRestaurants() {
