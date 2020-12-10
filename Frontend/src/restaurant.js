@@ -1,5 +1,4 @@
 const restaurantUrl = "http://localhost:3000/restaurants";
-const favoriteUrl = "http://localhost:3000/favorites"
 class Restaurant {
   constructor(
     image,
@@ -57,10 +56,9 @@ class Restaurant {
         <div><h5>Category <i class="fas fa-columns"></i></h5> ${restaurant.category}</div>
         `;
         document.getElementById(`${restaurant.name}`).onclick = () => {
+          // const fav = document.getElementById(`${restaurant.id}`)
           debugger
-          const json = document.getElementById("restaurant-name")
-          const obj = JSON.parse(json);
-          console.log(obj);
+          Favorite.storeRestaurant();
         }
         document.querySelector(".close-btn").style.display = "block";
       };
