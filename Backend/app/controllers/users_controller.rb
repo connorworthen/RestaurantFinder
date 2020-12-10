@@ -23,13 +23,15 @@ class UsersController < ApplicationController
   end
 
   # def update
+  #   # binding.pry
   #   @user = User.find(current_user)
-  #   @user.update(favorites_attributes: [:favorited] == true)
+  #   if @user.update(favorites_attributes: [:favorited] == true)
   #     render json: { user: UserSerializer.new(@user, @favorite), jwt: token }, status: :accepted
   #   else
   #     render json: {error: "Something went wrong. Please try again.", status: :unauthorized}
   #   end
   # end
+
 
   private
 
