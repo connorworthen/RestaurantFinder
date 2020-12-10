@@ -42,7 +42,7 @@ class Restaurant {
         document.getElementsByClassName("modal")[0].style.display = "block";
         document.getElementById("restaurant-name").innerHTML += `
         <h2 class="restaurant-display-name">${restaurant.name}</h2>
-        <button id=${restaurant.name}>Add to Favorites</button>
+        <button onclick= id=${restaurant.name}>Add to Favorites</button>
         `;
         document.getElementById("category").innerHTML += `
         <div><h5>Phone Number <i class="fas fa-phone"></i></h5> ${restaurant.phone_number}</div><br>
@@ -57,7 +57,8 @@ class Restaurant {
         `;
         document.getElementById(`${restaurant.name}`).onclick = () => {
           let fav = document.getElementById(`${restaurant.id}`)
-          Restaurant.saveFavorites(fav);
+          const currentUser = User.currentUser 
+          Restaurant.saveFavorites(fav, currentUser);
         }
         document.querySelector(".close-btn").style.display = "block";
       };
@@ -70,8 +71,11 @@ class Restaurant {
     }
   }
 
-  static saveFavorites(fav) {
+  static saveFavorites(fav, currentUser) {
+    console.log(currentUser)
     console.log(fav)
+
+    debugger
   }
 
   static fetchRestaurants() {
