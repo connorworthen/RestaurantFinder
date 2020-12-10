@@ -22,19 +22,20 @@ class UsersController < ApplicationController
     end
   end
 
-  def update
-    @user = User.find(current_user)
-    @user.update(favorites_attributes: [:favorited] == true)
-      render json: { user: UserSerializer.new(@user, @favorite), jwt: token }, status: :accepted
-    else
-      render json: {error: "Something went wrong. Please try again.", status: :unauthorized}
-    end
-  end
+  # def update
+  #   @user = User.find(current_user)
+  #   @user.update(favorites_attributes: [:favorited] == true)
+  #     render json: { user: UserSerializer.new(@user, @favorite), jwt: token }, status: :accepted
+  #   else
+  #     render json: {error: "Something went wrong. Please try again.", status: :unauthorized}
+  #   end
+  # end
 
   private
 
   def user_params
-    params.require(:user).permit(:username, :password, favorites_attributes: [:restaurant_id, :favorited, :used_id])
+    params.require(:user).permit(:username, :password)
+    # favorites_attributes: [:restaurant_id, :favorited, :used_id]
   end
 
 end
