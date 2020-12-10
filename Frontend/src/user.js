@@ -167,7 +167,7 @@ class User {
       <form class="form-box-profile" id="form-box-profile">
         <div class="close-form-profile">&times;</div>
         <h2 class="form-title-profile">${User.currentUser.username}'s Favorites</h2>
-        <h4>${User.currentUser.favorited}</h4>
+        <h4>${User.currentUser.favorites}</h4>
       </form>
     `;
     document.querySelector(".close-form-profile").onclick = () => {
