@@ -1,4 +1,5 @@
 class FavoritesController < ApplicationController
+  
   skip_before_action :authorized, only: [:update]
 
   def update

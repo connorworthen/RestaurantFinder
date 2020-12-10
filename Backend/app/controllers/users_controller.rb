@@ -1,6 +1,6 @@
-require 'pry'
 class UsersController < ApplicationController
-  skip_before_action :authorized, only: [:create, :login, :show, :update]
+
+  skip_before_action :authorized, only: [:create, :login]
 
   def create
     @user = User.create(user_params)
@@ -20,13 +20,6 @@ class UsersController < ApplicationController
     else
       render json: {error: "Invalid login username or password don't match.", status: :unauthorized}
     end
-  end
-
-  def auto_login
-    render json: @user
-  end
-
-  def destroy
   end
 
   private
