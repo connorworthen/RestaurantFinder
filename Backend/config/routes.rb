@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   post '/login', to: 'users#login'
 
   resources :restaurants, only: [:index, :create]
-  resources :users, only: [:create, :login]
+  resources :users, only: [:create, :login, :update]
   resources :favorites, only: [:update]
 
   resources :users do
