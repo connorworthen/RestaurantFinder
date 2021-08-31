@@ -1,3 +1,4 @@
+
 class RestaurantService {
 
   constructor(endpoint) {
@@ -9,7 +10,8 @@ class RestaurantService {
     .then(resp => resp.json())
     .then(restaurants => {
       for (const restaurant of restaurants) {
-        let r = new Restaurant(restaurant)
+        const r = new Restaurant(restaurant)
+        console.log(r)
         r.pushToDOM()
       }
     })
