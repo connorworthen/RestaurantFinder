@@ -1,107 +1,102 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-  <title>RestaurantFinder</title>
-  <script src="https://kit.fontawesome.com/e0e9acc72f.js" crossorigin="anonymous"></script>
-  <link rel="stylesheet" href="scss/app.css" />
-  <link rel="stylesheet" href="scss/navbar.css" />
-  <link rel="stylesheet" href="scss/home-page.css" />
-  <link rel="stylesheet" href="scss/footer.css" />
-</head>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>RestaurantFinder</title>
+    <script
+      src="https://kit.fontawesome.com/e0e9acc72f.js"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" href="scss/app.css" />
+    <link rel="stylesheet" href="scss/navbar.css" />
+    <link rel="stylesheet" href="scss/home-page.css" />
+    <link rel="stylesheet" href="scss/footer.css" />
+  </head>
 
   <!-- navbar start -->
   <nav class="navbar">
     <div class="navbar-center">
-<!-- side navbar start -->
+      <!-- side navbar start -->
       <div class="nav-sidebar">
         <div id="mySidenav" class="sidenav">
-          <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+          <a href="javascript:void(0)" class="closebtn" onclick="closeNav()"
+            >&times;</a
+          >
           <a id="banner-btn">Create Restaurant</a>
         </div>
         <di class="create-modal">
           <div class="modal-title"></div>
-        </>
-        <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;</span>
+        </di>
+        <span style="font-size: 30px; cursor: pointer" onclick="openNav()"
+          >&#9776;</span
+        >
       </div>
-<!-- side navbar end -->
+      <!-- side navbar end -->
 
-<!-- logo navbar start -->
+      <!-- logo navbar start -->
       <div class="nav-logo">
-        <h1 class="center-logo">RestaurantFinder <i class="fas fa-utensils"></i> </h1>
+        <h1 class="center-logo">
+          RestaurantFinder <i class="fas fa-utensils"></i>
+        </h1>
       </div>
-<!-- logo navbar end -->
+      <!-- logo navbar end -->
 
-<!-- user profile navbar start -->
+      <!-- user profile navbar start -->
       <div class="nav-profile">
         <span class="dropbtn"><i class="fas fa-user-circle fa-2x"></i></span>
         <div class="dropdown-content">
           <a id="form-button-signup">Sign up</a>
           <a id="form-button-signin">Sign in</a>
-          <a id="form-button-profile" style="visibility:hidden">Profile</a>
-          <a id="form-button-logout" style="visibility:hidden">Log Out</a>
+          <a id="form-button-profile" style="visibility: hidden">Profile</a>
+          <a id="form-button-logout" style="visibility: hidden">Log Out</a>
         </div>
-        
+
         <div class="signup-modal">
-          <div class="signup-form">
-          </div>
+          <div class="signup-form"></div>
         </div>
 
         <div class="signin-modal">
-          <div class="signin-form">
-          </div>
-        </div>
-        
-        <div class="profile-modal">
-          <div class="profile-form">
-          </div>
+          <div class="signin-form"></div>
         </div>
 
+        <div class="profile-modal">
+          <div class="profile-form"></div>
+        </div>
       </div>
-<!-- user profile navbar end -->
+      <!-- user profile navbar end -->
     </div>
   </nav>
 
-  <!-- start of hero -->
-  <div class="hero">
-      <div class="home-page">
-        <header class="cover">
-          <div class="cover-wrapper">
-            <div class="cover-content">
-              <h3 class="search-title">Every Restaurant at your fingertips</h3>
-            </div>
-            <form class="search-form-container" _lpchecked="1">
-              <div class="search-field">
-                <div role="combobox" aria-haspopup="listbox" aria-owns="react-autowhatever-1" aria-expanded="false" class="react-autosuggest__container">
-                <input type="text" autocomplete="off" aria-autocomplete="list" aria-controls="react-autowhatever-1" class="search-input" placeholder="Search Restaurant" value="">
-                </div>
-              </div>
-              <div>
-                <button id="search-bttn" class="search-submit-button"><i class="fas fa-arrow-right"></i></button>
-              </div>
-            </form>
-          </div>
-          </div>
-        </header>
+  <!-- start of search -->
+  <div class="container mt-5">
+    <div class="row">
+      <div class="col-md-6 m-auto">
+        <h3 class="text-center mb-3">
+          Search Restaurants
+        <h3>
+        <div class="form-group">
+          <input type="text" id="search" class="form-control form-control-lg" placeholder="Enter Restaurant Name or Category">
+        </div>
+        <div id="match-list"></div>
       </div>
+    </div>
   </div>
-  <!-- end of hero -->
+  <!-- end of search -->
 
   <!-- products -->
   <section class="products">
     <div class="section-title">
       <h1>Local Favorites</h1>
-      <hr><br>
+      <hr />
+      <br />
     </div>
     <div id="products-center" class="products-center"></div>
     <!-- start of modal -->
     <div class="modal">
       <!-- Modal content -->
       <form class="modal-content" class="restaurant-name">
-      
         <div class="modal-header">
           <div class="close-btn">&times;</div>
           <h1 id="restaurant-name"></h1>
@@ -110,48 +105,63 @@
         <div class="modal-body">
           <p id="category"></p>
         </div>
-
       </form>
       <!-- end of modal content -->
     </div>
   </section>
-    <!-- end of modal -->
-    <!-- Site footer -->
-    <footer class="site-footer">
-      <div class="container">
-        <div class="row">
-          <div class="col-sm-12 col-md-6">
-            <h6>About Us</h6>
-            <p class="text-justify">RestaurantFinder <i class="fas fa-utensils"></i>  is an application for finding local restaurants in your area. We offer detailed information on a wide range of restaurants. As a user, you can favorite your latest finds to come back to later. Can't find the restaurant you are looking for? Just open our side bar and add the restaurant yourself or contact us! Thanks for using RestaurantFinder <i class="fas fa-utensils"></i> </p>
-          </div>
-    
-          <div class="col-xs-6 col-md-3">
-            <h6>Links</h6>
-            <ul class="footer-links">
-              <li><a href="">Contact Us</a></li>
-              <li><a href="">Company Policy</a></li>
-            </ul>
-          </div>
+  <!-- end of modal -->
+  <!-- Site footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-12 col-md-6">
+          <h6>About Us</h6>
+          <p class="text-justify">
+            RestaurantFinder <i class="fas fa-utensils"></i> is an application
+            for finding local restaurants in your area. We offer detailed
+            information on a wide range of restaurants. As a user, you can
+            favorite your latest finds to come back to later. Can't find the
+            restaurant you are looking for? Just open our side bar and add the
+            restaurant yourself or contact us! Thanks for using RestaurantFinder
+            <i class="fas fa-utensils"></i>
+          </p>
         </div>
-        <hr>
-      </div>
-      <div class="container">
-        <div class="row">
-          <div class="col-md-8 col-sm-6 col-xs-12">
-            <p class="copyright-text">Copyright <i class="far fa-copyright"></i>; 2020 All Rights Reserved by RestaurantFinder 
-            </p>
-          </div>
-    
-          <div class="col-md-4 col-sm-6 col-xs-12">
-            <ul class="social-icons">
-              <li><a class="twitter" href="#"><i class="fa fa-twitter"></i></a></li>
-              <li><a class="github" href="#"><i class="fab fa-github"></i></a></li>
-              <li><a class="linkedin" href="#"><i class="fa fa-linkedin"></i></a></li>
-            </ul>
-          </div>
+
+        <div class="col-xs-6 col-md-3">
+          <h6>Links</h6>
+          <ul class="footer-links">
+            <li><a href="">Contact Us</a></li>
+            <li><a href="">Company Policy</a></li>
+          </ul>
         </div>
       </div>
-    </footer>
+      <hr />
+    </div>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-8 col-sm-6 col-xs-12">
+          <p class="copyright-text">
+            Copyright <i class="far fa-copyright"></i>; 2020 All Rights Reserved
+            by RestaurantFinder
+          </p>
+        </div>
+
+        <div class="col-md-4 col-sm-6 col-xs-12">
+          <ul class="social-icons">
+            <li>
+              <a class="twitter" href="#"><i class="fa fa-twitter"></i></a>
+            </li>
+            <li>
+              <a class="github" href="#"><i class="fab fa-github"></i></a>
+            </li>
+            <li>
+              <a class="linkedin" href="#"><i class="fa fa-linkedin"></i></a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </footer>
   <!-- end of products -->
   <script src="src/user.js"></script>
   <script src="src/restaurantService.js"></script>
@@ -159,4 +169,3 @@
   <script src="src/restaurant.js"></script>
   <script src="src/search.js"></script>
 </html>
-  
