@@ -2,10 +2,20 @@ class Search {
 
   static searchBar = document.getElementById("search-bttn")
 
-
-  searchFunction() {
-    searchBar.addEventListener('input', () => {
-      
+  // Search restaurants.json and filter it
+  searchStates = async (searchText) => {
+    const res = await fetch('http://localhost:3000/restaurants')
+    const data = await res.json()
+    
+    // Get matches to current text input
+    let matches = restaurants.filter(restaurant => {
+      const regex = new Regex(`^${searchText}`, 'gi')
+      return restaurant.name.match(regex) || restaurant.category.match(regex)
     })
+
+    
+  }
+  searchFunction() {
+    searchBar.addEventListener('input', () => searchRestaurants(searchBar.value))
   }
 }
