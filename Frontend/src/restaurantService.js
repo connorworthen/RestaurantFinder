@@ -9,7 +9,7 @@ class RestaurantService {
     fetch(`${this.endpoint}/restaurants`)
     .then(resp => resp.json())
     .then(data => {
-      let restaurants = data.slice(0, 3)
+      let restaurants = data.slice(0, 6)
       for (const restaurant of restaurants) {
         const r = new Restaurant(restaurant)
         r.pushToDOM()
