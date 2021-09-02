@@ -2,7 +2,6 @@ class Restaurant {
 
   static all = []
   static restaurantContainer = document.getElementById("products-center")
-  static restaurantForm = document.getElementById("")
   constructor({id, image, name, phone_number, address, hours, price, category}) {
     this.id = id
     this.image = image
@@ -25,7 +24,7 @@ class Restaurant {
       <article class="product">
           <div class="img-container">
             <img
-              src=${this.image}
+              src=${this.image.url}
               alt="product"
               class="product-img"
             />
@@ -39,31 +38,6 @@ class Restaurant {
 
   pushToDOM() {
     Restaurant.restaurantContainer.appendChild(this.restaurantHTML())
-  }
-
-  static renderForm() {
-    Restaurant.restaurantForm.innerHTML += `
-      <form class="formElem" id="formElem">
-        <div class="close-form-restaurant">&times;</div>
-        <h2 class="new-restaurant">Create New Restaurant</h2>
-        
-          <input type="text" name="name" placeholder="Restaurant Name *" class="form-restaurant">
-
-          <input type="text" name="phone_number" placeholder="Phone Number *" class="form-restaurant">
-
-          <input type="address" name="address" placeholder="Address *" class="form-restaurant">
-
-          <input type="text" name="hours" placeholder="Restaurant Hours ex. 10:00 A.M. - 9:00 P.M. *" class="form-restaurant" rows = "5">
-
-          <input type="price" name="price" placeholder="Price Range $-$$$ *" class="form-restaurant">
-
-          <input type="category" name="category" placeholder="Category *" class="form-restaurant">
-
-          <input type="file" name="image" class="form-restaurant">
-
-          <input type="submit" class="form-submit" value="Submit"></input>
-      </form>
-    `
   }
 
 

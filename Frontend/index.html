@@ -13,61 +13,41 @@
     <link rel="stylesheet" href="scss/navbar.css" />
     <link rel="stylesheet" href="scss/home-page.css" />
     <link rel="stylesheet" href="scss/footer.css" />
+    <link rel="stylesheet" href="scss/bootstrap.min.css" />
   </head>
 
   <!-- navbar start -->
-  <nav class="navbar">
-    <div class="navbar-center">
-      <!-- side navbar start -->
-      <div class="nav-sidebar">
-        <div id="mySidenav" class="sidenav">
-          <a href="javascript:void(0)" class="closebtn" onclick="closeNav()"
-            >&times;</a
-          >
-          <a id="banner-btn">Create Restaurant</a>
-        </div>
-        <di class="create-modal">
-          <div class="modal-title"></div>
-        </di>
-        <span style="font-size: 30px; cursor: pointer" onclick="openNav()"
-          >&#9776;</span
-        >
-      </div>
-      <!-- side navbar end -->
+    
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">RestaurantFinder <i class="fas fa-utensils"></i></a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor03" aria-controls="navbarColor03" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
 
-      <!-- logo navbar start -->
-      <div class="nav-logo">
-        <h1 class="center-logo">
-          RestaurantFinder <i class="fas fa-utensils"></i>
-        </h1>
-      </div>
-      <!-- logo navbar end -->
+    <div class="collapse navbar-collapse" id="navbarColor03">
+      <ul class="navbar-nav me-auto">
+        <li class="nav-item">
+          <a class="nav-link active" href="#">Home
+            <span class="visually-hidden">(current)</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">About</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Restaurants</a>
+        </li>
 
-      <!-- user profile navbar start -->
-      <div class="nav-profile">
-        <span class="dropbtn"><i class="fas fa-user-circle fa-2x"></i></span>
-        <div class="dropdown-content">
-          <a id="form-button-signup">Sign up</a>
-          <a id="form-button-signin">Sign in</a>
-          <a id="form-button-profile" style="visibility: hidden">Profile</a>
-          <a id="form-button-logout" style="visibility: hidden">Log Out</a>
-        </div>
+        <div id="signup-bttn"></div>
 
-        <div class="signup-modal">
-          <div class="signup-form"></div>
-        </div>
-
-        <div class="signin-modal">
-          <div class="signin-form"></div>
-        </div>
-
-        <div class="profile-modal">
-          <div class="profile-form"></div>
-        </div>
-      </div>
-      <!-- user profile navbar end -->
+        <div id="login-bttn"></div>
+        
+        <div id="signedIn-bttn"></div>
     </div>
-  </nav>
+  </div>
+</nav>
+  <!-- navbar end -->
 
   <!-- start of search -->
   <div class="container mt-5">

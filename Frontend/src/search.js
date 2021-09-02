@@ -12,6 +12,7 @@
     })
     if (searchText.length === 0) {
       matches = []
+      matchList.innerHTML = ``
     }
     ouputHTML(matches)
   }
@@ -20,7 +21,7 @@
   const ouputHTML = (matches) => {
     if (matches.length > 0) {
       const HTML = matches.map(match => `
-        <div>
+        <div class="card card-body mb-1">
           <h4>${match.name}</h4>
         </div>
       `)
