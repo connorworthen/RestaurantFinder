@@ -10,7 +10,7 @@ class User {
 
 // Signup Start
 
-  static renderNewUser() {
+  renderNewUser() {
     document.getElementsByClassName("signup-form")[0].innerHTML = `
       <form class="form-box" id="form-box">
         <div class="close-form">&times;</div>
