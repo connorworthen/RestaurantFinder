@@ -9,8 +9,10 @@ async function checkAuth() {
       })
     if (resp.status >= 200 && resp.status <= 299) {
       const data = await resp.json()
-      console.log(data, "success")
+      console.log(data)
     } else {
       console.log(resp.status, resp.statusText);
     }
   }
+
+export {}
