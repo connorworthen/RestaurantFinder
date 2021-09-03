@@ -3,6 +3,10 @@
 // restaurantService.fetchRestaurants()
 import * as User from './user.js'
 
+document.getElementById("signup-bttn").addEventListener("click", () => {
+  User.test()
+})
+
 
 
 // document.addEventListener("DOMContentLoaded", () => {
