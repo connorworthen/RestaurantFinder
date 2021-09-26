@@ -1,43 +1,40 @@
 class UsersController < ApplicationController
 
-  skip_before_action :authorized, only: [:create, :login, :update]
+  skip_before_action :authorized, only: [:show, :create, :update, :index]
+  
+  def show
+    user = User.find_by(id: params[:id])
+    render json: user
+  end
+
+  def index
+    user = User.all
+    render json: user
+  end
 
   def create
-    @user = User.create(user_params)
-    if @user.valid?
-      @token = encode_token(user_id: @user.id)
-      render json: { user: UserSerializer.new(@user), jwt: @token }, status: :created
+    user = User.create(user_params)
+    if user.valid?
+      token = encode_token(user_id: user.id)
+      render json: { user: UserSerializer.new(user), jwt: token }
     else
-      render json: {error: "Invalid username or password"}
+      render json: {error: "Email is already tied to an exisiting account."}
     end
   end
 
-  def login
-    @user = User.find_by(username: params[:user][:username])
-    if @user && @user.authenticate(params[:user][:password])
-      token = encode_token({user_id: @user.id})
-      render json: { user: UserSerializer.new(@user), jwt: token }, status: :accepted
+  def update
+    user = User.find(params[:id])
+    if user.update(user_params)
+      render json: { user: user, success: "updated" }
     else
-      render json: {error: "Invalid login username or password don't match.", status: :unauthorized}
+      render json: { error: "Unable to update profile. Please try again."}
     end
   end
 
-  # def update
-  #   # binding.pry
-  #   @user = User.find(current_user)
-  #   if @user.update(favorites_attributes: [:favorited] == true)
-  #     render json: { user: UserSerializer.new(@user, @favorite), jwt: token }, status: :accepted
-  #   else
-  #     render json: {error: "Something went wrong. Please try again.", status: :unauthorized}
-  #   end
-  # end
-
-
-  private
-
+  private 
+  
   def user_params
-    params.require(:user).permit(:username, :password)
-    # favorites_attributes: [:restaurant_id, :favorited, :used_id]
+    params.permit(:username, :password)
   end
 
 end
